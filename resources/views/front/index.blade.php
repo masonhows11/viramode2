@@ -2,7 +2,6 @@
 <html lang="en" dir="rtl">
 
 
-<!-- Mirrored from filenter.ir/molla/index-29.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Jun 2024 20:10:32 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,29 +10,27 @@
     <meta name="keywords" content="HTML5 Template">
     <meta name="description" content="Molla - Bootstrap eCommerce Template">
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/icons/favicon-16x16.png">
-    <link rel="manifest" href="assets/images/icons/site.webmanifest">
-    <link rel="mask-icon" href="assets/images/icons/safari-pinned-tab.html" color="#666666">
-    <link rel="shortcut icon" href="assets/images/icons/favicon.ico">
-    <link rel="stylesheet" href="assets/vendor/font-awesome/css/all.min.css">
-    <meta name="apple-mobile-web-app-title" content="Molla">
-    <meta name="application-name" content="Molla">
+    <link rel="apple-touch-icon" sizes="180x180" href="front_assets/images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="front_assets/images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="front_assets/images/icons/favicon-16x16.png">
+    <link rel="manifest" href="front_assets/images/icons/site.webmanifest">
+    <link rel="mask-icon" href="front_assets/images/icons/safari-pinned-tab.html" color="#666666">
+    <link rel="shortcut icon" href="front_assets/images/icons/favicon.ico">
+    <link rel="stylesheet" href="front_assets/vendor/font-awesome/css/all.min.css">
     <meta name="msapplication-TileColor" content="#cc9966">
-    <meta name="msapplication-config" content="assets/images/icons/browserconfig.html">
+    <meta name="msapplication-config" content="front_assets/images/icons/browserconfig.html">
     <meta name="theme-color" content="#ffffff">
 
     <!-- Plugins CSS File -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/bootstrap-rtl.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/owl-carousel/owl.carousel.css">
-    <link rel="stylesheet" href="assets/css/plugins/magnific-popup/magnific-popup.css">
-    <link rel="stylesheet" href="assets/css/plugins/jquery.countdown.css">
+    <link rel="stylesheet" href="front_assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="front_assets/css/bootstrap-rtl.min.css">
+    <link rel="stylesheet" href="front_assets/css/plugins/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="front_assets/css/plugins/magnific-popup/magnific-popup.css">
+    <link rel="stylesheet" href="front_assets/css/plugins/jquery.countdown.css">
     <!-- Main CSS File -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/skins/skin-demo-29.css">
-    <link rel="stylesheet" href="assets/css/demos/demo-29.css">
+    <link rel="stylesheet" href="front_assets/css/style.css">
+    <link rel="stylesheet" href="front_assets/css/skins/skin-demo-29.css">
+    <link rel="stylesheet" href="front_assets/css/demos/demo-29.css">
 
     <script>
         WebFontConfig = {
@@ -44,7 +41,7 @@
         (function (d) {
             var wf = d.createElement('script'),
                 s = d.scripts[0];
-            wf.src = 'assets/js/webfont.js';
+            wf.src = 'front_assets/js/webfont.js';
             wf.async = true;
             s.parentNode.insertBefore(wf, s);
         })(document);
@@ -127,7 +124,7 @@
 
                     <div class="header-center">
                         <a href="index-1.html" class="logo">
-                            <img src="assets/images/demos/demo-6/logo.png" alt="Molla Logo" width="82" height="20">
+                            <img src="front_assets/images/demos/demo-6/logo.png" alt="Molla Logo" width="82" height="20">
                         </a>
                         <!--End .logo-->
                     </div><!-- End .header-left -->
@@ -167,7 +164,7 @@
 
                                         <figure class="product-image-container">
                                             <a href="product.html" class="product-image">
-                                                <img src="assets/images/demos/demo-29/products/5-1.jpg" alt="product"
+                                                <img src="front_assets/images/demos/demo-29/products/5-1.jpg" alt="product"
                                                     width="60" height="60">
                                             </a>
                                         </figure>
@@ -192,7 +189,7 @@
 
                                         <figure class="product-image-container">
                                             <a href="product.html" class="product-image">
-                                                <img src="assets/images/demos/demo-29/products/10-1.jpg" alt="product"
+                                                <img src="front_assets/images/demos/demo-29/products/10-1.jpg" alt="product"
                                                     width="60" height="60">
                                             </a>
                                         </figure>
@@ -235,7 +232,7 @@
                                                 <div class="demo-item">
                                                     <a href="index-1.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/1.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/1.jpg);"></span>
                                                         <span class="demo-title">01 - فروشگاه مبلمان</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -243,7 +240,7 @@
                                                 <div class="demo-item">
                                                     <a href="index-2.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/2.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/2.jpg);"></span>
                                                         <span class="demo-title">02 - فروشگاه مبلمان</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -251,7 +248,7 @@
                                                 <div class="demo-item">
                                                     <a href="index-3.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/3.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/3.jpg);"></span>
                                                         <span class="demo-title">03 - فروشگاه لوازم الکترونیکی</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -259,7 +256,7 @@
                                                 <div class="demo-item">
                                                     <a href="index-4.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/4.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/4.jpg);"></span>
                                                         <span class="demo-title">04 - فروشگاه لوازم الکترونیکی</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -267,7 +264,7 @@
                                                 <div class="demo-item">
                                                     <a href="index-5.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/5.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/5.jpg);"></span>
                                                         <span class="demo-title">05 - فروشگاه مد و لباس</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -275,7 +272,7 @@
                                                 <div class="demo-item">
                                                     <a href="index-6.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/6.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/6.jpg);"></span>
                                                         <span class="demo-title">06 - فروشگاه مد و لباس</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -283,7 +280,7 @@
                                                 <div class="demo-item">
                                                     <a href="index-7.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/7.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/7.jpg);"></span>
                                                         <span class="demo-title">07 - فروشگاه مد و لباس</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -291,7 +288,7 @@
                                                 <div class="demo-item">
                                                     <a href="index-8.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/8.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/8.jpg);"></span>
                                                         <span class="demo-title">08 - فروشگاه مد و لباس</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -299,7 +296,7 @@
                                                 <div class="demo-item">
                                                     <a href="index-9.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/9.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/9.jpg);"></span>
                                                         <span class="demo-title">09 - فروشگاه مد و لباس</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -307,7 +304,7 @@
                                                 <div class="demo-item">
                                                     <a href="index-10.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/10.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/10.jpg);"></span>
                                                         <span class="demo-title">10 - فروشگاه کفش</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -315,7 +312,7 @@
                                                 <div class="demo-item hidden">
                                                     <a href="index-11.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/11.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/11.jpg);"></span>
                                                         <span class="demo-title">11 - فروشگاه مبل</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -323,7 +320,7 @@
                                                 <div class="demo-item hidden">
                                                     <a href="index-12.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/12.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/12.jpg);"></span>
                                                         <span class="demo-title">12 - فروشگاه مُد</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -331,7 +328,7 @@
                                                 <div class="demo-item hidden">
                                                     <a href="index-13.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/13.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/13.jpg);"></span>
                                                         <span class="demo-title">13 - بازار</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -339,7 +336,7 @@
                                                 <div class="demo-item hidden">
                                                     <a href="index-14.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/14.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/14.jpg);"></span>
                                                         <span class="demo-title">14 - بازار تمام عرض</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -347,7 +344,7 @@
                                                 <div class="demo-item hidden">
                                                     <a href="index-15.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/15.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/15.jpg);"></span>
                                                         <span class="demo-title">15 - مد و زیبایی</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -355,7 +352,7 @@
                                                 <div class="demo-item hidden">
                                                     <a href="index-16.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/16.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/16.jpg);"></span>
                                                         <span class="demo-title">16 - مُد و زیبایی</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -363,7 +360,7 @@
                                                 <div class="demo-item hidden">
                                                     <a href="index-17.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/17.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/17.jpg);"></span>
                                                         <span class="demo-title">17 - فروشگاه مُد و لباس</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -371,7 +368,7 @@
                                                 <div class="demo-item hidden">
                                                     <a href="index-18.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/18.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/18.jpg);"></span>
                                                         <span class="demo-title">18 - فروشگاه مُد و لباس (با
                                                             سایدبار)</span>
                                                     </a>
@@ -380,7 +377,7 @@
                                                 <div class="demo-item hidden">
                                                     <a href="index-19.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/19.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/19.jpg);"></span>
                                                         <span class="demo-title">19 - فروشگاه بازی</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -388,7 +385,7 @@
                                                 <div class="demo-item hidden">
                                                     <a href="index-20.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/20.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/20.jpg);"></span>
                                                         <span class="demo-title">20 - فروشگاه کتاب</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -396,7 +393,7 @@
                                                 <div class="demo-item hidden">
                                                     <a href="index-21.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/21.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/21.jpg);"></span>
                                                         <span class="demo-title">21 - فروشگاه ورزشی</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -404,7 +401,7 @@
                                                 <div class="demo-item hidden">
                                                     <a href="index-22.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/22.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/22.jpg);"></span>
                                                         <span class="demo-title">22 - فروشگاه ابزار</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -412,7 +409,7 @@
                                                 <div class="demo-item hidden">
                                                     <a href="index-23.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/23.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/23.jpg);"></span>
                                                         <span class="demo-title">23 - -فروشگاه مد با نوبار سمت
                                                             راست</span>
                                                     </a>
@@ -421,7 +418,7 @@
                                                 <div class="demo-item hidden">
                                                     <a href="index-24.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/24.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/24.jpg);"></span>
                                                         <span class="demo-title">24 - فروشگاه ورزشی</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -429,7 +426,7 @@
                                                 <div class="demo-item hidden">
                                                     <a href="index-25.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/25.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/25.jpg);"></span>
                                                         <span class="demo-title">25 - فروشگاه زیورآلات</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -437,7 +434,7 @@
                                                 <div class="demo-item hidden">
                                                     <a href="index-26.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/26.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/26.jpg);"></span>
                                                         <span class="demo-title">26 - فروشگاه بازار</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -445,7 +442,7 @@
                                                 <div class="demo-item hidden">
                                                     <a href="index-27.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/27.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/27.jpg);"></span>
                                                         <span class="demo-title">27 - فروشگاه مُد</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -453,7 +450,7 @@
                                                 <div class="demo-item hidden">
                                                     <a href="index-28.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/28.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/28.jpg);"></span>
                                                         <span class="demo-title">28 - فروشگاه مواد غذایی</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -461,7 +458,7 @@
                                                 <div class="demo-item hidden">
                                                     <a href="index-29.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/29.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/29.jpg);"></span>
                                                         <span class="demo-title">29 - فروشگاه تی شرت</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -469,7 +466,7 @@
                                                 <div class="demo-item hidden">
                                                     <a href="index-30.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/30.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/30.jpg);"></span>
                                                         <span class="demo-title">30 - فروشگاه هدفون</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -477,7 +474,7 @@
                                                 <div class="demo-item hidden">
                                                     <a href="index-31.html">
                                                         <span class="demo-bg"
-                                                            style="background-image: url(assets/images/menu/demos/31.jpg);"></span>
+                                                            style="background-image: url(front_assets/images/menu/demos/31.jpg);"></span>
                                                         <span class="demo-title">31 - فروشگاه یوگا</span>
                                                     </a>
                                                 </div><!-- End .demo-item -->
@@ -562,7 +559,7 @@
                                             <div class="col-md-4">
                                                 <div class="banner banner-overlay">
                                                     <a href="category.html" class="banner banner-menu">
-                                                        <img src="assets/images/menu/banner-1.jpg" alt="Banner">
+                                                        <img src="front_assets/images/menu/banner-1.jpg" alt="Banner">
 
                                                         <div class="banner-content banner-content-top">
                                                             <div class="banner-title text-white">آخرین
@@ -604,7 +601,7 @@
                                             <div class="col-md-6">
                                                 <div class="banner banner-overlay">
                                                     <a href="category.html">
-                                                        <img src="assets/images/menu/banner-2.jpg" alt="Banner">
+                                                        <img src="front_assets/images/menu/banner-2.jpg" alt="Banner">
 
                                                         <div class="banner-content banner-content-bottom">
                                                             <div class="banner-title text-white">محصولات
@@ -774,7 +771,7 @@
                         }
                     }'>
                     <div class="intro-slide"
-                        style="background-image: url(assets/images/demos/demo-29/slider/slide-1.jpg);">
+                        style="background-image: url(front_assets/images/demos/demo-29/slider/slide-1.jpg);">
                         <div class="container">
                             <div class="intro-content text-center">
                                 <h3 class="intro-subtitle text-white">حراج فصل</h3><!-- End .h3 intro-subtitle -->
@@ -790,7 +787,7 @@
                     </div><!-- End .intro-slide -->
 
                     <div class="intro-slide"
-                        style="background-image: url(assets/images/demos/demo-29/slider/slide-2.jpg);">
+                        style="background-image: url(front_assets/images/demos/demo-29/slider/slide-2.jpg);">
                         <div class="container">
                             <div class="intro-content text-center">
                                 <h3 class="intro-subtitle text-white">محصولات ویژه</h3>
@@ -846,7 +843,7 @@
 
                     <div class="icon-box-side">
                         <span class="icon-box-icon">
-                            <img src="assets/images/demos/demo-29/icons/icon-1.jpg" alt="Icon" width="28" height="28">
+                            <img src="front_assets/images/demos/demo-29/icons/icon-1.jpg" alt="Icon" width="28" height="28">
                         </span>
                         <!--End .icon-box-icon-->
 
@@ -859,7 +856,7 @@
 
                     <div class="icon-box-side">
                         <span class="icon-box-icon">
-                            <img src="assets/images/demos/demo-29/icons/icon-2.jpg" alt="Icon" width="28" height="28">
+                            <img src="front_assets/images/demos/demo-29/icons/icon-2.jpg" alt="Icon" width="28" height="28">
                         </span>
                         <!--End .icon-box-icon-->
 
@@ -872,7 +869,7 @@
 
                     <div class="icon-box-side">
                         <span class="icon-box-icon">
-                            <img src="assets/images/demos/demo-29/icons/icon-3.jpg" alt="Icon" width="28" height="28">
+                            <img src="front_assets/images/demos/demo-29/icons/icon-3.jpg" alt="Icon" width="28" height="28">
                         </span>
                         <!--End .icon-box-icon-->
 
@@ -890,7 +887,7 @@
                         <div class="col-md-6">
                             <div class="banner banner-1 banner-overlay">
                                 <a href="#">
-                                    <img src="assets/images/demos/demo-29/banners/1.jpg" alt="Banner" width="688"
+                                    <img src="front_assets/images/demos/demo-29/banners/1.jpg" alt="Banner" width="688"
                                         height="400" style="background-color: #f9c8c8;">
                                 </a>
 
@@ -906,7 +903,7 @@
                         <div class="col-md-6">
                             <div class="banner banner-2 banner-overlay">
                                 <a href="#">
-                                    <img src="assets/images/demos/demo-29/banners/2.jpg" alt="Banner" width="688"
+                                    <img src="front_assets/images/demos/demo-29/banners/2.jpg" alt="Banner" width="688"
                                         height="400" style="background-color: #b9a5bc; ">
                                 </a>
 
@@ -940,7 +937,7 @@
                     }'>
                         <div class="banner banner-link-anim banner-overlay">
                             <a href="#">
-                                <img src="assets/images/demos/demo-29/banners/3.jpg" alt="Banner" width="452"
+                                <img src="front_assets/images/demos/demo-29/banners/3.jpg" alt="Banner" width="452"
                                     height="300" style="background-color: #c0c0c2;">
                             </a>
 
@@ -955,7 +952,7 @@
 
                         <div class="banner banner-link-anim banner-overlay">
                             <a href="#">
-                                <img src="assets/images/demos/demo-29/banners/4.jpg" alt="Banner" width="452"
+                                <img src="front_assets/images/demos/demo-29/banners/4.jpg" alt="Banner" width="452"
                                     height="300" style="background-color: #c0c0c2;">
                             </a>
 
@@ -970,7 +967,7 @@
 
                         <div class="banner banner-link-anim  banner-overlay">
                             <a href="#">
-                                <img src="assets/images/demos/demo-29/banners/5.jpg" alt="Banner" width="452"
+                                <img src="front_assets/images/demos/demo-29/banners/5.jpg" alt="Banner" width="452"
                                     height="300" style="background-color: #c0c0c2;">
                             </a>
 
@@ -1024,9 +1021,9 @@
                             <div class="product product-7 text-center">
                                 <figure class="product-media">
                                     <a href="product.html">
-                                        <img src="assets/images/demos/demo-29/products/1-1.jpg" alt="Product image"
+                                        <img src="front_assets/images/demos/demo-29/products/1-1.jpg" alt="Product image"
                                             class="product-image" style="background-color: #ebebeb;">
-                                        <img src="assets/images/demos/demo-29/products/1-2.jpg" alt="Product image"
+                                        <img src="front_assets/images/demos/demo-29/products/1-2.jpg" alt="Product image"
                                             class="product-image-hover" style="background-color: #ebebeb;">
                                     </a>
 
@@ -1054,9 +1051,9 @@
                             <div class="product product-7 text-center">
                                 <figure class="product-media">
                                     <a href="product.html">
-                                        <img src="assets/images/demos/demo-29/products/2-1.jpg" alt="Product image"
+                                        <img src="front_assets/images/demos/demo-29/products/2-1.jpg" alt="Product image"
                                             class="product-image" style="background-color: #ebebeb;">
-                                        <img src="assets/images/demos/demo-29/products/2-2.jpg" alt="Product image"
+                                        <img src="front_assets/images/demos/demo-29/products/2-2.jpg" alt="Product image"
                                             class="product-image-hover" style="background-color: #ebebeb;">
                                     </a>
 
@@ -1092,9 +1089,9 @@
                             <div class="product product-7 text-center">
                                 <figure class="product-media">
                                     <a href="product.html">
-                                        <img src="assets/images/demos/demo-29/products/3-1.jpg" alt="Product image"
+                                        <img src="front_assets/images/demos/demo-29/products/3-1.jpg" alt="Product image"
                                             class="product-image" style="background-color: #ebebeb;">
-                                        <img src="assets/images/demos/demo-29/products/3-2.jpg" alt="Product image"
+                                        <img src="front_assets/images/demos/demo-29/products/3-2.jpg" alt="Product image"
                                             class="product-image-hover" style="background-color: #ebebeb;">
                                     </a>
 
@@ -1125,9 +1122,9 @@
                                 <figure class="product-media">
                                     <span class="product-label label-sale">فروش ویژه</span>
                                     <a href="product.html">
-                                        <img src="assets/images/demos/demo-29/products/4-1.jpg" alt="Product image"
+                                        <img src="front_assets/images/demos/demo-29/products/4-1.jpg" alt="Product image"
                                             class="product-image" style="background-color: #ebebeb;">
-                                        <img src="assets/images/demos/demo-29/products/4-2.jpg" alt="Product image"
+                                        <img src="front_assets/images/demos/demo-29/products/4-2.jpg" alt="Product image"
                                             class="product-image-hover" style="background-color: #ebebeb;">
                                     </a>
 
@@ -1164,9 +1161,9 @@
                             <div class="product product-7 text-center">
                                 <figure class="product-media">
                                     <a href="product.html">
-                                        <img src="assets/images/demos/demo-29/products/5-1.jpg" alt="Product image"
+                                        <img src="front_assets/images/demos/demo-29/products/5-1.jpg" alt="Product image"
                                             class="product-image" style="background-color: #ebebeb;">
-                                        <img src="assets/images/demos/demo-29/products/5-2.jpg" alt="Product image"
+                                        <img src="front_assets/images/demos/demo-29/products/5-2.jpg" alt="Product image"
                                             class="product-image-hover" style="background-color: #ebebeb;">
                                     </a>
 
@@ -1197,9 +1194,9 @@
                                 <figure class="product-media">
                                     <span class="product-label label-sale">فروش ویژه</span>
                                     <a href="product.html">
-                                        <img src="assets/images/demos/demo-29/products/6-1.jpg" alt="Product image"
+                                        <img src="front_assets/images/demos/demo-29/products/6-1.jpg" alt="Product image"
                                             class="product-image" style="background-color: #ebebeb;">
-                                        <img src="assets/images/demos/demo-29/products/6-2.jpg" alt="Product image"
+                                        <img src="front_assets/images/demos/demo-29/products/6-2.jpg" alt="Product image"
                                             class="product-image-hover" style="background-color: #ebebeb;">
                                     </a>
 
@@ -1236,9 +1233,9 @@
                             <div class="product product-7 text-center">
                                 <figure class="product-media">
                                     <a href="product.html">
-                                        <img src="assets/images/demos/demo-29/products/7-1.jpg" alt="Product image"
+                                        <img src="front_assets/images/demos/demo-29/products/7-1.jpg" alt="Product image"
                                             class="product-image" style="background-color: #ebebeb;">
-                                        <img src="assets/images/demos/demo-29/products/7-2.jpg" alt="Product image"
+                                        <img src="front_assets/images/demos/demo-29/products/7-2.jpg" alt="Product image"
                                             class="product-image-hover" style="background-color: #ebebeb;">
                                     </a>
 
@@ -1268,9 +1265,9 @@
                             <div class="product product-7 text-center">
                                 <figure class="product-media">
                                     <a href="product.html">
-                                        <img src="assets/images/demos/demo-29/products/8-1.jpg" alt="Product image"
+                                        <img src="front_assets/images/demos/demo-29/products/8-1.jpg" alt="Product image"
                                             class="product-image" style="background-color: #ebebeb;">
-                                        <img src="assets/images/demos/demo-29/products/8-2.jpg" alt="Product image"
+                                        <img src="front_assets/images/demos/demo-29/products/8-2.jpg" alt="Product image"
                                             class="product-image-hover" style="background-color: #ebebeb;">
                                     </a>
 
@@ -1306,9 +1303,9 @@
                             <div class="product product-7 text-center">
                                 <figure class="product-media">
                                     <a href="product.html">
-                                        <img src="assets/images/demos/demo-29/products/9-1.jpg" alt="Product image"
+                                        <img src="front_assets/images/demos/demo-29/products/9-1.jpg" alt="Product image"
                                             class="product-image" style="background-color: #ebebeb;">
-                                        <img src="assets/images/demos/demo-29/products/9-2.jpg" alt="Product image"
+                                        <img src="front_assets/images/demos/demo-29/products/9-2.jpg" alt="Product image"
                                             class="product-image-hover" style="background-color: #ebebeb;">
                                     </a>
 
@@ -1338,9 +1335,9 @@
                             <div class="product product-7 text-center">
                                 <figure class="product-media">
                                     <a href="product.html">
-                                        <img src="assets/images/demos/demo-29/products/10-1.jpg" alt="Product image"
+                                        <img src="front_assets/images/demos/demo-29/products/10-1.jpg" alt="Product image"
                                             class="product-image" style="background-color: #ebebeb;">
-                                        <img src="assets/images/demos/demo-29/products/10-2.jpg" alt="Product image"
+                                        <img src="front_assets/images/demos/demo-29/products/10-2.jpg" alt="Product image"
                                             class="product-image-hover" style="background-color: #ebebeb;">
                                     </a>
 
@@ -1398,7 +1395,7 @@
                     }'>
                     <div class="testimonial">
                         <div class="avatar">
-                            <img src="assets/images/demos/demo-29/comments/1.jpg" alt="Comment image" width="98"
+                            <img src="front_assets/images/demos/demo-29/comments/1.jpg" alt="Comment image" width="98"
                                 height="98">
                         </div>
                         <!--End .avatar-->
@@ -1422,7 +1419,7 @@
 
                     <div class="testimonial">
                         <div class="avatar">
-                            <img src="assets/images/demos/demo-29/comments/2.jpg" alt="Comment image" width="98"
+                            <img src="front_assets/images/demos/demo-29/comments/2.jpg" alt="Comment image" width="98"
                                 height="98" style="background-color: #b7b7b7;">
                         </div>
                         <!--End .avatar-->
@@ -1446,7 +1443,7 @@
 
                     <div class="testimonial">
                         <div class="avatar">
-                            <img src="assets/images/demos/demo-29/comments/3.jpg" alt="Comment image" width="98"
+                            <img src="front_assets/images/demos/demo-29/comments/3.jpg" alt="Comment image" width="98"
                                 height="98" style="background-color: #b7b7b7;">
                         </div>
                         <!--End .avatar-->
@@ -1470,7 +1467,7 @@
 
                     <div class="testimonial">
                         <div class="avatar">
-                            <img src="assets/images/demos/demo-29/comments/1.jpg" alt="Comment image" width="98"
+                            <img src="front_assets/images/demos/demo-29/comments/1.jpg" alt="Comment image" width="98"
                                 height="98" style="background-color: #b7b7b7;">
                         </div>
                         <!--End .avatar-->
@@ -1534,7 +1531,7 @@
                     <article class="entry">
                         <figure class="entry-media banner-overlay">
                             <a href="single.html">
-                                <img src="assets/images/demos/demo-29/blogs/post-1.jpg" alt="image desc"
+                                <img src="front_assets/images/demos/demo-29/blogs/post-1.jpg" alt="image desc"
                                     style="background-color: #ccc;">
                             </a>
                         </figure><!-- End .entry-media -->
@@ -1559,7 +1556,7 @@
                     <article class="entry">
                         <figure class="entry-media banner-overlay">
                             <a href="single.html">
-                                <img src="assets/images/demos/demo-29/blogs/post-2.jpg" alt="image desc"
+                                <img src="front_assets/images/demos/demo-29/blogs/post-2.jpg" alt="image desc"
                                     style="background-color: #ccc;">
                             </a>
                         </figure><!-- End .entry-media -->
@@ -1584,7 +1581,7 @@
                     <article class="entry">
                         <figure class="entry-media banner-overlay">
                             <a href="single.html">
-                                <img src="assets/images/demos/demo-29/blogs/post-3.jpg" alt="image desc"
+                                <img src="front_assets/images/demos/demo-29/blogs/post-3.jpg" alt="image desc"
                                     style="background-color: #ccc;">
                             </a>
                         </figure><!-- End .entry-media -->
@@ -1609,7 +1606,7 @@
                     <article class="entry">
                         <figure class="entry-media banner-overlay">
                             <a href="single.html">
-                                <img src="assets/images/demos/demo-29/blogs/post-4.jpg" alt="image desc"
+                                <img src="front_assets/images/demos/demo-29/blogs/post-4.jpg" alt="image desc"
                                     style="background-color: #ccc;">
                             </a>
                         </figure><!-- End .entry-media -->
@@ -1642,7 +1639,7 @@
                     <div class="row">
                         <div class="col-md-12 col-xl-2-5col">
                             <div class="widget widget-about">
-                                <img src="assets/images/demos/demo-29/logo-2.png" class="footer-logo" alt="Footer Logo"
+                                <img src="front_assets/images/demos/demo-29/logo-2.png" class="footer-logo" alt="Footer Logo"
                                     width="82" height="22">
                                 <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم، لورم ایپسوم متن ساختگی با تولید سادگی
                                     نامفهوم لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم، لورم ایپسوم متن ساختگی با
@@ -1657,7 +1654,7 @@
                                     <div class="payment">
                                         <span class="widget-about-title">روش های پرداخت</span>
                                         <figure class="footer-payments">
-                                            <img src="assets/images/payments.png" alt="Payment methods" width="272"
+                                            <img src="front_assets/images/payments.png" alt="Payment methods" width="272"
                                                 height="20">
                                         </figure><!-- End .footer-payments -->
                                     </div><!-- End .payment-->
@@ -2106,7 +2103,7 @@
                 <div class="row no-gutters bg-white newsletter-popup-content">
                     <div class="col-xl-3-5col col-lg-7 banner-content-wrap">
                         <div class="banner-content text-center">
-                            <img src="assets/images/popup/newsletter/logo.png" class="logo" alt="logo" width="60"
+                            <img src="front_assets/images/popup/newsletter/logo.png" class="logo" alt="logo" width="60"
                                 height="15">
                             <h2 class="banner-title">دریافت <span>25<light>%</light></span> تخفیف</h2>
                             <p>با عضویت در خبرنامه فروشگاه ما، یک تخفیف 25 درصدی دریافت کنید و از جدیدترین تخفیف ها مطلع
@@ -2128,7 +2125,7 @@
                         </div>
                     </div>
                     <div class="col-xl-2-5col col-lg-5 ">
-                        <img src="assets/images/popup/newsletter/img-1.jpg" class="newsletter-img" alt="newsletter">
+                        <img src="front_assets/images/popup/newsletter/img-1.jpg" class="newsletter-img" alt="newsletter">
                     </div>
                 </div>
             </div>
@@ -2136,18 +2133,18 @@
     </div>
 
     <!-- Plugins JS File -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/jquery.hoverIntent.min.js"></script>
-    <script src="assets/js/jquery.waypoints.min.js"></script>
-    <script src="assets/js/superfish.min.js"></script>
-    <script src="assets/js/owl.carousel.min.js"></script>
-    <script src="assets/js/jquery.plugin.min.js"></script>
-    <script src="assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="assets/js/jquery.countdown.min.js"></script>
+    <script src="front_assets/js/jquery.min.js"></script>
+    <script src="front_assets/js/bootstrap.bundle.min.js"></script>
+    <script src="front_assets/js/jquery.hoverIntent.min.js"></script>
+    <script src="front_assets/js/jquery.waypoints.min.js"></script>
+    <script src="front_assets/js/superfish.min.js"></script>
+    <script src="front_assets/js/owl.carousel.min.js"></script>
+    <script src="front_assets/js/jquery.plugin.min.js"></script>
+    <script src="front_assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="front_assets/js/jquery.countdown.min.js"></script>
     <!-- Main JS File -->
-    <script src="assets/js/demos/demo-29.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="front_assets/js/demos/demo-29.js"></script>
+    <script src="front_assets/js/main.js"></script>
 
 
 </body>
