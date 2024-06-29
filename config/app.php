@@ -70,7 +70,8 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+   // 'timezone' => 'UTC',
+   'timezone' => 'Asia/Tehran',
 
     /*
     |--------------------------------------------------------------------------
@@ -83,7 +84,8 @@ return [
     |
     */
 
-    'locale' => 'en',
+   // 'locale' => 'en',
+   'locale' => 'fa',
 
     /*
     |--------------------------------------------------------------------------
@@ -159,6 +161,7 @@ return [
         /*
          * Package Service Providers...
          */
+        Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
          * Application Service Providers...

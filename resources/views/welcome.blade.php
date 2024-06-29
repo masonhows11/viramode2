@@ -8,9 +8,7 @@
     </head>
     <body class="container">
 
-
-
-
+        <h1 class="h1 text-center">this is home</h1>
 
     </body>
 
