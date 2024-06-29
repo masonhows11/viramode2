@@ -9,9 +9,19 @@ class Authenticate extends Middleware
 {
     /**
      * Get the path the user should be redirected to when they are not authenticated.
+     * @param Request $request
+     * @return string
      */
-    protected function redirectTo(Request $request): ?string
+    protected function redirectTo(Request $request)
     {
-        return $request->expectsJson() ? null : route('login');
+        if (! $request->expectsJson()) {
+
+            if ($request->routeIs('admin.*'))
+            {
+                return route('admin.login.form');
+
+            }
+            return route('auth.login.form');
+        }
     }
 }
