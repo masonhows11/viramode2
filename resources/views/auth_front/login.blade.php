@@ -1,14 +1,14 @@
 @extends('auth_front.master_auth')
 @section('front_title')
+{{ __('messages.login_user')}}
 @endsection
 @section('main_content')
 
 <nav aria-label="breadcrumb" class="breadcrumb-nav border-0 mb-0">
     <div class="container">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index-1.html">خانه</a></li>
-            <li class="breadcrumb-item"><a href="#">صفحات</a></li>
-            <li class="breadcrumb-item active" aria-current="page">ورود / ثبت نام</li>
+            <li class="breadcrumb-item"><a href="{{ route('home') }}">خانه</a></li>
+            <li class="breadcrumb-item active" aria-current="page">ورود</li>
         </ol>
     </div>
 </nav>
@@ -29,7 +29,7 @@
                 <div class="">
                     <div class="tab-pane" id="" role="" aria-labelledby="">
 
-                        <form action="{{ route('auth.login.user') }}">
+                        <form action="{{ route('auth.login.user') }}" action="post">
                             @csrf
                             <div class="form-group">
                                 <label for="singin-email-2">نام کاربری یا آدرس ایمیل *</label>
@@ -53,7 +53,7 @@
                                 </div>
 
                                 <a href="#" class="forgot-link">رمز عبور خود را فراموش کرده اید؟</a>
-                                
+
                             </div>
                         </form>
 

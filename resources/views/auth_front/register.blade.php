@@ -1,5 +1,6 @@
 @extends('auth_front.master_auth')
 @section('front_title')
+{{ __('messages.register_user') }}
 @endsection
 @section('main_content')
 
@@ -7,7 +8,6 @@
     <div class="container">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('home') }}">خانه</a></li>
-            <li class="breadcrumb-item"><a href="#">صفحات</a></li>
             <li class="breadcrumb-item active" aria-current="page">ثبت نام</li>
         </ol>
     </div>
@@ -31,7 +31,7 @@
 
                     <div class="tab-pane " id="register-2" role=""  aria-labelledby="register-tab-2">
 
-                        <form action="{{ route('auth.login.user') }}">
+                        <form action="{{ route('auth.login.user') }}" action="post">
                             @csrf
 
                             <div class="form-group">

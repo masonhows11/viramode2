@@ -599,4 +599,5 @@ return [
     'select_category_required' => 'فیلد دسته بندی الزامی است',
     'dear_user_your_account_has_not_been_activated' => 'کاربر گرامی حساب کاربری شما فعال نشده است',
     'page_not_found' => 'خطای 404',
+    'email_verification' => 'تایید ایمیل کاربر',
 ];
