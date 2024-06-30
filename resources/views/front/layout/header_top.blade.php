@@ -21,8 +21,11 @@
                 <li>
                     <a href="#">لینک ها<i class="icon-angle-down"></i></a>
                     <ul>
-                        <li class="login"><a href="#signin-modal" data-toggle="modal"><i
-                                    class="icon-user"></i>ورود</a></li>
+                        <li class="login d-flex ">
+                            <a href="#" class="ml-4" data-toggle="modal"><i class="icon-user"></i>ورود</a>
+                            <a href="#" data-toggle="modal">ثبت نام</a>
+                        </li>
+                    
 
                         <li class="header-dropdown">
                             <a href="#">تومان</a>
@@ -37,9 +40,8 @@
                             <a href="#">فارسی</a>
                             <ul class="header-menu">
                                 <li><a href="#">انگلیسی</a></li>
-                                <li><a href="#">فرانسوی</a></li>
-                                <li><a href="#">ترکی استانبولی</a></li>>
-                            </ul><!-- End .header-menu -->
+                            </ul>
+                            <!-- End .header-menu -->
                         </li>
                         <!--End .header-dropdown-->
                     </ul>

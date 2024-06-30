@@ -5,14 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>{{ env('APP_NAME') }}</title>
+    <title>@yield('front_title')</title>
     <meta name="description" content="viramode - clothe online shop">
     <meta name="msapplication-TileColor" content="#cc9966">
     <meta name="msapplication-config" content="front_assets/images/icons/browserconfig.html">
     <meta name="theme-color" content="#ffffff">
-
     @include('front.layout.styles')
-
 </head>
 
 <body>
@@ -27,40 +25,20 @@
 
             @include('front.layout.navigate')
             <!-- End .header-bottom -->
-
-        </header><!-- End .header -->
+        </header>
 
         <main class="main">
-            @include('front.layout.slider_intro')
-            <!-- End .intro-slider-container -->
-            @include('front.layout.slider_services')
-            <!--End .owl-carousel-->
 
-            <!-- main content -->
-            <div class="container">
+            {{-- <div class="container"></div> --}}
 
-                @include('front.partials.middle_banners')
+            @yield('main_content')
 
-
-                @include('front.partials.register_news_offer')
-
-
-                @include('front.partials.special_products')
-
-
-                @include('front.partials.comments')
-
-
-                @include('front.partials.newest_blog')
-
-            </div>
-            <!-- end main content -->
 
         </main>
-        <!--End .main-->
+
 
         @include('front.layout.footer')
-       <!-- End .footer -->
+
     </div>
 
     <button id="scroll-top" title="بازگشت به بالا"><i class="icon-arrow-up"></i></button>

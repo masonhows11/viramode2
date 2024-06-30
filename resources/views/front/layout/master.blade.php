@@ -10,22 +10,7 @@
     <meta name="msapplication-TileColor" content="#cc9966">
     <meta name="msapplication-config" content="front_assets/images/icons/browserconfig.html">
     <meta name="theme-color" content="#ffffff">
-
     @include('front.layout.styles')
-    {{-- <script>
-        WebFontConfig = {
-            google: {
-                families: ['Poppins:300,400,500,600,700', 'Modak:400', 'Sedgwick Ave:400', 'Carter+One:400']
-            }
-        };
-        (function(d) {
-            var wf = d.createElement('script'),
-                s = d.scripts[0];
-            wf.src = 'front_assets/js/webfont.js';
-            wf.async = true;
-            s.parentNode.insertBefore(wf, s);
-        })(document);
-    </script> --}}
 </head>
 
 <body>
