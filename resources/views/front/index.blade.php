@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="rtl">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="rtl" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
@@ -58,7 +58,7 @@
 
 
                 @include('front.partials.register_news_offer')
-               
+
 
                 @include('front.partials.special_products')
 

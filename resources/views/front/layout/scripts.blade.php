@@ -1,4 +1,5 @@
- <!-- Plugins JS File -->
+{{-- <script type="text/javascript" src="{{ asset('js/app.js') }}"></script> --}}
+<!-- Plugins JS File -->
  <script src="{{ asset('front_assets/js/jquery.min.js') }}"></script>
  <script src="{{ asset('front_assets/js/bootstrap.bundle.min.js') }}"></script>
  <script src="{{ asset('front_assets/js/jquery.hoverIntent.min.js') }}"></script>

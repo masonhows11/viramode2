@@ -46,3 +46,4 @@
 
     <span class="slider-loader"></span><!-- End .slider-loader -->
 </div>
+  <!-- End .intro-slider-container -->
