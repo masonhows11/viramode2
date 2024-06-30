@@ -12,7 +12,7 @@
     <meta name="theme-color" content="#ffffff">
 
     @include('front.layout.styles')
-    <script>
+    {{-- <script>
         WebFontConfig = {
             google: {
                 families: ['Poppins:300,400,500,600,700', 'Modak:400', 'Sedgwick Ave:400', 'Carter+One:400']
@@ -25,7 +25,7 @@
             wf.async = true;
             s.parentNode.insertBefore(wf, s);
         })(document);
-    </script>
+    </script> --}}
 </head>
 
 <body>

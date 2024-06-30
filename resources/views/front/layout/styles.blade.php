@@ -1,4 +1,5 @@
 {{-- <link rel="stylesheet" href="{{ asset('css/app.css') }}"> --}}
+
 <!-- Favicon -->
  {{-- <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('front_assets/images/icons/apple-touch-icon.png') }}">
  <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('front_assets/images/icons/favicon-32x32.png') }}">
