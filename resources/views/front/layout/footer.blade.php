@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-md-12 col-xl-2-5col">
                     <div class="widget widget-about">
-                        <img src="front_assets/images/demos/demo-29/logo-2.png" class="footer-logo"
+                        <img src="{{ asset('front_assets/images/demos/demo-29/logo-2.png') }}" class="footer-logo"
                             alt="Footer Logo" width="82" height="22">
                         <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم، لورم ایپسوم متن ساختگی با تولید سادگی
                             نامفهوم لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم، لورم ایپسوم متن ساختگی با
@@ -13,13 +13,13 @@
                         <div class="widget-about-info">
                             <div class="phoneNum">
                                 <span class="widget-about-title">سوالی دارید؟ 7روز هفته/24ساعته</span>
-                                <a href="tel:123456789">02155667788</a>
+                                <a href="tel:09172890423">09172890423</a>
                             </div><!-- End .phoneNum-->
 
                             <div class="payment">
                                 <span class="widget-about-title">روش های پرداخت</span>
                                 <figure class="footer-payments">
-                                    <img src="front_assets/images/payments.png" alt="Payment methods"
+                                    <img src="{{  asset('front_assets/images/payments.png') }}" alt="Payment methods"
                                         width="272" height="20">
                                 </figure><!-- End .footer-payments -->
                             </div><!-- End .payment-->

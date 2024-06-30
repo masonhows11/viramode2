@@ -17,7 +17,7 @@
         <!--End .header-left-->
 
         <div class="header-center">
-            <a href="#" class="logo">
+            <a href="{{ route('home') }}" class="logo">
                 <h4>انلاین شاپ</h4>
                 {{-- <img src="#" alt="shop Logo" width="82"
                     height="20"> --}}
@@ -60,7 +60,7 @@
 
                             <figure class="product-image-container">
                                 <a href="product.html" class="product-image">
-                                    <img src="front_assets/images/demos/demo-29/products/5-1.jpg"
+                                    <img src="{{ asset('front_assets/images/demos/demo-29/products/5-1.jpg') }}"
                                         alt="product" width="60" height="60">
                                 </a>
                             </figure>
@@ -86,7 +86,7 @@
 
                             <figure class="product-image-container">
                                 <a href="product.html" class="product-image">
-                                    <img src="front_assets/images/demos/demo-29/products/10-1.jpg"
+                                    <img src="{{  asset('front_assets/images/demos/demo-29/products/10-1.jpg') }}"
                                         alt="product" width="60" height="60">
                                 </a>
                             </figure>

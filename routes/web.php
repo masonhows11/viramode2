@@ -4,8 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SiteMapController;
 use App\Http\Controllers\Auth_User\LoginUserController;
+use App\Http\Controllers\Front\AboutUs\AboutUsController;
+use App\Http\Controllers\Front\Profile\ProfileController;
 use App\Http\Controllers\Auth_User\RegisterUserController;
 use App\Http\Controllers\Auth_User\ValidateUserController;
+use App\Http\Controllers\Front\ContactUs\ContactUsController;
 use App\Http\Controllers\Auth_User\VerifyEmailPromptController;
 
 /*
@@ -28,8 +31,15 @@ Route::controller(HomeController::class)->group(function () {
 
     Route::get('/', 'home')->name('home');
 
-    Route::get('/page/notFound','notFound')->name('page.not.found');
+    Route::get('/page/not_found','notFound')->name('page.not.found');
 });
+
+
+
+Route::get('/about_us', [\App\Http\Controllers\Front\AboutUs\AboutUsController::class, 'aboutUs'])->name('about_us');
+
+Route::get('/contact_us', [\App\Http\Controllers\Front\ContactUs\ContactUsController::class, 'contactUs'])->name('contact_us');
+Route::post('/contact_us/store',[\App\Http\Controllers\Front\ContactUs\ContactUsController::class, 'store'])->name('contact_us.store');
 
 
 Route::controller(SiteMapController::class)->group(function(){

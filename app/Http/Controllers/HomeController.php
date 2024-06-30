@@ -14,4 +14,9 @@ class HomeController extends Controller
 
     }
 
+    public function notFound()
+    {
+        return view('front.not_found');
+    }
+
 }
