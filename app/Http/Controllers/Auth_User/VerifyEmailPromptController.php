@@ -14,7 +14,7 @@ class VerifyEmailPromptController extends Controller
     //
     public function verifyForm()
     {
-        return view('front_auth.verify_email_prompt');
+        return view('auth_front.verify_email_prompt');
     }
 
     public function verifySendEmail(Request $request)

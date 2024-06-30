@@ -23,17 +23,17 @@
                     <ul>
                         @guest
                         <li class="login d-flex ">
-                            <a href="#" class="ml-4" data-toggle="modal"><i class="icon-user"></i>ورود</a>
-                            <a href="#" data-toggle="modal">ثبت نام</a>
+                            <a href="{{ route('auth.login.form') }}" class="ml-4" ><i class="icon-user"></i>ورود</a>
+                            <a href="{{ route('auth.register.form') }}" >ثبت نام</a>
                         </li>
                         @endguest
                         @auth
                         <li class="login d-flex ">
-                            <a href="#" class="ml-4" ><i class="icon-user"></i>{{ auth()->user()->name ?? __('messages.dear_user') }}</a>
+                            <a href="{{ route('user.profile') }}" class="ml-4" ><i class="icon-user"></i>{{ auth()->user()->name ?? __('messages.dear_user') }}</a>
                         </li>
                         @endauth
-                       
-                    
+
+
 
                         <li class="header-dropdown">
                             <a href="#">تومان</a>

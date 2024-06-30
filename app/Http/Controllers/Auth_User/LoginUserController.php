@@ -19,7 +19,7 @@ class LoginUserController extends Controller
     //
     public function loginForm()
     {
-        return view('front_auth.login');
+        return view('auth_front.login');
     }
 
     public function login(LoginRequest $request)
@@ -48,13 +48,15 @@ class LoginUserController extends Controller
         $user->otp_code = null;
         $user->remember_token = null;
         $user->activate = 0;
-        // $user->password = null;
-        // $user->auth_type = 0;
-        // $user->mobile_verified_at = null;
-        // $user->email_verified_at = null;
         $user->save();
         $request->session()->invalidate();
         return redirect()->route('home');
+
+
+         // $user->password = null;
+        // $user->auth_type = 0;
+        // $user->mobile_verified_at = null;
+        // $user->email_verified_at = null;
     }
 
     //    public function login(LoginRequest $request)

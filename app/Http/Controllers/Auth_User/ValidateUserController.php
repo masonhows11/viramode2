@@ -19,7 +19,7 @@ class ValidateUserController extends Controller
 
     public function validateForm()
     {
-        return view('front_auth.validate_user');
+        return view('auth_front.validate_user');
     }
 
     public function validate_user(ValidateOtpRequest $request)
