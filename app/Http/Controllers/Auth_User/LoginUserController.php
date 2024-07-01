@@ -53,7 +53,7 @@ class LoginUserController extends Controller
         return redirect()->route('home');
 
 
-         // $user->password = null;
+        // $user->password = null;
         // $user->auth_type = 0;
         // $user->mobile_verified_at = null;
         // $user->email_verified_at = null;

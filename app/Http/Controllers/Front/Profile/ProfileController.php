@@ -24,18 +24,18 @@ class ProfileController extends Controller
 
     public function Profile()
     {
-
+        dd('hi');
         $user = Auth::user();
         $orders = Order::where('user_id', $user->id)->orderBy('id', 'asc')->paginate(4);
         $products = auth()->user()->products()->select('id','title_persian','thumbnail_image','slug')->take(2)->get();
        // dd($products);
-        return view('front_end.profile.profile', ['orders' => $orders,'user' => $user, 'products' => $products]);
+        return view('front.profile.profile', ['orders' => $orders,'user' => $user, 'products' => $products]);
     }
 
     public function accountInformation()
     {
         $user = Auth::user();
-        return view('front_end.profile.account_information', ['user' => $user]);
+        return view('front.profile.account_information', ['user' => $user]);
     }
 
 
@@ -78,7 +78,7 @@ class ProfileController extends Controller
     {
 
         $user = Auth::user();
-        return view('front_end.profile.update.mobile_update', ['user' => $user]);
+        return view('front.profile.update.mobile_update', ['user' => $user]);
     }
 
     public function updateMobile(Request $request)
@@ -111,7 +111,7 @@ class ProfileController extends Controller
     {
 
         $user = Auth::user();
-        return view('front_end.profile.update.email_update', ['user' => $user]);
+        return view('front.profile.update.email_update', ['user' => $user]);
     }
 
     public function updateEmail(Request $request)

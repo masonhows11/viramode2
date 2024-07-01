@@ -29,10 +29,10 @@
                         @endguest
                         @auth
 
-                        <li class="login d-flex ">
+                        <li class="login d-flex">
                             <a href="{{ route('user.profile') }}" class="ml-4" ><i class="icon-user"></i>{{ auth()->user()->name ?? __('messages.dear_user') }}</a>
                         </li>
-                        <li class="login d-flex ">
+                        <li class="login d-flex">
                             <a href="{{ route('auth.log.out') }}" class="ml-1" ><i class="fa fa-sign-out"></i>{{ __('messages.logout') }}</a>
                         </li>
 

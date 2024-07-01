@@ -4,11 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SiteMapController;
 use App\Http\Controllers\Auth_User\LoginUserController;
-use App\Http\Controllers\Front\AboutUs\AboutUsController;
 use App\Http\Controllers\Front\Profile\ProfileController;
 use App\Http\Controllers\Auth_User\RegisterUserController;
 use App\Http\Controllers\Auth_User\ValidateUserController;
-use App\Http\Controllers\Front\ContactUs\ContactUsController;
 use App\Http\Controllers\Auth_User\VerifyEmailPromptController;
 
 /*
@@ -54,7 +52,7 @@ Route::controller(SiteMapController::class)->group(function(){
 
 
 /**--------------------------auth routes---------------------**/
-Route::prefix('auth')->name('auth.')->group(function () {
+Route::prefix('auth')->middleware('guest')->name('auth.')->group(function () {
 
     Route::get('/register', [RegisterUserController::class, 'registerForm'])->name('register.form');
     Route::post('/register-user', [RegisterUserController::class, 'register'])->name('register.user');
