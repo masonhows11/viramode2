@@ -21,7 +21,7 @@ class Admin
     {
         if (!Auth::guard('admin')->check()) {
 
-            session()->flash('error', 'کاربر گرامی ابتدا وارد سایت شوید.');
+            session()->flash('error', __('messages.dear_user_first_enter_the_site'));
 
             return redirect()->route('admin.login.form');
 

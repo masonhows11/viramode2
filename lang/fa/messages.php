@@ -343,6 +343,7 @@ return [
     'no_new_notification' => 'اعلان جدیدی وجود ندارد',
     'no_new_messages' => 'پیام جدیدی وجود ندارد ',
 
+    'dear_user_first_enter_the_site' => 'کاربر گرامی ابتدا وارد سایت شوید',
     'login_user' => 'ورود کاربر',
     'register_user' => 'ثبت نام کاربر',
     'remember_me' => ' مرا به خاطر داشته باش',

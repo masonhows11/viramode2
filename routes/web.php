@@ -52,7 +52,7 @@ Route::controller(SiteMapController::class)->group(function(){
 
 
 /**--------------------------auth routes---------------------**/
-Route::prefix('auth')->middleware('guest')->name('auth.')->group(function () {
+Route::prefix('auth')->name('auth.')->group(function () {
 
     Route::get('/register', [RegisterUserController::class, 'registerForm'])->name('register.form');
     Route::post('/register-user', [RegisterUserController::class, 'register'])->name('register.user');
@@ -73,7 +73,7 @@ Route::get('/log-out', [LoginUserController::class, 'logOut'])->middleware('auth
 
 
 /*------------------------route user profile-----------------**/
-Route::controller(ProfileController::class)->prefix('profile')->middleware(['auth', 'web','verified_user'])->group(function () {
+Route::controller(ProfileController::class)->prefix('profile')->middleware(['auth', 'web'])->group(function () {
 
 
     Route::get('/index', 'Profile')->name('user.profile');
