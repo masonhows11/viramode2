@@ -39,6 +39,16 @@
                                 <label for="singin-email-2">ایمیل</label>
                                 <input type="email" name="email" class="form-control" id="" >
                             </div>
+                            @error('email')
+                            <div class="rtl">
+                                <span class="text-danger">{{ $message }}</span>
+                            </div>
+                            @enderror
+
+
+                            <div class="form-group">
+                                @include('auth_front.inline_alert')
+                            </div>
 
 
                             <div class="form-footer">
