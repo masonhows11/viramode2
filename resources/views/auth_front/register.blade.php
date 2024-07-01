@@ -36,12 +36,12 @@
 
                             <div class="form-group">
                                 <label for="register-email-2">آدرس ایمیل شما *</label>
-                                <input type="email" name="email" class="form-control" id="register-email-2" required>
+                                <input type="email" name="email" class="form-control" id="register-email-2" >
                             </div>
 
                             <div class="form-group">
                                 <label for="register-password-2">رمز عبور *</label>
-                                <input type="password" name="password" class="form-control" id="register-password-2" required>
+                                <input type="password" name="password" class="form-control" id="register-password-2" >
                             </div>
 
                             <div class="form-footer">
@@ -52,7 +52,7 @@
 
                                 <div class="custom-control custom-checkbox">
 
-                                    <input type="checkbox" class="custom-control-input"  id="register-policy-2" required>
+                                    <input type="checkbox" class="custom-control-input"  id="register-policy-2">
 
                                     <label class="custom-control-label" for="register-policy-2">من با <a
                                             href="#">قوانین و مقررات</a> موافقم *</label>

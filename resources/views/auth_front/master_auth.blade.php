@@ -49,7 +49,7 @@
 
 
     <!-- Sign in / Register Modal -->
-    <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-hidden="true">
+    {{-- <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
@@ -173,7 +173,7 @@
                 </div><!-- End .modal-body -->
             </div><!-- End .modal-content -->
         </div><!-- End .modal-dialog -->
-    </div>
+    </div> --}}
     <!-- End .modal -->
 
     {{-- <div class="container newsletter-popup-container mfp-hide" id="newsletter-popup-form">
@@ -212,10 +212,7 @@
     </div> --}}
 
     @include('front.layout.scripts')
+    @stack('front_custom_scripts')
 
 </body>
-
-
-<!-- Mirrored from filenter.ir/molla/index-29.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Jun 2024 20:10:42 GMT -->
-
 </html>

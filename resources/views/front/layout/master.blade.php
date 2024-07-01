@@ -214,10 +214,8 @@
     </div> --}}
 
     @include('front.layout.scripts')
+    @stack('front_custom_scripts')
 
 </body>
-
-
-<!-- Mirrored from filenter.ir/molla/index-29.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 28 Jun 2024 20:10:42 GMT -->
 
 </html>

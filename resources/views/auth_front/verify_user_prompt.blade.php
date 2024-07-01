@@ -1,6 +1,6 @@
 @extends('auth_front.master_auth')
 @section('front_title')
-{{ __('messages.email_verification')}}
+{{ __('messages.verify_account') }}
 @endsection
 @section('main_content')
 
@@ -23,7 +23,7 @@
                 <ul class="nav nav-pills nav-fill" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link" id="signin-tab-2" data-toggle="tab" href="#signin-2" role="tab"
-                            aria-controls="signin-2" aria-selected="true">تایید ایمیل کاربر</a>
+                            aria-controls="signin-2" aria-selected="true">ارسال کد فعال سازی</a>
                     </li>
                 </ul>
 
@@ -32,17 +32,14 @@
 
                     <div class="tab-pane" id="velidate-user" role="" aria-labelledby="">
 
-                        <form action="{{ route('auth.validate.user') }}" action="post">
+                        <form action="{{ route('auth.verify.email.send') }}" method="post">
 
                             @csrf
                             <div class="form-group">
-                                <label for="singin-email-2">کد فعال سازی</label>
-                                <input type="text" class="form-control" id="singin-email-2"  name="otp" >
+                                <label for="singin-email-2">ایمیل</label>
+                                <input type="email" name="email" class="form-control" id="" >
                             </div>
 
-                          
-                           <input type="email"  name="email" >
-                         
 
                             <div class="form-footer">
                                 <button type="submit" class="btn btn-outline-primary-2">

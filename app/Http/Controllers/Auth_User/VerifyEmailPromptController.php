@@ -14,7 +14,7 @@ class VerifyEmailPromptController extends Controller
     //
     public function verifyForm()
     {
-        return view('auth_front.verify_email_prompt');
+        return view('auth_front.verify_user_prompt');
     }
 
     public function verifySendEmail(Request $request)
@@ -35,7 +35,7 @@ class VerifyEmailPromptController extends Controller
         session(['auth_email' => $user->email,
             'token' => $user->token,
             'token_time' => $user->updated_at]);
-     
+
 
         $request->session()->flash('success', 'کد فعال سازی به ایمیل ارسال شد.');
         return redirect()->route('auth.validate.user.form');
