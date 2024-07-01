@@ -71,17 +71,17 @@ class DatabaseSeeder extends Seeder
 
 
         $users = [
+            // [
+            //     'name' => 'naeem_sol',
+            //     'first_name' => 'naeem',
+            //     'last_name' => 'soltany',
+            //     'mobile' => '09917230927',
+            //     'password' => Hash::make('123456'),
+            //     'email' => 'mason.hows11@gmail.com',
+            //     'email_verified_at' => now(),
+            // ],
             [
-                'name' => 'naeem_sol',
-                'first_name' => 'naeem',
-                'last_name' => 'soltany',
-                'mobile' => '09917230927',
-                'password' => Hash::make('123456'),
-                'email' => 'mason.hows11@gmail.com',
-                'email_verified_at' => now(),
-            ],
-            [
-                'name' => 'mason_hows11',
+                'name' => 'mason_hows',
                 'first_name' => 'mason',
                 'last_name' => 'hows',
                 'mobile' => '09179817599',
