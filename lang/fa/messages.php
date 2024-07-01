@@ -348,6 +348,7 @@ return [
     'remember_me' => ' مرا به خاطر داشته باش',
     'register' => 'ثبت نام',
     'login' => 'وارد شوید',
+    'logout' => 'خروج',
     'already_registered' => 'قبلا  ثبت‌ نام کرده‌اید؟',
     'new_user' => 'کاربر جدید هستید',
     'register_in_good_shop' => 'ثبت نام در خرید خوب',
