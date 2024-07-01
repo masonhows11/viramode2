@@ -31,13 +31,20 @@
 
                         <div class="tab-pane" id="velidate-user" role="" aria-labelledby="">
 
-                            <form action="{{ route('auth.validate.user') }}" action="post">
+                            <form action="{{ route('auth.validate.user') }}" method="post">
 
                                 @csrf
                                 <div class="form-group">
                                     <label for="singin-email-2">کد تایید را وارد کنید</label>
                                     <input type="text" class="form-control" id="singin-email-2" name="otp">
                                 </div>
+                                @error('otp')
+                                <div class="rtl">
+                                    <span class="text-danger">{{ $message }}</span>
+                                </div>
+                                @enderror
+
+
 
 
 
@@ -49,7 +56,7 @@
                                     @if( session()->has('token') )
                                         <a href="{{ route('auth.resend.token',['token' => session()->get('token')]) }}"
                                            id="resend-token"
-                                           class="text-info text-decoration-none">{{ __('messages.resend_active_code') }}</a>
+                                           class="text-info text-decoration-none">{{ __('messages.resend_active_code_message') }}</a>
                                     @endif
                                 </div>
 

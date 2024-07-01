@@ -28,7 +28,7 @@ class RegisterUserController extends Controller
             $type = 1;
             $user = User::where('email', $auth_id)->first();
             if ($user) {
-                session()->flash('error', 'ایمیل وارد شده تکراری است');
+                session()->flash('error', __('messages.the_entered_email_is_duplicate'));
                 return redirect()->back();
             }
             $token = GenerateUserToken::generateUserToken();
@@ -45,7 +45,7 @@ class RegisterUserController extends Controller
             session(['auth_email' => $newUser->email,
                 'token' => $newUser->token,
                 'token_time' => $newUser->updated_at]);
-            $request->session()->flash('success', 'کد فعال سازی به ایمیل ارسال شد.');
+            $request->session()->flash('success', __('messages.the_activation_code_has_been_sent_to_the_email'));
             return redirect()->route('auth.validate.user.form');
         }catch (\Exception $ex){
             return view('errors_custom.register_error')->with(['error' => $ex->getMessage()]);

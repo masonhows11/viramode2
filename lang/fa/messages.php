@@ -366,8 +366,11 @@ return [
     'auth_input_message' => 'شماره موبایل یا ایمیل خود را وارد کنید',
     'no_name' => 'بدون نام',
     'resend_active_code' => 'ارسال مجدد کد تایید تا ',
-
+    'resend_active_code_message' => 'ارسال مجدد کد تایید',
+    'the_activation_code_is_not_valid' => 'کد فعالسازی معتبر نمی باشد',
+    'the_activation_code_has_been_sent_to_the_email' => 'کد فعال سازی به ایمیل ارسال شد',
     'send_activate_email' => 'ارسال ایمیل فعال سازی',
+    'the_entered_email_is_duplicate' => 'ایمیل وارد شده تکراری است',
     'verify_account' => 'فعال سازی حساب کاربری',
     'the_mobile_number_or_email_entered_is_invalid' => 'شماره موبایل یا ایمیل وارد شده نامعتبر است',
     'the_mobile_number_entered_is_invalid' => 'شماره موبایل وارد شده نامعتبر است',

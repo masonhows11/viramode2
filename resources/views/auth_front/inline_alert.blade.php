@@ -8,7 +8,7 @@
         {{ session('success') }}
     </div>
 @endif
-@if( $errors->any())
+{{-- @if( $errors->any())
       <ul>
         @foreach($errors->all() as $error)
                 <li class="text-danger mt-4 text-center">
@@ -16,4 +16,4 @@
                 </li>
         @endforeach
       </ul>
-@endif
+@endif --}}

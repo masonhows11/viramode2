@@ -28,7 +28,7 @@ class ValidateUserController extends Controller
         try {
             $isValidated = ValidateUserService::validateEmail($request->email, $request->otp);
             if ($isValidated == 1) {
-                session()->flash('error', 'کد فعالسازی معتبر نمی باشد.');
+                session()->flash('error', __('messages.the_activation_code_is_not_valid'));
                 return redirect()->route('auth.validate.user.form');
             }
             if ($isValidated == 2)

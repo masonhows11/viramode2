@@ -29,7 +29,7 @@
                 <div class="">
                     <div class="tab-pane" id="" role="" aria-labelledby="">
 
-                        <form action="{{ route('auth.login.user') }}" action="post">
+                        <form action="{{ route('auth.login.user') }}" method="post">
                             @csrf
                             <div class="form-group">
                                 <label for="singin-email-2">نام کاربری یا آدرس ایمیل *</label>

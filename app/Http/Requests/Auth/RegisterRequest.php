@@ -20,8 +20,8 @@ class RegisterRequest extends FormRequest
     {
         return  [
             'email' => ['required', 'email', 'min:3', 'max:125', 'unique:users'],
-            'password' => ['required', 'string', 'min:3', 'max:125'],
-            'rule' => ['required'],
+            'password' => ['required', 'string', 'min:6', 'max:30'],
+            'rules' => ['required'],
         ];
 
         //        return [
@@ -38,8 +38,8 @@ class RegisterRequest extends FormRequest
     public function attributes()
     {
         return [
-            //          'auth_id' => 'ایمیل یا شماره موبایل',
-            'auth_id' => 'ایمیل',
+            //  'auth_id' => 'ایمیل یا شماره موبایل',
+            // 'auth_id' => 'ایمیل',
         ];
     }
 
