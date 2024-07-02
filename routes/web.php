@@ -131,23 +131,23 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin'
 
 });
 
+// Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
+
+//     Route::get('/users/index', AdminUsers::class)->name('users');
+//     Route::get('/admins/index', AdminAdmins::class)->name('admins');
+
+// });
+
+// Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
+
+//     Route::get('/perms/index', AdminPerms::class)->name('perms');
+//     Route::get('/roles/index', AdminRoles::class)->name('roles');
+
+// });
+
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
 
-    Route::get('/users/index', AdminUsers::class)->name('users');
-    Route::get('/admins/index', AdminAdmins::class)->name('admins');
-
-});
-
-Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
-
-    Route::get('/perms/index', AdminPerms::class)->name('perms');
-    Route::get('/roles/index', AdminRoles::class)->name('roles');
-
-});
-
-Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
-
-    Route::get('/roles/list/users', ListUsersForRole::class)->name('role.list.users');
+    // Route::get('/roles/list/users', ListUsersForRole::class)->name('role.list.users');
     Route::get('/roles/assign/form', [AdminRoleAssignController::class, 'create'])->name('roles.assign.form');
     Route::post('/roles/assign', [AdminRoleAssignController::class, 'store'])->name('roles.assign');
 
@@ -155,65 +155,65 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin'
 
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
 
-    Route::get('/perms/list/users', ListUsersForPerm::class)->name('perm.list.users');
+    // Route::get('/perms/list/users', ListUsersForPerm::class)->name('perm.list.users');
     Route::get('/perms/assign/form', [AdminPermAssignController::class, 'create'])->name('perms.assign.form');
     Route::post('/perms/assign', [AdminPermAssignController::class, 'store'])->name('perms.assign');
 });
 
-Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
+// Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
 
-    Route::get('/category/index', AdminCategoryList::class)->name('category.index');
-    Route::get('/category/create', AdminCategoryCreate::class)->name('category.create');
-    Route::get('/category/edit/{id}', AdminCategoryEdit::class)->name('category.edit');
-});
+//     Route::get('/category/index', AdminCategoryList::class)->name('category.index');
+//     Route::get('/category/create', AdminCategoryCreate::class)->name('category.create');
+//     Route::get('/category/edit/{id}', AdminCategoryEdit::class)->name('category.edit');
+// });
 
-// crud brands
-Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
+// // crud brands
+// Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
 
-    Route::get('/brand/index', AdminBrandList::class)->name('brand.index');
-    Route::get('/brand/create', AdminCreateBrand::class)->name('brand.create');
-    Route::get('/brand/edit/{id}', AdminEditBrand::class)->name('brand.edit');
+//     Route::get('/brand/index', AdminBrandList::class)->name('brand.index');
+//     Route::get('/brand/create', AdminCreateBrand::class)->name('brand.create');
+//     Route::get('/brand/edit/{id}', AdminEditBrand::class)->name('brand.edit');
 
-});
+// });
 
-// crud tags
-Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
+// // crud tags
+// Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
 
-    Route::get('/tag/index', AdminTag::class)->name('tag.index');
-    Route::get('/tag/create', AdminCreateBrand::class)->name('tag.create');
-    Route::get('/tag/edit/{id}', AdminEditBrand::class)->name('tag.edit');
+//     Route::get('/tag/index', AdminTag::class)->name('tag.index');
+//     Route::get('/tag/create', AdminCreateBrand::class)->name('tag.create');
+//     Route::get('/tag/edit/{id}', AdminEditBrand::class)->name('tag.edit');
 
-});
-// crud colors
-Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
+// });
+// // crud colors
+// Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
 
-    Route::get('/colors/index', AdminColors::class)->name('colors.index');
+//     Route::get('/colors/index', AdminColors::class)->name('colors.index');
 
-});
-// crud category attribute & attribute value
-Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
+// });
+// // crud category attribute & attribute value
+// Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
 
-    Route::get('/category/attribute/index', AdminCategoryAttribute::class)->name('category.attribute.index');
-    Route::get('/category/attribute/value/index/{attribute}', AdminCategoryAttributeValue::class)->name('category.attribute.value.index');
+//     Route::get('/category/attribute/index', AdminCategoryAttribute::class)->name('category.attribute.index');
+//     Route::get('/category/attribute/value/index/{attribute}', AdminCategoryAttributeValue::class)->name('category.attribute.value.index');
 
-});
+// });
 
-// crud product attribute & attribute value
-Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
-    ////
-    Route::get('/attribute/index', AdminAttribute::class)->name('attribute.index');
-    Route::get('/attribute/create/{id}', AdminAttributeCreate::class)->name('attribute.create');
-    ////
-    Route::get('/attribute/value/index', AdminAttributeValue::class)->name('attribute.value.index');
-    Route::get('/attribute/value/create/{id}', AdminAttributeValueCreate::class)->name('attribute.value.create');
+// // crud product attribute & attribute value
+// Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
+//     ////
+//     Route::get('/attribute/index', AdminAttribute::class)->name('attribute.index');
+//     Route::get('/attribute/create/{id}', AdminAttributeCreate::class)->name('attribute.create');
+//     ////
+//     Route::get('/attribute/value/index', AdminAttributeValue::class)->name('attribute.value.index');
+//     Route::get('/attribute/value/create/{id}', AdminAttributeValueCreate::class)->name('attribute.value.create');
 
-});
+// });
 
 
 // crud product routes
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
 
-    Route::get('/product/index', IndexProduct::class)->name('product.index');
+    // Route::get('/product/index', IndexProduct::class)->name('product.index');
     // new product
     Route::get('/product/create/basic', [ProductCreateController::class, 'create'])->name('product.create.basic');
     Route::post('/product/store/basic', [ProductCreateController::class, 'store'])->name('product.store.basic');
@@ -241,7 +241,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin'
 // stock product routes
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
 
-    Route::get('/stock-product/index', StockProduct::class)->name('stock.product.index');
+    // Route::get('/stock-product/index', StockProduct::class)->name('stock.product.index');
     ////
     Route::get('/add_to_stock/{product}', [StockController::class, 'addToStockForm'])->name('add_to_stock.form');
     Route::post('/add_to_stock', [StockController::class, 'addToStock'])->name('add_to_stock');
@@ -311,7 +311,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin'
 
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
 
-    Route::get('/all-orders', AdminAllOrders::class)->name('orders.index');
+    // Route::get('/all-orders', AdminAllOrders::class)->name('orders.index');
 
     Route::get('/orders-new', [AdminOrderController::class, 'newOrders'])->name('orders.new');
 
@@ -334,7 +334,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin'
 // shipment routes
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
 
-    Route::get('/delivery/index', AdminDelivery::class)->name('delivery.index');
+    // Route::get('/delivery/index', AdminDelivery::class)->name('delivery.index');
     Route::get('/delivery/create', [AdminDeliveryController::class, 'create'])->name('delivery.create');
     Route::post('/delivery/store', [AdminDeliveryController::class, 'store'])->name('delivery.store');
     Route::get('/delivery/edit/{delivery}', [AdminDeliveryController::class, 'edit'])->name('delivery.edit');
@@ -408,7 +408,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|su
 
     Route::get('/product_comments/index', [AdminCommentController::class, 'productIndexComments'])->name('product_comments.index');
     Route::get('/comments/index/product/{product}', [AdminCommentController::class, 'productComments'])->name('comments.index.product');
-    Route::get('/comment/show/{comment}', AdminSingleComment::class)->name('comment.show');
+    // Route::get('/comment/show/{comment}', AdminSingleComment::class)->name('comment.show');
 
 });
 
@@ -416,7 +416,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|su
 // setting routes
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|super_admin'])->group(function () {
 
-    Route::get('/setting/index', AdminSetting::class)->name('setting.index');
+    // Route::get('/setting/index', AdminSetting::class)->name('setting.index');
     Route::get('/setting/edit/{setting}', [SettingController::class, 'edit'])->name('setting.edit');
     Route::post('/setting/update', [SettingController::class, 'update'])->name('setting.update');
 
@@ -428,7 +428,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|su
 // custom  banner
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|super_admin'])->group(function () {
     ////
-    Route::get('/custom-banners/index',AdminCustomBanner::class)->name('custom.banners.index');
+    // Route::get('/custom-banners/index',AdminCustomBanner::class)->name('custom.banners.index');
 
     ////
     Route::get('/custom-banner/create', [AdminCustomBannerController::class, 'create'])->name('custom.banner.create');
@@ -442,7 +442,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|su
 // newest products banner
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|super_admin'])->group(function () {
      ////
-     Route::get('/newest-product/index',AdminNewestBanner ::class)->name('newest.product.index');
+    //  Route::get('/newest-product/index',AdminNewestBanner ::class)->name('newest.product.index');
      ////
      Route::get('/newest-product/create', [AdminNewestController::class, 'create'])->name('newest.product.create');
      Route::post('/newest-product/store', [AdminNewestController::class, 'store'])->name('newest.product.store');
@@ -455,7 +455,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|su
 // suggestion products banner
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|super_admin'])->group(function () {
     ////
-    Route::get('/suggestion-products/index',AdminSuggestionBanner ::class)->name('suggestion.products.index');
+    // Route::get('/suggestion-products/index',AdminSuggestionBanner ::class)->name('suggestion.products.index');
     ////
     Route::get('/suggestion-products/create', [AdminSuggestionController::class, 'create'])->name('suggestion.products.create');
     Route::get('/suggestion-products/add/{product}', [AdminSuggestionController::class, 'store'])->name('suggestion.products.store');
@@ -468,7 +468,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|su
 // most visited slider
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|super_admin'])->group(function () {
     ////
-    Route::get('/most-visited/index',AdminMostVisitedSlider ::class)->name('most.visited.index');
+    // Route::get('/most-visited/index',AdminMostVisitedSlider ::class)->name('most.visited.index');
     ////
     Route::get('/most-visited/create', [AdminMostVisitedController::class, 'create'])->name('most.visited.create');
     Route::post('/most-visited/store', [AdminMostVisitedController::class, 'store'])->name('most.visited.store');
@@ -480,7 +480,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|su
 // best seller slider
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|super_admin'])->group(function () {
 
-    Route::get('/best-seller/index',AdminBestSellerSlider::class)->name('best.seller.index');
+    // Route::get('/best-seller/index',AdminBestSellerSlider::class)->name('best.seller.index');
     ////
     Route::get('/best-seller/create', [AdminBestSellerController::class, 'create'])->name('best.seller.create');
     Route::post('/best-seller/store', [AdminBestSellerController::class, 'store'])->name('best.seller.store');

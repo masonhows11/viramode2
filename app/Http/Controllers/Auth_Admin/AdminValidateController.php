@@ -13,7 +13,7 @@ class AdminValidateController extends Controller
     //
     public function validateEmailForm()
     {
-        return view('admin_auth.validate_email');
+        return view('auth_admin.validate_email');
     }
     public function validateEmail(Request $request)
     {
