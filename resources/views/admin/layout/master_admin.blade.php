@@ -45,7 +45,7 @@
 		</div>
 	
 
-        {{-- @include('admin.layout.partials.partials') --}}
+        @include('admin.layout.partials.partials')
 		<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
 			<i class="ki-duotone ki-arrow-up">
 				<span class="path1"></span>
