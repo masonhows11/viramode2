@@ -487,7 +487,7 @@
             <!--end::items-->
             <!--begin::نمایش بیشتر-->
             <div class="py-3 text-center border-top">
-                <a href="../../demo1/dist/pages/user-profile/activity.html" class="btn btn-color-gray-600 btn-active-color-primary">نمایش همه
+                <a href="#" class="btn btn-color-gray-600 btn-active-color-primary">نمایش همه
                 <i class="ki-duotone ki-arrow-left fs-5">
                     <span class="path1"></span>
                     <span class="path2"></span>

@@ -58,7 +58,7 @@
                                     <!--begin::user-->
                                     <div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip"
                                         data-bs-boundary="window" data-bs-placement="top" title="Nina Nilson">
-                                        <img src="assets/media/avatars/300-14.jpg" alt="img" />
+                                        <img src="{{ asset('admin_assets/media/avatars/300-14.jpg') }}" alt="img" />
                                     </div>
                                     <!--end::user-->
                                 </div>
@@ -84,12 +84,12 @@
                                     <div class="symbol-group symbol-hover flex-nowrap flex-grow-1 min-w-100px pe-2">
                                         <!--begin::user-->
                                         <div class="symbol symbol-circle symbol-25px">
-                                            <img src="assets/media/avatars/300-2.jpg" alt="img" />
+                                            <img src="{{ asset('admin_assets/media/avatars/300-2.jpg') }}" alt="img" />
                                         </div>
                                         <!--end::user-->
                                         <!--begin::user-->
                                         <div class="symbol symbol-circle symbol-25px">
-                                            <img src="assets/media/avatars/300-14.jpg" alt="img" />
+                                            <img src="{{ asset('admin_assets/media/avatars/300-14.jpg') }}" alt="img" />
                                         </div>
                                         <!--end::user-->
                                         <!--begin::user-->
@@ -128,7 +128,7 @@
                                     <div class="symbol-group symbol-hover flex-nowrap flex-grow-1 min-w-100px">
                                         <!--begin::user-->
                                         <div class="symbol symbol-circle symbol-25px">
-                                            <img src="assets/media/avatars/300-20.jpg" alt="img" />
+                                            <img src="{{ asset('admin_assets/media/avatars/300-20.jpg') }}" alt="img" />
                                         </div>
                                         <!--end::user-->
                                         <!--begin::user-->
@@ -145,7 +145,7 @@
                                     </div>
                                     <!--end::پردازش-->
                                     <!--begin::Actions-->
-                                    <a href="../../demo1/dist/apps/projects/project.html"
+                                    <a href="#"
                                         class="btn btn-sm btn-light btn-active-light-primary">نمایش</a>
                                     <!--end::Actions-->
                                 </div>
@@ -187,7 +187,7 @@
                                     <!--begin::user-->
                                     <div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip"
                                         data-bs-boundary="window" data-bs-placement="top" title="Alan Nilson">
-                                        <img src="assets/media/avatars/300-1.jpg" alt="img" />
+                                        <img src="{{ asset('admin_assets/media/avatars/300-1.jpg') }}" alt="img" />
                                     </div>
                                     <!--end::user-->
                                 </div>
@@ -232,7 +232,7 @@
                                     <!--begin::user-->
                                     <div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip"
                                         data-bs-boundary="window" data-bs-placement="top" title="Jan Hummer">
-                                        <img src="assets/media/avatars/300-23.jpg" alt="img" />
+                                        <img src="{{ asset('admin_assets/media/avatars/300-23.jpg') }}" alt="img" />
                                     </div>
                                     <!--end::user-->
                                 </div>
@@ -247,12 +247,12 @@
                                     <div class="d-flex flex-aligns-center pe-10 pe-lg-20">
                                         <!--begin::Icon-->
                                         <img alt="" class="w-30px me-3"
-                                            src="assets/media/svg/files/pdf.svg" />
+                                            src="{{ asset('admin_assets/media/svg/files/pdf.svg') }}" />
                                         <!--end::Icon-->
                                         <!--begin::Info-->
                                         <div class="ms-1 fw-semibold">
                                             <!--begin::Desc-->
-                                            <a href="../../demo1/dist/apps/projects/project.html"
+                                            <a href="#"
                                                 class="fs-6 text-hover-primary fw-bold">دارایی، مالیه، سرمایه گذاری
                                             </a>
                                             <!--end::Desc-->
@@ -266,8 +266,8 @@
                                     <!--begin::item-->
                                     <div class="d-flex flex-aligns-center pe-10 pe-lg-20">
                                         <!--begin::Icon-->
-                                        <img alt="../../demo1/dist/apps/projects/project.html" class="w-30px me-3"
-                                            src="assets/media/svg/files/doc.svg" />
+                                        <img alt="#" class="w-30px me-3"
+                                            src="{{ asset('admin_assets/media/svg/files/doc.svg') }}" />
                                         <!--end::Icon-->
                                         <!--begin::Info-->
                                         <div class="ms-1 fw-semibold">
@@ -285,8 +285,8 @@
                                     <!--begin::item-->
                                     <div class="d-flex flex-aligns-center">
                                         <!--begin::Icon-->
-                                        <img alt="../../demo1/dist/apps/projects/project.html" class="w-30px me-3"
-                                            src="assets/media/svg/files/css.svg" />
+                                        <img alt="#" class="w-30px me-3"
+                                            src="{{ asset('admin_assets/media/svg/files/css.svg') }}" />
                                         <!--end::Icon-->
                                         <!--begin::Info-->
                                         <div class="ms-1 fw-semibold">
@@ -341,7 +341,7 @@
                                     <!--begin::user-->
                                     <div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip"
                                         data-bs-boundary="window" data-bs-placement="top" title="Nina Nilson">
-                                        <img src="assets/media/avatars/300-14.jpg" alt="img" />
+                                        <img src="{{ asset('admin_assets/media/avatars/300-14.jpg') }}" alt="img" />
                                     </div>
                                     <!--end::user-->
                                 </div>
@@ -382,7 +382,7 @@
                                     <!--begin::user-->
                                     <div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip"
                                         data-bs-boundary="window" data-bs-placement="top" title="Marcus Dotson">
-                                        <img src="assets/media/avatars/300-2.jpg" alt="img" />
+                                        <img src="{{ asset('admin_assets/media/avatars/300-2.jpg') }}" alt="img" />
                                     </div>
                                     <!--end::user-->
                                 </div>
@@ -398,7 +398,7 @@
                                         <!--begin::Image-->
                                         <div class="overlay-wrapper">
                                             <img alt="img" class="rounded w-150px"
-                                                src="assets/media/stock/600x400/img-29.jpg" />
+                                                src="{{ asset('admin_assets/media/stock/600x400/img-29.jpg') }}" />
                                         </div>
                                         <!--end::Image-->
                                         <!--begin::Link-->
@@ -413,7 +413,7 @@
                                         <!--begin::Image-->
                                         <div class="overlay-wrapper">
                                             <img alt="img" class="rounded w-150px"
-                                                src="assets/media/stock/600x400/img-31.jpg" />
+                                                src="{{ asset('admin_assets/media/stock/600x400/img-31.jpg') }}" />
                                         </div>
                                         <!--end::Image-->
                                         <!--begin::Link-->
@@ -428,7 +428,7 @@
                                         <!--begin::Image-->
                                         <div class="overlay-wrapper">
                                             <img alt="img" class="rounded w-150px"
-                                                src="assets/media/stock/600x400/img-40.jpg" />
+                                                src="{{ asset('admin_assets/media/stock/600x400/img-40.jpg') }}" />
                                         </div>
                                         <!--end::Image-->
                                         <!--begin::Link-->
@@ -520,7 +520,7 @@
                                     <!--begin::user-->
                                     <div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip"
                                         data-bs-boundary="window" data-bs-placement="top" title="Robert Rich">
-                                        <img src="assets/media/avatars/300-4.jpg" alt="img" />
+                                        <img src="{{ asset('admin_assets/media/avatars/300-4.jpg') }}" alt="img" />
                                     </div>
                                     <!--end::user-->
                                 </div>
@@ -613,7 +613,7 @@
         <!--end::Body-->
         <!--begin::Footer-->
         <div class="card-footer py-5 text-center" id="kt_activities_footer">
-            <a href="../../demo1/dist/pages/user-profile/activity.html" class="btn btn-bg-body text-primary">نمایش
+            <a href="#" class="btn btn-bg-body text-primary">نمایش
                 تمام فعالیت ها
                 <i class="ki-duotone ki-arrow-left fs-3 text-primary">
                     <span class="path1"></span>
@@ -758,7 +758,7 @@
                         <div class="d-flex align-items-center mb-2">
                             <!--begin::Avatar-->
                             <div class="symbol symbol-35px symbol-circle">
-                                <img alt="Pic" src="assets/media/avatars/300-25.jpg" />
+                                <img alt="Pic" src="{{ asset('admin_assets/media/avatars/300-25.jpg') }}" />
                             </div>
                             <!--end::Avatar-->
                             <!--begin::Details---->
@@ -793,7 +793,7 @@
                             <!--end::Details---->
                             <!--begin::Avatar-->
                             <div class="symbol symbol-35px symbol-circle">
-                                <img alt="Pic" src="assets/media/avatars/300-1.jpg" />
+                                <img alt="Pic" src="{{ asset('admin_assets/media/avatars/300-1.jpg') }}" />
                             </div>
                             <!--end::Avatar-->
                         </div>
@@ -815,7 +815,7 @@
                         <div class="d-flex align-items-center mb-2">
                             <!--begin::Avatar-->
                             <div class="symbol symbol-35px symbol-circle">
-                                <img alt="Pic" src="assets/media/avatars/300-25.jpg" />
+                                <img alt="Pic" src="{{ asset('admin_assets/media/avatars/300-25.jpg') }}" />
                             </div>
                             <!--end::Avatar-->
                             <!--begin::Details---->
@@ -849,7 +849,7 @@
                             <!--end::Details---->
                             <!--begin::Avatar-->
                             <div class="symbol symbol-35px symbol-circle">
-                                <img alt="Pic" src="assets/media/avatars/300-1.jpg" />
+                                <img alt="Pic" src="{{ asset('admin_assets/media/avatars/300-1.jpg') }}" />
                             </div>
                             <!--end::Avatar-->
                         </div>
@@ -871,7 +871,7 @@
                         <div class="d-flex align-items-center mb-2">
                             <!--begin::Avatar-->
                             <div class="symbol symbol-35px symbol-circle">
-                                <img alt="Pic" src="assets/media/avatars/300-25.jpg" />
+                                <img alt="Pic" src="{{ asset('admin_assets/media/avatars/300-25.jpg') }}" />
                             </div>
                             <!--end::Avatar-->
                             <!--begin::Details---->
@@ -887,7 +887,7 @@
                         <div class="p-5 rounded bg-light-info text-dark fw-semibold mw-lg-400px text-start"
                             data-kt-element="message-text">شما می توانید با کلیک بر روی اینجا فوراً این مخزن را تماشا
                             کنید:
-                            <a href="https://keenthemes.com">satrasweb.ir</a>
+                            <a href="#">satrasweb.ir</a>
                         </div>
                         <!--end::Text-->
                     </div>
@@ -908,7 +908,7 @@
                             <!--end::Details---->
                             <!--begin::Avatar-->
                             <div class="symbol symbol-35px symbol-circle">
-                                <img alt="Pic" src="assets/media/avatars/300-1.jpg" />
+                                <img alt="Pic" src="{{ asset('admin_assets/media/avatars/300-1.jpg') }}" />
                             </div>
                             <!--end::Avatar-->
                         </div>
@@ -929,7 +929,7 @@
                         <div class="d-flex align-items-center mb-2">
                             <!--begin::Avatar-->
                             <div class="symbol symbol-35px symbol-circle">
-                                <img alt="Pic" src="assets/media/avatars/300-25.jpg" />
+                                <img alt="Pic" src="{{ asset('admin_assets/media/avatars/300-25.jpg') }}" />
                             </div>
                             <!--end::Avatar-->
                             <!--begin::Details---->
@@ -964,7 +964,7 @@
                             <!--end::Details---->
                             <!--begin::Avatar-->
                             <div class="symbol symbol-35px symbol-circle">
-                                <img alt="Pic" src="assets/media/avatars/300-1.jpg" />
+                                <img alt="Pic" src="{{  asset('admin_assets/media/avatars/300-1.jpg') }}" />
                             </div>
                             <!--end::Avatar-->
                         </div>
@@ -985,7 +985,7 @@
                         <div class="d-flex align-items-center mb-2">
                             <!--begin::Avatar-->
                             <div class="symbol symbol-35px symbol-circle">
-                                <img alt="Pic" src="assets/media/avatars/300-25.jpg" />
+                                <img alt="Pic" src="{{ asset('admin_assets/media/avatars/300-25.jpg') }}" />
                             </div>
                             <!--end::Avatar-->
                             <!--begin::Details---->
@@ -1079,7 +1079,7 @@
                 <div class="d-flex flex-column me-3">
                     <!--begin::Section-->
                     <div class="mb-3">
-                        <a href="../../demo1/dist/apps/ecommerce/sales/details.html"
+                        <a href="#"
                             class="text-gray-800 text-hover-primary fs-4 fw-bold">ایبلندر</a>
                         <span class="text-gray-400 fw-semibold d-block">بهترین گجت آشپزخانه در سال 2022</span>
                     </div>
@@ -1102,7 +1102,7 @@
                 <!--end::Wrapper-->
                 <!--begin::Pic-->
                 <div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-                    <img src="assets/media/stock/600x400/img-1.jpg" alt="" />
+                    <img src="{{ asset('admin_assets/media/stock/600x400/img-1.jpg') }}" alt="" />
                 </div>
                 <!--end::Pic-->
             </div>
@@ -1139,7 +1139,7 @@
                 <!--end::Wrapper-->
                 <!--begin::Pic-->
                 <div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-                    <img src="assets/media/stock/600x400/img-3.jpg" alt="" />
+                    <img src="{{ asset('admin_assets/media/stock/600x400/img-3.jpg') }}" alt="" />
                 </div>
                 <!--end::Pic-->
             </div>
@@ -1153,7 +1153,7 @@
                 <div class="d-flex flex-column me-3">
                     <!--begin::Section-->
                     <div class="mb-3">
-                        <a href="../../demo1/dist/apps/ecommerce/sales/details.html"
+                        <a href="#"
                             class="text-gray-800 text-hover-primary fs-4 fw-bold">دوربین</a>
                         <span class="text-gray-400 fw-semibold d-block">دوربین حرفه ای حرفه ای برای لبه</span>
                     </div>
@@ -1176,7 +1176,7 @@
                 <!--end::Wrapper-->
                 <!--begin::Pic-->
                 <div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-                    <img src="assets/media/stock/600x400/img-8.jpg" alt="" />
+                    <img src="{{ asset('admin_assets/media/stock/600x400/img-8.jpg') }}" alt="" />
                 </div>
                 <!--end::Pic-->
             </div>
@@ -1190,7 +1190,7 @@
                 <div class="d-flex flex-column me-3">
                     <!--begin::Section-->
                     <div class="mb-3">
-                        <a href="../../demo1/dist/apps/ecommerce/sales/details.html"
+                        <a href="#"
                             class="text-gray-800 text-hover-primary fs-4 fw-bold">$D پرینتer</a>
                         <span class="text-gray-400 fw-semibold d-block">ساخت اشیاء منحصر به فرد</span>
                     </div>
@@ -1213,7 +1213,7 @@
                 <!--end::Wrapper-->
                 <!--begin::Pic-->
                 <div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-                    <img src="assets/media/stock/600x400/img-26.jpg" alt="" />
+                    <img src="{{ asset('admin_assets/media/stock/600x400/img-26.jpg') }}" alt="" />
                 </div>
                 <!--end::Pic-->
             </div>
@@ -1227,7 +1227,7 @@
                 <div class="d-flex flex-column me-3">
                     <!--begin::Section-->
                     <div class="mb-3">
-                        <a href="../../demo1/dist/apps/ecommerce/sales/details.html"
+                        <a href="#"
                             class="text-gray-800 text-hover-primary fs-4 fw-bold">MotionWire</a>
                         <span class="text-gray-400 fw-semibold d-block">Perfect animation tool</span>
                     </div>
@@ -1250,7 +1250,7 @@
                 <!--end::Wrapper-->
                 <!--begin::Pic-->
                 <div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-                    <img src="assets/media/stock/600x400/img-21.jpg" alt="" />
+                    <img src="{{  asset('admin_assets/media/stock/600x400/img-21.jpg') }}" alt="" />
                 </div>
                 <!--end::Pic-->
             </div>
@@ -1264,7 +1264,7 @@
                 <div class="d-flex flex-column me-3">
                     <!--begin::Section-->
                     <div class="mb-3">
-                        <a href="../../demo1/dist/apps/ecommerce/sales/details.html"
+                        <a href="#"
                             class="text-gray-800 text-hover-primary fs-4 fw-bold">Samsung</a>
                         <span class="text-gray-400 fw-semibold d-block">پروفایل info,timeline etc</span>
                     </div>
@@ -1287,7 +1287,7 @@
                 <!--end::Wrapper-->
                 <!--begin::Pic-->
                 <div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-                    <img src="assets/media/stock/600x400/img-34.jpg" alt="" />
+                    <img src="{{ asset('admin_assets/media/stock/600x400/img-34.jpg') }}" alt="" />
                 </div>
                 <!--end::Pic-->
             </div>
@@ -1301,7 +1301,7 @@
                 <div class="d-flex flex-column me-3">
                     <!--begin::Section-->
                     <div class="mb-3">
-                        <a href="../../demo1/dist/apps/ecommerce/sales/details.html"
+                        <a href="#"
                             class="text-gray-800 text-hover-primary fs-4 fw-bold">$D پرینتer</a>
                         <span class="text-gray-400 fw-semibold d-block">ساخت اشیاء منحصر به فرد</span>
                     </div>
@@ -1324,7 +1324,7 @@
                 <!--end::Wrapper-->
                 <!--begin::Pic-->
                 <div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-                    <img src="assets/media/stock/600x400/img-27.jpg" alt="" />
+                    <img src="{{ asset('admin_assets/media/stock/600x400/img-27.jpg') }}" alt="" />
                 </div>
                 <!--end::Pic-->
             </div>
