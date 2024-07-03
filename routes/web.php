@@ -1,6 +1,10 @@
 <?php
 
+
+
+
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SiteMapController;
 use App\Http\Controllers\Dash\AdminController;
@@ -40,10 +44,9 @@ Route::controller(HomeController::class)->group(function () {
 
 
 
-Route::get('/about_us', [\App\Http\Controllers\Front\AboutUs\AboutUsController::class, 'aboutUs'])->name('about_us');
-
-Route::get('/contact_us', [\App\Http\Controllers\Front\ContactUs\ContactUsController::class, 'contactUs'])->name('contact_us');
-Route::post('/contact_us/store',[\App\Http\Controllers\Front\ContactUs\ContactUsController::class, 'store'])->name('contact_us.store');
+Route::get('/about_us', [AboutUsController::class, 'aboutUs'])->name('about_us');
+Route::get('/contact_us', [ContactUsController::class, 'contactUs'])->name('contact_us');
+Route::post('/contact_us/store',[ContactUsController::class, 'store'])->name('contact_us.store');
 
 
 Route::controller(SiteMapController::class)->group(function(){
@@ -131,19 +134,19 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin'
 
 });
 
-// Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
+ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
 
-//     Route::get('/users/index', AdminUsers::class)->name('users');
-//     Route::get('/admins/index', AdminAdmins::class)->name('admins');
+    Route::get('/users/index', AdminUsers::class)->name('users');
+    Route::get('/admins/index', AdminAdmins::class)->name('admins');
 
-// });
+});
 
-// Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
+Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
 
-//     Route::get('/perms/index', AdminPerms::class)->name('perms');
-//     Route::get('/roles/index', AdminRoles::class)->name('roles');
+    Route::get('/perms/index', AdminPerms::class)->name('perms');
+    Route::get('/roles/index', AdminRoles::class)->name('roles');
 
-// });
+});
 
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
 
