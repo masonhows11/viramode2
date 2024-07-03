@@ -98,15 +98,11 @@
 
                     <div class="menu-item pt-5">
                         <div class="menu-content">
-                            <span class="menu-heading fw-bold text-uppercase fs-7">منو</span>
+                            <span class="menu-heading fw-bold text-uppercase fs-7">{{ __('messages.main_menu') }}</span>
                         </div>
                     </div>
 
-                    <div class="menu-item">
-                        <div class="menu-content pt-8 pb-2">
-                            <span class="menu-section text-muted text-uppercase fs-8 ls-1">{{ __('messages.main_menu') }}</span>
-                        </div>
-                    </div>
+                  
                     <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                         <span class="menu-link">
                             <span class="menu-icon">
@@ -721,7 +717,8 @@
                             {{--   custom products banner    --}}
                             <div class="menu-item">
                                 <a class="menu-link {{ $route === 'admin.custom.banners.index' ? 'active' : '' }}"
-                                   href="{{ route('admin.custom.banners.index') }}">
+                                   href="#">
+                                   {{-- {{ route('admin.custom.banners.index') }} --}}
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
@@ -731,7 +728,8 @@
                             {{--   newest products banner    --}}
                             <div class="menu-item">
                                 <a class="menu-link {{ $route === 'admin.newest.product.index' ? 'active' : '' }}"
-                                   href="{{ route('admin.newest.product.index') }}">
+                                   href="#">
+                                   {{-- {{ route('admin.newest.product.index') }} --}}
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
@@ -741,7 +739,8 @@
                             {{--   suggestion products banner    --}}
                             <div class="menu-item">
                                 <a class="menu-link {{ $route === 'admin.suggestion.products.index' ? 'active' : '' }}"
-                                   href="{{ route('admin.suggestion.products.index') }}">
+                                   href="#">
+                                   {{-- {{ route('admin.suggestion.products.index') }} --}}
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>

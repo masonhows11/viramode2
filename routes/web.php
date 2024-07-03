@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Livewire\Admin\Perms\AdminPerms;
 use App\Livewire\Admin\Perms\AdminRoles;
-
 ///
 use App\Livewire\Admin\Tag\AdminTagList;
 use App\Livewire\Admin\Users\AdminUsers;
@@ -20,41 +19,62 @@ use App\Http\Controllers\SiteMapController;
 use App\Livewire\Admin\Product\ProductList;
 use App\Livewire\Admin\Brand\AdminBrandList;
 use App\Livewire\Admin\Brand\AdminEditBrand;
-
 ///
 use App\Livewire\Admin\Order\AdminAllOrders;
 use App\Livewire\Admin\Setting\AdminSetting;
+//
 use App\Http\Controllers\Dash\AdminController;
 use App\Livewire\Admin\Brand\AdminCreateBrand;
-use App\Livewire\Admin\Perms\ListUsersForPerms;
 ///
+use App\Livewire\Admin\Perms\ListUsersForPerms;
 use App\Livewire\Admin\Perms\ListUsersForRoles;
 use App\Livewire\Admin\Category\AdminCategoryEdit;
 use App\Livewire\Admin\Category\AdminCategoryList;
-use App\Livewire\Admin\Comment\AdminSingleComment;
 ///
+use App\Livewire\Admin\Comment\AdminSingleComment;
 use App\Livewire\Admin\Delivery\AdminDeliveryList;
-use App\Livewire\Admin\Attribute\AdminAttributeList;
 //
+use App\Livewire\Admin\Attribute\AdminAttributeList;
 use App\Livewire\Admin\Category\AdminCategoryCreate;
 use App\Livewire\Admin\Attribute\AdminAttributeValue;
+//
 use App\Livewire\Admin\Attribute\AdminAttributeCreate;
 use App\Http\Controllers\Auth_User\LoginUserController;
 use App\Http\Controllers\Dash\AdminPermAssignController;
+//
 use App\Http\Controllers\Dash\AdminRoleAssignController;
-use App\Http\Controllers\Auth_Admin\AdminLoginController;
+//
+use App\Http\Controllers\Dash\Payment\PaymentController as DashPaymentController;
+//
 use App\Http\Controllers\Front\AboutUs\AboutUsController;
 use App\Http\Controllers\Front\Profile\ProfileController;
-//
 use App\Http\Controllers\Auth_User\RegisterUserController;
 use App\Http\Controllers\Auth_User\ValidateUserController;
+//
+use App\Http\Controllers\Auth_Admin\AdminLoginController;
 use App\Http\Controllers\Auth_Admin\AdminProfileController;
-use App\Livewire\Admin\Attribute\AdminAttributeValueCreate;
 use App\Http\Controllers\Auth_Admin\AdminValidateController;
-use App\Http\Controllers\Front\ContactUs\ContactUsController;
-use App\Http\Controllers\Auth_User\VerifyEmailPromptController;
-use App\Livewire\Admin\CategoryAttribute\AdminCategoryAttribute;
+
 use App\Livewire\Admin\CategoryAttribute\AdminCategoryAttributeValue;
+use App\Livewire\Admin\Attribute\AdminAttributeValueCreate;
+
+//
+use App\Http\Controllers\Dash\StockProduct\StockController;
+use App\Http\Controllers\Dash\Product\ProductEditController;
+use App\Http\Controllers\Dash\Product\ProductMetaController;
+use App\Http\Controllers\Front\ContactUs\ContactUsController;
+use App\Http\Controllers\Dash\Product\ProductCreateController;
+use App\Http\Controllers\Auth_User\VerifyEmailPromptController;
+use App\Http\Controllers\Dash\Product\ProductWarrantyController;
+use App\Livewire\Admin\CategoryAttribute\AdminCategoryAttribute;
+//
+use App\Http\Controllers\Dash\Product\ProductCreateTagController;
+use App\Http\Controllers\Dash\Product\ProductCreateColorController;
+use App\Http\Controllers\Dash\Product\ProductCreateImageController;
+//
+
+use App\Http\Controllers\Dash\Product\ProductEditSpecificationsController;
+use App\Http\Controllers\Dash\Product\ProductCreateSpecificationsController;
 
 
 
@@ -292,16 +312,16 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin'
 // payments routes
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
 
-    Route::get('/payments-all/index', [PaymentController::class, 'index'])->name('payments.all.index');
+    Route::get('/payments-all/index', [DashPaymentController::class, 'index'])->name('payments.all.index');
     ////
-    Route::get('/payments-offline/index', [PaymentController::class, 'offline'])->name('payments.offline.index');
-    Route::get('/payments-online/index', [PaymentController::class, 'online'])->name('payments.online.index');
-    Route::get('/payments-cash/index', [PaymentController::class, 'cash'])->name('payments.cash.index');
+    Route::get('/payments-offline/index', [DashPaymentController::class, 'offline'])->name('payments.offline.index');
+    Route::get('/payments-online/index', [DashPaymentController::class, 'online'])->name('payments.online.index');
+    Route::get('/payments-cash/index', [DashPaymentController::class, 'cash'])->name('payments.cash.index');
     ////
-    Route::get('/payment-canceled/{payment}', [PaymentController::class, 'canceled'])->name('payment.canceled');
-    Route::get('/payment-returned/{payment}', [PaymentController::class, 'returned'])->name('payment.returned');
+    Route::get('/payment-canceled/{payment}', [DashPaymentController::class, 'canceled'])->name('payment.canceled');
+    Route::get('/payment-returned/{payment}', [DashPaymentController::class, 'returned'])->name('payment.returned');
     ////
-    Route::get('/payment-show/{payment}', [PaymentController::class, 'show'])->name('payment.show');
+    Route::get('/payment-show/{payment}', [DashPaymentController::class, 'show'])->name('payment.show');
 });
 
 // common discount routes
@@ -426,6 +446,52 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin'
     Route::get('/change-status/ticket/{ticket}', [AdminTicketController::class, 'changeStatus'])->name('change.status.ticket');
 });
 
+
+
+// notification routes
+Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|super_admin'])->group(function () {
+
+    Route::get('/notification/read-all', [NotificationController::class, 'readNotifications'])->name('notification.read.all');
+
+});
+
+// Notifications email& sms
+Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|super_admin'])->group(function () {
+
+
+    //// email notices routes
+    Route::get('/email-notices/index', [AdminEmailNoticesController::class, 'index'])->name('email.notices.index');
+    // create
+    Route::get('/email-notices/create', [AdminEmailNoticesController::class, 'create'])->name('email.notices.create');
+    Route::post('/email-notices/store', [AdminEmailNoticesController::class, 'store'])->name('email.notices.store');
+    // edit
+    Route::get('/email-notices/edit/{publicMail}', [AdminEmailNoticesController::class, 'edit'])->name('email.notices.edit');
+    Route::post('/email-notices/update', [AdminEmailNoticesController::class, 'update'])->name('email.notices.update');
+    // send mail
+    Route::get('/send-mail/{mail}', [AdminEmailNoticesController::class, 'sendMail'])->name('notices.send.mail');
+    //// sms notices routes
+    Route::get('/sms-notices/index', [AdminSMSNoticeController::class, 'index'])->name('sms.notices.index');
+    // create
+    Route::get('/sms-notices/create', [AdminSMSNoticeController::class, 'create'])->name('sms.notices.create');
+    Route::post('/sms-notices/store', [AdminSMSNoticeController::class, 'store'])->name('sms.notices.store');
+    // edit
+    Route::get('/sms-notices/edit/{publicSms}', [AdminSMSNoticeController::class, 'edit'])->name('sms.notices.edit');
+    Route::post('/sms-notices/update', [AdminSMSNoticeController::class, 'update'])->name('sms.notices.update');
+    // send sms
+    Route::get('/send-sms/{publicSms}', [AdminSMSNoticeController::class, 'sendSms'])->name('notices.send.sms');
+
+});
+
+
+// email notices  file routes
+Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|super_admin'])->group(function () {
+
+    Route::get('/email-notice-file/index', [AdminEmailNoticeFileController::class, 'emailFileIndex'])->name('email.notice.file.index');
+    Route::get('/email-notice-file/create', [AdminEmailNoticeFileController::class, 'create'])->name('email.notice.file.create');
+    Route::post('/email-notice-file/store', [AdminEmailNoticeFileController::class, 'store'])->name('email.notice.file.store');
+
+});
+
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
 
     Route::get('/admin-tickets/index', [AdminAdminTicketController::class, 'index'])->name('admin.tickets.index');
@@ -455,13 +521,14 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|su
 
 // custom  banner
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|super_admin'])->group(function () {
-    ////
+
+
     // Route::get('/custom-banners/index',AdminCustomBanner::class)->name('custom.banners.index');
 
     ////
     Route::get('/custom-banner/create', [AdminCustomBannerController::class, 'create'])->name('custom.banner.create');
     Route::post('/custom-banner/store', [AdminCustomBannerController::class, 'store'])->name('custom.banner.store');
-    // ////
+    //
     // Route::get('/newest-product/edit/{banner}', [AdminNewestController::class, 'edit'])->name('newest.product.edit');
     // Route::post('/newest-product/update', [AdminNewestController::class, 'update'])->name('newest.product.update');
 });
@@ -469,8 +536,9 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|su
 
 // newest products banner
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|super_admin'])->group(function () {
-    ////
+
     //  Route::get('/newest-product/index',AdminNewestBanner ::class)->name('newest.product.index');
+
     ////
     Route::get('/newest-product/create', [AdminNewestController::class, 'create'])->name('newest.product.create');
     Route::post('/newest-product/store', [AdminNewestController::class, 'store'])->name('newest.product.store');
@@ -482,8 +550,9 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|su
 
 // suggestion products banner
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|super_admin'])->group(function () {
-    ////
+
     // Route::get('/suggestion-products/index',AdminSuggestionBanner ::class)->name('suggestion.products.index');
+
     ////
     Route::get('/suggestion-products/create', [AdminSuggestionController::class, 'create'])->name('suggestion.products.create');
     Route::get('/suggestion-products/add/{product}', [AdminSuggestionController::class, 'store'])->name('suggestion.products.store');
@@ -495,8 +564,9 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|su
 
 // most visited slider
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|super_admin'])->group(function () {
-    ////
+
     // Route::get('/most-visited/index',AdminMostVisitedSlider ::class)->name('most.visited.index');
+
     ////
     Route::get('/most-visited/create', [AdminMostVisitedController::class, 'create'])->name('most.visited.create');
     Route::post('/most-visited/store', [AdminMostVisitedController::class, 'store'])->name('most.visited.store');
@@ -509,6 +579,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|su
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'role:admin|super_admin'])->group(function () {
 
     // Route::get('/best-seller/index',AdminBestSellerSlider::class)->name('best.seller.index');
+
     ////
     Route::get('/best-seller/create', [AdminBestSellerController::class, 'create'])->name('best.seller.create');
     Route::post('/best-seller/store', [AdminBestSellerController::class, 'store'])->name('best.seller.store');
