@@ -48375,7 +48375,8 @@ body,
     margin-right: 0.115rem;
   }
   .app-sidebar-menu .menu > .menu-item > .menu-link > .menu-title {
-    font-weight: 600;
+    /* font-weight: 600; */
+    font-weight: 400;
     font-size: 1.1rem;
   }
 }
