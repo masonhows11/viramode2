@@ -8,6 +8,8 @@ class StockProduct extends Component
 {
     public function render()
     {
-        return view('livewire.admin.stock.stock-product');
+        return view('livewire.admin.stock.stock-product')
+        ->extends('admin.layout.master_admin')
+        ->section('admin_main');
     }
 }

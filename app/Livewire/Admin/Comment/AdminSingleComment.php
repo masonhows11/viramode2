@@ -8,6 +8,8 @@ class AdminSingleComment extends Component
 {
     public function render()
     {
-        return view('livewire.admin.comment.admin-single-comment');
+        return view('livewire.admin.comment.admin-single-comment')
+         ->extends('admin.layout.master_admin')
+        ->section('admin_main');
     }
 }

@@ -8,6 +8,8 @@ class AdminCreateBrand extends Component
 {
     public function render()
     {
-        return view('livewire.admin.brand.admin-create-brand');
+        return view('livewire.admin.brand.admin-create-brand')
+        ->extends('admin.layout.master_admin')
+        ->section('admin_main');
     }
 }

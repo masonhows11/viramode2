@@ -8,6 +8,8 @@ class AdminRoles extends Component
 {
     public function render()
     {
-        return view('livewire.admin.perms.admin-roles');
+        return view('livewire.admin.perms.admin-roles')
+        ->extends('admin.layout.master_admin')
+        ->section('admin_main');
     }
 }

@@ -8,6 +8,8 @@ class AdminSetting extends Component
 {
     public function render()
     {
-        return view('livewire.admin.setting.admin-setting');
+        return view('livewire.admin.setting.admin-setting')
+        ->extends('admin.layout.master_admin')
+        ->section('admin_main');
     }
 }

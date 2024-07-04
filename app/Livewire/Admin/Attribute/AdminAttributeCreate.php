@@ -8,6 +8,8 @@ class AdminAttributeCreate extends Component
 {
     public function render()
     {
-        return view('livewire.admin.attribute.admin-attribute-create');
+        return view('livewire.admin.attribute.admin-attribute-create')
+         ->extends('admin.layout.master_admin')
+        ->section('admin_main');
     }
 }

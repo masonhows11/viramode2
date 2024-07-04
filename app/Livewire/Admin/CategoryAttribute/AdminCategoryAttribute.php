@@ -8,6 +8,8 @@ class AdminCategoryAttribute extends Component
 {
     public function render()
     {
-        return view('livewire.admin.category-attribute.admin-category-attribute');
+        return view('livewire.admin.category-attribute.admin-category-attribute')
+         ->extends('admin.layout.master_admin')
+        ->section('admin_main');
     }
 }
