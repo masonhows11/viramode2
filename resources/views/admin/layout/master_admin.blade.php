@@ -40,7 +40,7 @@
                             @include('admin.layout.navigate')
 
 							<div id="kt_app_content" class="app-content flex-column-fluid">
-								<div id="kt_app_content_container" class="app-container container-fluid">
+                                <div id="kt_app_content_container" class="app-container container-xxl">
                                     @yield('admin_main')
 								</div>
 							</div>

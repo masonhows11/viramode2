@@ -13,8 +13,9 @@
         <!--end::Sidebar mobile toggle-->
         <!--begin::Mobile logo-->
         <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
-            <a href="#" class="d-lg-none">
-                <img alt="Logo" src="{{ asset('admin_assets/media/logos/default-small.svg') }}" class="h-30px" />
+            <a href="{{ route('admin.dashboard') }}" class="d-lg-none">
+                <h4 class="h4 ">{{ __('messages.admin_dashboard') }}</h4>
+                {{-- <img alt="Logo" src="{{ asset('admin_assets/media/logos/default-small.svg') }}" class="h-30px" /> --}}
             </a>
         </div>
         <!--end::Mobile logo-->
@@ -24,7 +25,7 @@
             <div class="app-header-menu app-header-mobile-drawer align-items-stretch" data-kt-drawer="true" data-kt-drawer-name="app-header-menu" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="250px" data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_app_header_menu_toggle" data-kt-swapper="true" data-kt-swapper-mode="{default: 'append', lg: 'prepend'}" data-kt-swapper-parent="{default: '#kt_app_body', lg: '#kt_app_header_wrapper'}">
                 <!--begin::Menu-->
                 <div class="menu menu-rounded menu-column menu-lg-row my-5 my-lg-0 align-items-stretch fw-semibold px-2 px-lg-0" id="kt_app_header_menu" data-kt-menu="true">
-                   
+
                     <!--begin:Menu item-->
                     {{-- <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-end" class="menu-item here show menu-here-bg menu-lg-down-accordion me-0 me-lg-2">
                         <!--begin:Menu link-->
@@ -360,7 +361,7 @@
                         <!--end:Menu sub-->
                     </div> --}}
                     <!--end:Menu item-->
-                   
+
 
                 </div>
                 <!--end::Menu-->
@@ -426,7 +427,7 @@
                 @include('admin.layout.partials.profile_menu')
                 <!--end::کاربر menu-->
 
-              
+
                 <div class="app-navbar-item d-lg-none ms-2 me-n2" title="مشاهده header menu">
                     <div class="btn btn-flex btn-icon btn-active-color-primary w-30px h-30px" id="kt_app_header_menu_toggle">
                         <i class="ki-duotone ki-element-4 fs-1">
@@ -435,12 +436,12 @@
                         </i>
                     </div>
                 </div>
-             
-                
+
+
             </div>
-           
+
         </div>
-     
+
     </div>
-  
+
 </div>

@@ -9,9 +9,10 @@
 
     <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
 
-        <a href="#">
-            <img alt="Logo" src="{{  asset('admin_assets/media/logos/default-dark.svg') }}" class="h-25px app-sidebar-logo-default" />
-            <img alt="Logo" src="{{ asset('admin_assets/media/logos/default-small.svg') }}" class="h-20px app-sidebar-logo-minimize" />
+        <a href="{{ route('admin.dashboard') }}">
+            <h4 class="h4 text-white">{{ __('messages.admin_dashboard') }}</h4>
+            {{-- <img alt="Logo" src="{{  asset('admin_assets/media/logos/default-dark.svg') }}" class="h-25px app-sidebar-logo-default" />
+            <img alt="Logo" src="{{ asset('admin_assets/media/logos/default-small.svg') }}" class="h-20px app-sidebar-logo-minimize" /> --}}
         </a>
         <!--end::Logo image-->
         <!--begin::Sidebar toggle-->
@@ -77,7 +78,7 @@
 
                         <div class="menu-sub menu-sub-accordion">
                             <div class="menu-item">
-                                <a class="menu-link active" href="#">
+                                <a class="menu-link active" href="{{ route('admin.dashboard') }}">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
@@ -85,7 +86,7 @@
                                 </a>
                             </div>
                             <div class="menu-item">
-                                <a class="menu-link" href="#">
+                                <a class="menu-link" href="{{ route('home') }}">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
@@ -102,7 +103,7 @@
                         </div>
                     </div>
 
-                  
+
                     <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                         <span class="menu-link">
                             <span class="menu-icon">
