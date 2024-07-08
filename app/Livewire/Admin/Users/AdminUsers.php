@@ -42,9 +42,9 @@ class AdminUsers extends Component
         try {
             User::destroy($this->delete_id);
             $this->dispatch('show-result', type:'success',message:'رکورد با موفقیت حذف شد');
-//            $this->dispatch('show-result',
-//                ['type' => 'success',
-//                    'message' => 'رکورد با موفقیت حذف شد']);
+            //            $this->dispatch('show-result',
+            //                ['type' => 'success',
+            //                    'message' => 'رکورد با موفقیت حذف شد']);
         } catch (\Exception $ex) {
             return view('errors_custom.model_not_found');
         }
