@@ -61,6 +61,7 @@ class AdminUsers extends Component
         ->extends('admin.layout.master_admin')
         ->section('admin_main')
             ->with(['users' => User::where('name','like','%'.$this->search.'%')
-                ->orWhere('first_name','like','%'.$this->search.'%')->orderBy('id','asc')->paginate(8)]);
+                ->orWhere('first_name','like','%'.$this->search.'%')
+                ->orWhere('email','like','%'.$this->search.'%')->orderBy('id','asc')->paginate(8)]);
     }
 }

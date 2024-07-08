@@ -18,7 +18,8 @@
         <div class="row d-flex justify-content-center search-category-section">
             <div class="col">
                 <div class="mb-3 mt-3">
-                    <input wire:model.live.debounce.500ms="search" placeholder="{{ __('messages.search') }}" type="text" class="form-control" id="search">
+                    <input wire:model.live.debounce.500ms="search" placeholder="{{ __('messages.search') }}" type="text"
+                           class="form-control" id="search">
                 </div>
             </div>
         </div>
@@ -31,37 +32,32 @@
                         <th>{{ __('messages.id') }}</th>
                         <th>{{ __('messages.user_name') }}</th>
                         <th>{{ __('messages.email')}}</th>
-                        {{-- <th>{{ __('messages.delete_model') }}</th> --}}
+                        <th>{{ __('messages.delete_model') }}</th>
                         <th>{{ __('messages.status') }}</th>
                     </tr>
                     </thead>
                     <tbody>
                     @isset($users)
                         @foreach($users as $user)
-
                             <tr class="text-center">
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email ? $user->email : null}}</td>
-                                @if($user->hasRole('admin'))
-                                @else
-                                    {{-- <td class="mb-3">
-                                        <a href="javascript:void(0)"
-                                           class="btn btn-sm btn-danger"
-                                           wire:click.prevent="deleteConfirmation({{ $user->id }})">
-                                            {{ __('messages.delete_model') }}
-                                        </a>
-                                    </td> --}}
-                                    <td class="mb-3">
-                                        <a href="#" wire:click.prevent="activeUser({{ $user->id }})"
-                                           class="btn
+                                <td class="mb-3">
+                                    <a href="javascript:void(0)"
+                                       class="btn btn-sm btn-danger"
+                                       wire:click.prevent="deleteConfirmation({{ $user->id }})">
+                                        {{ __('messages.delete_model') }}
+                                    </a>
+                                </td>
+                                <td class="mb-3">
+                                    <a href="#" wire:click.prevent="activeUser({{ $user->id }})"
+                                       class="btn
                                         {{ $user->activate == 0 ?   'btn-danger' : 'btn-success' }} btn-sm mb-3">
-                                            {{ $user->activate == 0 ? __('messages.deactivate') : __('messages.active') }}
-                                        </a>
-                                    </td>
-                                @endif
+                                        {{ $user->activate == 0 ? __('messages.deactivate') : __('messages.active') }}
+                                    </a>
+                                </td>
                             </tr>
-
                         @endforeach
                     @endisset
                     </tbody>
