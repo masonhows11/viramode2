@@ -29,3 +29,4 @@
 <script src="{{ asset('admin_assets/js/custom/utilities/modals/new-target.js') }}"></script>
 <script src="{{ asset('admin_assets/js/custom/utilities/modals/users-search.js') }}"></script>
 <!--end::سفارشی Javascript-->
+@livewireScripts
