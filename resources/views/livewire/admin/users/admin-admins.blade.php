@@ -18,7 +18,7 @@
             <div class="row d-flex justify-content-center search-category-section">
                 <div class="col">
                     <div class="mb-3 mt-3">
-                        <input wire:model.debounce.500ms="search" placeholder="{{ __('messages.search') }}" type="text" class="form-control" id="search">
+                        <input wire:model.live.debounce.500ms="search" placeholder="{{ __('messages.search') }}" type="text" class="form-control" id="search">
                     </div>
                 </div>
             </div>
@@ -84,8 +84,9 @@
                     </table>
                 </div>
             </div>
+
             <div class="row d-flex justify-content-center bg-white my-4 ">
-                <div class="col-lg-4 col-md-4 my-2 pt-2 pb-2">
+                <div class="d-flex justify-content-center col-lg-4 col-md-4 my-2 pt-2 pb-2">
                     {{ $admins->links() }}
                 </div>
             </div>
