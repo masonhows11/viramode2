@@ -66,7 +66,7 @@
 		<!--begin::Javascript-->
         @include('admin.layout.scripts')
 		<!--end::Javascript-->
-        @stack('admin_custom_scripts')
+        @stack('dash_custom_script')
 
 	</body>
 

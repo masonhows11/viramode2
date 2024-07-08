@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Users;
 
 use App\Models\User;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -30,23 +31,20 @@ class AdminUsers extends Component
         }
     }
 
-    // step 1 : confirm delete alert
+
     public function deleteConfirmation($id)
     {
         $this->delete_id = $id;
-        $this->dispatchBrowserEvent('show-delete-confirmation');
+        $this->dispatch('show-delete-confirmation');
     }
-    // step 2 : add confirm listener
-    protected $listeners = [
-        'deleteConfirmed' => 'deleteUser',
-    ];
-    // step 3 : delete model on listener
+
+
+    #[On('deleteConfirmed')]
     public function deleteUser()
     {
-        // dd('hi');
         try {
             User::destroy($this->delete_id);
-            $this->dispatchBrowserEvent('show-result',
+            $this->dispatch('show-result',
                 ['type' => 'success',
                     'message' => 'رکورد با موفقیت حذف شد']);
         } catch (\Exception $ex) {
