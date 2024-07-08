@@ -1,11 +1,11 @@
-@extends('admin_end.include.master_dash')
+@extends('admin.layout.master_admin')
 @section('dash_page_title')
     {{ __('messages.roles_assignment') }}
 @endsection
 @section('breadcrumb')
    {{ Breadcrumbs::render('admin.roles.assign') }}
 @endsection
-@section('dash_main_content')
+@section('admin_main')
 
     <div class="container-fluid">
 
