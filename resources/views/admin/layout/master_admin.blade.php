@@ -2,7 +2,7 @@
 <html direction="rtl" dir="rtl" style="direction: rtl" >
 
 	<head><base href=""/>
-		<title>@yield('admin_title')</title>
+		<title>@yield('dash_page_title')</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
         @include('admin.layout.styles')
