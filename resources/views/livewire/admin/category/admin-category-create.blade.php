@@ -125,15 +125,15 @@
                     @enderror
                 </div>
 
-                <div class="col-sm-4 d-flex justify-content-center align-items-center">
+                <div class="col-sm-4 d-flex justify-content-center ">
                     <!-- image container -->
-                    <div class="">
+                    <div class="mt-7 ms-7">
                         @if ($image_path)
-                            <img src="{{ $image_path->temporaryUrl() }}" width="200" height="200"
+                            <img src="{{ $image_path->temporaryUrl() }}" width="300" height="300"
                                  alt="logo_image_path" class="rounded border border-2 image-admin-preview">
                         @else
                             <img src="{{ asset('admin_assets/images/no-image-icon-23494.png') }}"
-                                 width="200" height="200" alt="logo_image_path"
+                                 width="300" height="300" alt="logo_image_path"
                                  class="rounded border border-2 image-admin-preview">
                         @endif
                     </div>
