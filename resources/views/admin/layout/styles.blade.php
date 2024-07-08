@@ -12,6 +12,7 @@
 <link href="{{ asset('admin_assets/plugins/global/plugins.bundle.rtl.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('admin_assets/css/style.bundle.rtl.css') }}" rel="stylesheet" type="text/css" />
 <!--end::Global Stylesheets Bundle-->
-
+<!--admin custom Stylesheets-->
+<link href="{{ asset('admin_assets/css/admin_custom.css') }}" rel="stylesheet" type="text/css" />
 <script>// Frame-busting to prevent site from being loaded within a frame without permission (click-jacking) if (window.top != window.self) { window.top.location.replace(window.self.location.href); }</script>
 @livewireStyles
