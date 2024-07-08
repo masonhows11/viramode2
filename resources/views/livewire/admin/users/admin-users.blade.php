@@ -105,12 +105,10 @@
             }
         });
         document.addEventListener('show-result', ({detail: {type, message}}) => {
-
             Toast.fire({
                 icon: type,
                 title: message
             })
         })
-
     </script>
 @endpush
