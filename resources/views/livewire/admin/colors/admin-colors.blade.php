@@ -81,7 +81,7 @@
                             <td>{{ $color->code }}</td>
                             <td><span class="badge badge-circle" style=" background-color: {{ $color->code }}"></span>
                             </td>
-                            <td><a class="mt-3" href="javascript:void(0)" wire:click.edit="edit({{$color->id}})"><i
+                            <td><a class="mt-3" href="#" wire:click.prevent="edit({{$color->id}})"><i
                                         class="mt-3 fa fa-edit"></i></a></td>
                             <td><a class="mt-3" href="javascript:void(0)"
                                    wire:click.prevent="deleteConfirmation({{ $color->id }})"><i
