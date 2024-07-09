@@ -4,6 +4,7 @@ namespace App\Livewire\Admin\CategoryAttribute;
 
 use App\Models\CategoryAttribute;
 use App\Models\CategoryAttributeValue;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class AdminCategoryAttributeValue extends Component
@@ -11,7 +12,6 @@ class AdminCategoryAttributeValue extends Component
     public $cat_attr_id;
     public $cat_attr_val_id;
     public $edit_mode = false;
-
 
     // property for store
     public $value;
@@ -22,10 +22,7 @@ class AdminCategoryAttributeValue extends Component
 
     public function mount($attribute)
     {
-
         $this->cat_attr_id = $attribute;
-
-
     }
 
     protected $rules = [
@@ -35,7 +32,6 @@ class AdminCategoryAttributeValue extends Component
         'product_id' => ['required', 'exists:products,id'],
         'type' => ['required']
     ];
-
     protected $messages = [
         'product_id.required' => 'فیلد محصول الزامی است',
         'value.required' => 'فیلد مقدار الزامی است',
@@ -47,12 +43,9 @@ class AdminCategoryAttributeValue extends Component
 
     public function save()
     {
-        // $this->validate();
-
+         $this->validate();
         try {
             if ($this->edit_mode == false) {
-
-
                 $model = CategoryAttributeValue::create([
                     'product_id' => $this->product_id,
                     'category_attribute_id' => $this->cat_attr_id,
@@ -61,21 +54,14 @@ class AdminCategoryAttributeValue extends Component
                     'price_increase' => $this->price_increase,
                     'type' => $this->type,
                 ]);
-
-
                 $this->product_id = '';
                 $this->value = '';
                 $this->price_increase = '';
                 $this->type = '';
                 $this->quantity = '';
-
-
-                $this->dispatchBrowserEvent('show-result',
-                    ['type' => 'success',
-                        'message' => __('messages.New_record_saved_successfully')]);
-
-
-            } elseif ($this->edit_mode == true) {
+                $this->dispatch('show-result',type:'success',message:__('messages.New_record_saved_successfully'));
+            } elseif ($this->edit_mode == true)
+            {
                 CategoryAttributeValue::where('id', $this->cat_attr_val_id)
                     ->update(['product_id' => $this->product_id,
                         'category_attribute_id' => $this->cat_attr_id,
@@ -83,17 +69,13 @@ class AdminCategoryAttributeValue extends Component
                         'quantity' => $this->quantity,
                         'price_increase' => $this->price_increase,
                         'type' => $this->type,]);
-
                 $this->product_id = '';
                 $this->value = '';
                 $this->price_increase = '';
                 $this->quantity = '';
                 $this->type = '';
                 $this->edit_mode = true;
-
-                $this->dispatchBrowserEvent('show-result',
-                    ['type' => 'success',
-                        'message' => __('messages.The_update_was_completed_successfully')]);
+                $this->dispatch('show-result', type:'success',message:__('messages.The_update_was_completed_successfully'));
             }
 
         } catch (\Exception $ex) {
@@ -119,29 +101,21 @@ class AdminCategoryAttributeValue extends Component
             return view('errors_custom.model_not_found');
         }
         return null;
-
     }
-
 
     public function deleteConfirmation($id)
     {
         $this->cat_attr_val_id = $id;
-        $this->dispatchBrowserEvent('show-delete-confirmation');
+        $this->dispatch('show-delete-confirmation');
     }
 
-    protected $listeners = [
-        'deleteConfirmed' => 'deleteModel',
-    ];
-
+    #[On('deleteConfirmed')]
     public function deleteModel()
     {
         try {
-
             $model = CategoryAttributeValue::findOrFail($this->cat_attr_val_id);
             $model->delete();
-            $this->dispatchBrowserEvent('show-result',
-                ['type' => 'success',
-                    'message' => __('messages.The_deletion_was_successful')]);
+            $this->dispatch('show-result',type:'success',message:__('messages.The_deletion_was_successful'));
         } catch (\Exception $ex) {
             return view('errors_custom.model_not_found');
         }
