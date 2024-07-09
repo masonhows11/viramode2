@@ -117,14 +117,15 @@
         })
         @if(session()->has('warning'))
         Toast.fire({
-            icon: 'warning',
-            title:'{{ session()->get('warning') }}',
-        })
-        @elseif(session()->has('success'))
+            icon: " warning ",
+            title:"{{ session()->get('warning') }}"
+        });
+        @endif
+        @if(session()->has('success'))
         Toast.fire({
-            icon: 'success',
-            title: '{{ session()->get('success') }}',
-        })
+            icon: "success",
+            title: "{{ session()->get('success') }}"
+        });
         @endif
     </script>
 @endpush

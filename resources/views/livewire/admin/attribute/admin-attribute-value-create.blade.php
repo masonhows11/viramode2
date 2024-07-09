@@ -171,7 +171,8 @@
             icon: 'warning',
             title: '{{ session()->get('warning') }}'
         })
-        @elseif(session()->has('success'))
+        @@endif
+        @if(session()->has('success'))
         Toast.fire({
             icon: 'success',
             title: '{{ session()->get('success') }}'
