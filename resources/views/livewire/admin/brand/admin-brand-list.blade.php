@@ -109,21 +109,21 @@
                 toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
         });
-        document.addEventListener('show-result', ({detail: {type, message}}) => {
+        document.addEventListener('show-result', ({detail: {type,message}}) => {
             Toast.fire({
                 icon: type,
-                title: message
+                title: message,
             })
         })
         @if(session()->has('warning'))
         Toast.fire({
             icon: 'warning',
-            title: '{{ session()->get('warning') }}'
+            title:'{{ session()->get('warning') }}',
         })
         @elseif(session()->has('success'))
         Toast.fire({
             icon: 'success',
-            title: '{{ session()->get('success') }}'
+            title: '{{ session()->get('success') }}',
         })
         @endif
     </script>

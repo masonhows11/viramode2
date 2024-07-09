@@ -96,9 +96,10 @@ class AdminEditBrand extends Component
             $brand->is_active = $this->is_active;
             $brand->seo_desc = $this->seo_desc;
             $brand->save();
-
-            session()->flash('success', __('messages.The_update_was_completed_successfully'));
+            ///
+            session()->flash('success',__('messages.The_update_was_completed_successfully'));
             return redirect()->to('/admin/brand/index');
+            ///
         } catch (\Exception $ex) {
             session()->flash('error', __('messages.An_error_occurred'));
         }

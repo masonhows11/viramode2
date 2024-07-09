@@ -75,9 +75,7 @@ use App\Http\Controllers\Dash\Product\ProductCreateImageController;
 
 use App\Http\Controllers\Dash\Product\ProductEditSpecificationsController;
 use App\Http\Controllers\Dash\Product\ProductCreateSpecificationsController;
-
-
-
+use Livewire\Livewire;
 
 
 /*
@@ -96,14 +94,19 @@ use App\Http\Controllers\Dash\Product\ProductCreateSpecificationsController;
 // });
 
 
+Livewire::setScriptRoute(function ($handle) {
+    return Route::get('/livewire/livewire.js', $handle);
+});
+
+Livewire::setUpdateRoute(function ($handle) {
+    return Route::post('/liveware/update', $handle);
+});
+
 Route::controller(HomeController::class)->group(function () {
 
     Route::get('/', 'home')->name('home');
-
     Route::get('/page/not_found', 'notFound')->name('page.not.found');
 });
-
-
 
 Route::get('/about_us', [AboutUsController::class, 'aboutUs'])->name('about_us');
 Route::get('/contact_us', [ContactUsController::class, 'contactUs'])->name('contact_us');

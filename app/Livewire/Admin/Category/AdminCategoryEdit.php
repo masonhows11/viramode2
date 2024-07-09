@@ -133,7 +133,7 @@ class AdminCategoryEdit extends Component
     {
         return view('livewire.admin.category.admin-category-edit')
         ->extends('admin.layout.master_admin')
-        ->section('admin_main')>with(['categories' => Category::all(),
+        ->section('admin_main')->with(['categories' => Category::all(),
                 'category' => $this->category,
                 'category_title' => $this->category_title]);
     }

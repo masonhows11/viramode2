@@ -30,18 +30,20 @@ class AdminAttributeCreate extends Component
 
     }
 
-    protected $rules = [
-        'name' => ['required', 'min:2', 'max:30'],
-        'type' => ['required'],
-        'priority' => ['required', 'numeric', 'gt:0', 'lt:999'],
-        'has_default_value' => ['required']
-    ];
+    public function rules()
+    {
+        return [
+            'name' => 'required', 'min:2', 'max:30',
+            'type' => 'required',
+            'priority' => 'required', 'numeric', 'gt:0', 'lt:999',
+            'has_default_value' => 'required'
+        ];
+    }
 
 
     public function save()
     {
         $this->validate();
-
         try {
             if ($this->edit_mode == false) {
                 Attribute::create([
@@ -55,10 +57,7 @@ class AdminAttributeCreate extends Component
                 $this->type = '';
                 $this->priority = '';
                 $this->has_default_value = '';
-
-                $this->dispatch('show-result',
-                    ['type' => 'success',
-                        'message' => __('messages.New_record_saved_successfully')]);
+                $this->dispatch('show-result', type: 'success', message: __('messages.New_record_saved_successfully'));
 
             } elseif ($this->edit_mode == true) {
                 Attribute::where('id', $this->attribute_id)
@@ -73,9 +72,7 @@ class AdminAttributeCreate extends Component
                 $this->has_default_value = '';
                 $this->edit_mode = false;
 
-                $this->dispatch('show-result',
-                    ['type' => 'success',
-                        'message' => __('messages.The_update_was_completed_successfully')]);
+                $this->dispatch('show-result', type: 'success', message: __('messages.The_update_was_completed_successfully'));
             }
         } catch (\Exception $ex) {
             return view('errors_custom.model_store_error');
@@ -100,6 +97,7 @@ class AdminAttributeCreate extends Component
         return null;
 
     }
+
     public function resetInput()
     {
         $this->name = '';
@@ -121,19 +119,18 @@ class AdminAttributeCreate extends Component
         try {
             $model = Attribute::findOrFail($this->attribute_id);
             $model->delete();
-            $this->dispatch('show-result',
-                ['type' => 'success',
-                    'message' => __('messages.The_deletion_was_successful')]);
+            $this->dispatch('show-result', type: 'success', message: __('messages.The_deletion_was_successful'));
         } catch (\Exception $ex) {
             return view('errors_custom.model_not_found');
         }
         return null;
     }
+
     public function render()
     {
         return view('livewire.admin.attribute.admin-attribute-create')
             ->extends('admin.layout.master_admin')
             ->section('admin_main')
-            ->with(['attributes' => Attribute::where('category_id', $this->category_id)->orderBy('priority','asc')->get()]);
+            ->with(['attributes' => Attribute::where('category_id', $this->category_id)->orderBy('priority', 'asc')->get()]);
     }
 }
