@@ -65,7 +65,7 @@ class ProductEditSpecificationsController extends Controller
         }
 
 
-        return view('admin_end.product.edit.edit_specifications')
+        return view('admin.product.edit.edit_specifications')
             ->with(['product' => $product,
                 'attribute_id' => $attribute_id,
                 'value' => $value,
