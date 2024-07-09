@@ -4,6 +4,7 @@ namespace App\Livewire\Admin\Brand;
 
 use App\Models\Brand;
 use Illuminate\Support\Facades\Storage;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -48,10 +49,9 @@ class AdminBrandList extends Component
         $this->dispatch('show-delete-confirmation');
     }
 
-    protected $listeners = [
-        'deleteConfirmed' => 'deleteBrand',
-    ];
 
+
+    #[On('deleteConfirmed')]
     public function deleteBrand()
     {
         try {

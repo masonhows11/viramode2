@@ -4,6 +4,7 @@ namespace App\Livewire\Admin\Category;
 
 use App\Models\Category;
 use Illuminate\Support\Facades\Storage;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -27,10 +28,8 @@ class AdminCategoryList extends Component
         $this->dispatch('show-delete-confirmation');
     }
 
-    protected $listeners = [
-        'deleteConfirmed' => 'deleteCategory',
-    ];
 
+    #[On('deleteConfirmed')]
     public function deleteCategory()
     {
         $category = Category::findOrFail($this->delete_id);
