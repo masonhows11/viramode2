@@ -18,8 +18,8 @@
                                 <input type="text" class="form-control" id="title_persian"
                                        wire:model.defer="title_persian">
                                 @error('title_persian')
-                                <div class="alert alert-danger mt-3">
-                                    {{ $message }}
+                                <div class="mt-3">
+                                    <span class="text-danger">{{ $message }}</span>
                                 </div>
                                 @enderror
                             </div>
@@ -30,8 +30,8 @@
                                 <input type="text" class="form-control" id="title_english"
                                        wire:model.defer="title_english">
                                 @error('title_english')
-                                <div class="alert alert-danger mt-3">
-                                    {{ $message }}
+                                <div class="mt-3">
+                                    <span class="text-danger">{{ $message }}</span>
                                 </div>
                                 @enderror
                             </div>
@@ -54,7 +54,7 @@
         <div class="row mt-4 d-flex justify-content-center search-color-section">
             <div class="col">
                 <div class="mb-3 mt-3">
-                    <input wire:model.debounce.500ms="search" placeholder="{{ __('messages.search') }}" type="text" class="form-control" id="search">
+                    <input wire:model.live.debounce.500ms="search" placeholder="{{ __('messages.search') }}" type="text" class="form-control" id="search">
                 </div>
             </div>
         </div>

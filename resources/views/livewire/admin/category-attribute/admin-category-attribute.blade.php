@@ -18,8 +18,8 @@
                                 <label for="title" class="form-label">{{ __('messages.title') }}</label>
                                 <input type="text" class="form-control" id="title" wire:model.defer="title">
                                 @error('title')
-                                <div class="alert alert-danger mt-3">
-                                    {{ $message }}
+                                <div class="mt-3">
+                                    <span class="text-danger">{{ $message }}</span>
                                 </div>
                                 @enderror
                             </div>
@@ -30,8 +30,8 @@
                                 <label for="title_english" class="form-label">{{ __('messages.unit') }}</label>
                                 <input type="text" class="form-control" id="title_english" wire:model.defer="unit">
                                 @error('unit')
-                                <div class="alert alert-danger mt-3">
-                                    {{ $message }}
+                                <div class="mt-3">
+                                    <span class="text-danger">{{ $message }}</span>
                                 </div>
                                 @enderror
                             </div>
@@ -46,8 +46,8 @@
                                     <option value="1">{{ __('messages.radio') }}</option>
                                 </select>
                                 @error('type')
-                                <div class="alert alert-danger mt-3">
-                                    {{ $message }}
+                                <div class="mt-3">
+                                    <span class="text-danger">{{ $message }}</span>
                                 </div>
                                 @enderror
                             </div>
@@ -63,8 +63,8 @@
                                     @endforeach
                                 </select>
                                 @error('category_id')
-                                <div class="alert alert-danger mt-3">
-                                    {{ $message }}
+                                <div class="mt-3">
+                                    <span class="text-danger">{{ $message }}</span>
                                 </div>
                                 @enderror
                             </div>

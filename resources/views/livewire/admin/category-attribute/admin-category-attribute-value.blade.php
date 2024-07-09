@@ -30,8 +30,8 @@
                                     @endforeach
                                 </select>
                                 @error('product_id')
-                                <div class="alert alert-danger mt-3">
-                                    {{ $message }}
+                                <div class="mt-3">
+                                    <span class="text-danger">{{ $message }}</span>
                                 </div>
                                 @enderror
                             </div>
@@ -42,8 +42,8 @@
                                 <label for="value" class="form-label">{{ __('messages.value') }}</label>
                                 <input type="text" class="form-control" id="value" wire:model.defer="value">
                                 @error('value')
-                                <div class="alert alert-danger mt-3">
-                                    {{ $message }}
+                                <div class="mt-3">
+                                    <span class="text-danger">{{ $message }}</span>
                                 </div>
                                 @enderror
                             </div>
@@ -54,8 +54,8 @@
                                 <label for="quantity" class="form-label"> {{ __('messages.quantity') }} </label>
                                 <input type="number" min="1" class="form-control" id="value" wire:model.defer="quantity">
                                 @error('quantity')
-                                <div class="alert alert-danger mt-3">
-                                    {{ $message }}
+                                <div class="mt-3">
+                                    <span class="text-danger">{{ $message }}</span>
                                 </div>
                                 @enderror
                             </div>
@@ -66,8 +66,8 @@
                                 <label for="price_increase" class="form-label">{{ __('messages.price_increase') }}</label>
                                 <input type="text" class="form-control" value="0" id="price_increase" wire:model.defer="price_increase">
                                 @error('price_increase')
-                                <div class="alert alert-danger mt-3">
-                                    {{ $message }}
+                                <div class="mt-3">
+                                    <span class="text-danger">{{ $message }}</span>
                                 </div>
                                 @enderror
                             </div>
@@ -82,8 +82,8 @@
                                     <option value="1">{{ __('messages.radio') }}</option>
                                 </select>
                                 @error('type')
-                                <div class="alert alert-danger mt-3">
-                                    {{ $message }}
+                                <div class="mt-3">
+                                    <span class="text-danger">{{ $message }}</span>
                                 </div>
                                 @enderror
                             </div>
