@@ -3,14 +3,14 @@
         {{ __('messages.add_new_specification') }}
     @endsection
     @section('breadcrumb')
-        {{ Breadcrumbs::render('admin.create.specifications',$category_name) }}
+        {{ Breadcrumbs::render('admin.create.specifications',$category->title_persian) }}
     @endsection
     <div class="container-fluid">
 
         <div class="row d-flex justify-content-start my-4 bg-white">
             <div class="col-lg-4 col-md-4 col  my-5  border-bottom title-add-to-stock">
                 <div class="alert my-4">
-                    <h3> {{ __('messages.add_new_specification') }} - {{ $category_name }}</h3>
+                    <h3> {{ __('messages.add_new_specification') }} - {{ $category->title_persian }}</h3>
                 </div>
             </div>
         </div>
@@ -36,7 +36,7 @@
                         <div class="col-sm-6">
                             <div class="mt-3 mb-3">
                                 <label for="priority" class="form-label">{{ __('messages.priority') }}</label>
-                                <input type="number" min="1" max="999" class="form-control" id="priority" wire:model.defer="priority">
+                                <input type="number" min="1" max="999" class="form-control" id="priority" wire:model="priority">
                                 @error('priority')
                                 <div class="alert alert-danger mt-3">
                                     {{ $message }}

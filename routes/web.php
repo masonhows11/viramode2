@@ -114,12 +114,12 @@ use Livewire\Livewire;
 // });
 
 
-Livewire::setScriptRoute(function ($handle) {
-    return Route::get('http://viramode2.test/public/vendor/livewire/livewire.js', $handle);
-});
+//Livewire::setScriptRoute(function ($handle) {
+//    return Route::get('http://viramode2.test/public/vendor/livewire/livewire.js', $handle);
+//});
 
 Livewire::setUpdateRoute(function ($handle) {
-    return Route::post('/public/vendor/liveware/update', $handle);
+    return Route::post('/livewire/update', $handle);
 });
 
 Route::controller(HomeController::class)->group(function () {

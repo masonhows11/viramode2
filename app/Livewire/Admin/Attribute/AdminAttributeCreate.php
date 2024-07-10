@@ -25,7 +25,9 @@ class AdminAttributeCreate extends Component
     {
 
         $this->category_id = $id;
-        $this->category = Category::where('id', $this->category_id)->select('title_persian')->first();
+        $this->category = Category::where('id', $this->category_id)
+            ->select('title_persian')
+            ->first();
         $this->category_name = $this->category->title_persian;
 
     }
@@ -43,41 +45,42 @@ class AdminAttributeCreate extends Component
 
     public function save()
     {
-        $this->validate();
-        try {
-            if ($this->edit_mode == false) {
-                Attribute::create([
-                    'name' => $this->name,
-                    'type' => $this->type,
-                    'priority' => $this->priority,
-                    'category_id' => $this->category_id,
-                    'has_default_value' => $this->has_default_value,
-                ]);
-                $this->name = '';
-                $this->type = '';
-                $this->priority = '';
-                $this->has_default_value = '';
-                $this->dispatch('show-result', type: 'success', message: __('messages.New_record_saved_successfully'));
-
-            } elseif ($this->edit_mode == true) {
-                Attribute::where('id', $this->attribute_id)
-                    ->update(['name' => $this->name,
-                        'type' => $this->type,
-                        'priority' => $this->priority,
-                        'has_default_value' => $this->has_default_value]);
-
-                $this->name = '';
-                $this->type = '';
-                $this->priority = '';
-                $this->has_default_value = '';
-                $this->edit_mode = false;
-
-                $this->dispatch('show-result', type: 'success', message: __('messages.The_update_was_completed_successfully'));
-            }
-        } catch (\Exception $ex) {
-            return view('errors_custom.model_store_error');
-        }
-        return null;
+        dd('hi');
+        // $this->validate();
+//        try {
+//            if ($this->edit_mode == false) {
+//                Attribute::create([
+//                    'name' => $this->name,
+//                    'type' => $this->type,
+//                    'priority' => $this->priority,
+//                    'category_id' => $this->category_id,
+//                    'has_default_value' => $this->has_default_value,
+//                ]);
+//                $this->name = '';
+//                $this->type = '';
+//                $this->priority = '';
+//                $this->has_default_value = '';
+//                $this->dispatch('show-result', type: 'success', message: __('messages.New_record_saved_successfully'));
+//
+//            } elseif ($this->edit_mode == true) {
+//                Attribute::where('id', $this->attribute_id)
+//                    ->update(['name' => $this->name,
+//                        'type' => $this->type,
+//                        'priority' => $this->priority,
+//                        'has_default_value' => $this->has_default_value]);
+//
+//                $this->name = '';
+//                $this->type = '';
+//                $this->priority = '';
+//                $this->has_default_value = '';
+//                $this->edit_mode = false;
+//
+//                $this->dispatch('show-result', type: 'success', message: __('messages.The_update_was_completed_successfully'));
+//            }
+//        } catch (\Exception $ex) {
+//            return view('errors_custom.model_store_error');
+//        }
+//        return null;
     }
 
     public function edit($id)
