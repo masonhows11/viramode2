@@ -1,8 +1,28 @@
 <?php
 
 
-
-
+use App\Http\Controllers\Dash\Address\AdminCityController;
+use App\Http\Controllers\Dash\Address\AdminProvinceController;
+use App\Http\Controllers\Dash\Banner2\AdminBestSellerController;
+use App\Http\Controllers\Dash\Banner2\AdminCustomBannerController;
+use App\Http\Controllers\Dash\Banner2\AdminMostVisitedController;
+use App\Http\Controllers\Dash\Banner2\AdminNewestController;
+use App\Http\Controllers\Dash\Banner2\AdminSuggestionController;
+use App\Http\Controllers\Dash\Comments\AdminCommentController;
+use App\Http\Controllers\Dash\Delivery\AdminDeliveryController;
+use App\Http\Controllers\Dash\Discount\AmazingSalesController;
+use App\Http\Controllers\Dash\Discount\CommonDiscountController;
+use App\Http\Controllers\Dash\Discount\CouponDiscountController;
+use App\Http\Controllers\Dash\NotificationController;
+use App\Http\Controllers\Dash\Notifications\AdminEmailNoticeFileController;
+use App\Http\Controllers\Dash\Notifications\AdminEmailNoticesController;
+use App\Http\Controllers\Dash\Notifications\AdminSMSNoticeController;
+use App\Http\Controllers\Dash\Order\AdminOrderController;
+use App\Http\Controllers\Dash\Setting\SettingController;
+use App\Http\Controllers\Dash\Ticket\AdminAdminTicketController;
+use App\Http\Controllers\Dash\Ticket\AdminCategoryTicketController;
+use App\Http\Controllers\Dash\Ticket\AdminPriorityTicketController;
+use App\Http\Controllers\Dash\Ticket\AdminTicketController;
 use Illuminate\Support\Facades\Route;
 ///
 use App\Http\Controllers\HomeController;
@@ -95,11 +115,11 @@ use Livewire\Livewire;
 
 
 Livewire::setScriptRoute(function ($handle) {
-    return Route::get('/livewire/livewire.js', $handle);
+    return Route::get('http://viramode2.test/public/vendor/livewire/livewire.js', $handle);
 });
 
 Livewire::setUpdateRoute(function ($handle) {
-    return Route::post('/liveware/update', $handle);
+    return Route::post('/public/vendor/liveware/update', $handle);
 });
 
 Route::controller(HomeController::class)->group(function () {
