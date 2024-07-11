@@ -113,13 +113,16 @@
                             <td>{{ $attribute->priority }}</td>
                             <td>{{ $attribute->has_default_value == 1 ? __('messages.has_default_value') : __('messages.no_default_value') }}</td>
                             <td>
-                                <a class="mt-3" href="javascript:void(0)" wire:click.prevent="edit({{$attribute->id}})">
+                                <form action="{{ route('admin.province.delete',$item->id) }}" method="get" class="d-inline">
+                                    @csrf
+                                    <button type="submit" class="btn btn-sm btn-danger delete-item">{{ __('messages.delete_model') }}</button>
+                                </form>
+                                <a class="mt-3" href="javascript:void(0)">
                                     <i class="mt-3 fa fa-edit"></i>
                                 </a>
                             </td>
                             <td>
-                                <a class="mt-3" href="javascript:void(0)"
-                                   wire:click.prevent="deleteConfirmation({{ $attribute->id }})">
+                                <a class="mt-3" href="javascript:void(0)">
                                     <i class="mt-3 fa fa-trash"></i>
                                 </a>
                             </td>
