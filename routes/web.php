@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\Dash\Address\AdminCityController;
 use App\Http\Controllers\Dash\Address\AdminProvinceController;
+use App\Http\Controllers\Dash\Attributes\AttributesController;
 use App\Http\Controllers\Dash\Banner2\AdminBestSellerController;
 use App\Http\Controllers\Dash\Banner2\AdminCustomBannerController;
 use App\Http\Controllers\Dash\Banner2\AdminMostVisitedController;
@@ -277,12 +278,13 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin'
 
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
 
+
     ////
-    //    Route::get('/attribute/index', AdminAttributeList::class)->name('attribute.index');
-    //    Route::get('/attribute/create/{id}', AdminAttributeCreate::class)->name('attribute.create');
+        Route::get('/attribute/index', AdminAttributeList::class)->name('attribute.index');
+        Route::get('/attribute/create/{id}', [AttributesController::class,'create'])->name('attribute.create');
     ////
-    //    Route::get('/attribute/value/index', AdminAttributeValue::class)->name('attribute.value.index');
-    //    Route::get('/attribute/value/create/{id}', AdminAttributeValueCreate::class)->name('attribute.value.create');
+        Route::get('/attribute/value/index', AdminAttributeValue::class)->name('attribute.value.index');
+         Route::get('/attribute/value/create/{id}', [AttributesController::class,'create'])->name('attribute.value.create');
 
 });
 

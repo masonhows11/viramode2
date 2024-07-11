@@ -20,7 +20,7 @@
                 <table class="table table-striped table-responsive">
                     <thead class="border-bottom-3 border-top-3">
                     <tr class="text-center">
-                        <th>{{ __('messages.id') }} </th>
+                        <th>{{ __('messages.id') }}</th>
                         <th>{{ __('messages.name')}}</th>
                         <th>{{ __('messages.operation')}}</th>
                     </tr>
