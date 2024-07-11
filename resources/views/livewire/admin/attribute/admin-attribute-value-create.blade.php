@@ -24,7 +24,7 @@
                         <div class="col-sm-4">
                             <div class="mt-3 mb-3">
                                 <label for="name" class="form-label">{{ __('messages.name') }}</label>
-                                <select class="form-control" wire:model.lazy="name" id="name">
+                                <select class="form-control" wire:model="name" id="name">
                                     <option>انتخاب کنید</option>
                                     @foreach($attributes as $attribute)
                                         <option value="{{ $attribute->id }}">{{ $attribute->name }}</option>
@@ -39,7 +39,7 @@
                         <div class="col-sm-4">
                             <div class="mt-3 mb-3">
                                 <label for="value" class="form-label">{{ __('messages.value') }}</label>
-                                <input type="text" class="form-control" id="value" wire:model.defer="value">
+                                <input type="text" class="form-control" id="value" wire:model="value">
                                 @error('value')
                                 <div class="alert alert-danger mt-3">
                                     {{ $message }}
@@ -51,7 +51,7 @@
                         <div class="col-sm-4">
                             <div class="mt-3 mb-3">
                                 <label for="priority" class="form-label">{{ __('messages.priority') }}</label>
-                                <input type="number" min="1" max="999" class="form-control" id="priority" wire:model.defer="priority">
+                                <input type="number" min="1" max="999" class="form-control" id="priority" wire:model="priority">
                                 @error('priority')
                                 <div class="alert alert-danger mt-3">
                                     {{ $message }}
@@ -171,7 +171,7 @@
             icon: 'warning',
             title: '{{ session()->get('warning') }}'
         })
-        @@endif
+        @endif
         @if(session()->has('success'))
         Toast.fire({
             icon: 'success',

@@ -22,13 +22,15 @@
                 <div class="col">
                     <div class="row">
 
+                        <input type="hidden" name="category_id" value="{{ $category->id }}">
+
                         <div class="col-sm-6">
                             <div class="mt-3 mb-3">
                                 <label for="name" class="form-label">{{ __('messages.name') }}</label>
                                 <input type="text" class="form-control" id="name" name="name">
                                 @error('name')
-                                <div class="alert alert-danger mt-3">
-                                    {{ $message }}
+                                <div class="mt-3">
+                                    <span class="text-danger">{{ $message }}</span>
                                 </div>
                                 @enderror
                             </div>
@@ -39,8 +41,8 @@
                                 <label for="priority" class="form-label">{{ __('messages.priority') }}</label>
                                 <input type="number" min="1" max="999" class="form-control" id="priority" name="priority">
                                 @error('priority')
-                                <div class="alert alert-danger mt-3">
-                                    {{ $message }}
+                                <div class="mt-3">
+                                    <span class="text-danger">{{ $message }}</span>
                                 </div>
                                 @enderror
                             </div>
@@ -50,7 +52,7 @@
                             <div class="mt-3 mb-3">
                                 <label for="type" class="form-label">{{ __('messages.attribute_type') }}</label>
                                 <select class="form-control" name="type" id="type">
-                                    <option>انتخاب کنید</option>
+                                    <option value="">{{ __('messages.choose') }}</option>
                                     <option value="select">Select</option>
                                     <option value="multi_select">Multi_select</option>
                                     <option value="radio">Radio_button</option>
@@ -58,7 +60,9 @@
                                     <option value="text_area">Text_area</option>
                                 </select>
                                 @error('type')
-                                <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                <div class="mt-3">
+                                    <span class="text-danger">{{ $message }}</span>
+                                </div>
                                 @enderror
                             </div>
                         </div>
@@ -68,12 +72,14 @@
                                 <label for="has_default_value"
                                        class="form-label">{{ __('messages.has_default_value') }}</label>
                                 <select class="form-control" name="has_default_value" id="has_default_value">
-                                    <option>انتخاب کنید</option>
+                                    <option value="">{{ __('messages.choose') }}</option>
                                     <option value="1">{{ __('messages.has_default_value') }}</option>
-                                    <option value="0">{{ __('messages.no_default_value') }}</option>
+                                    <option value="2">{{ __('messages.no_default_value') }}</option>
                                 </select>
                                 @error('has_default_value')
-                                <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                <div class="mt-3">
+                                    <span class="text-danger">{{ $message }}</span>
+                                </div>
                                 @enderror
                             </div>
                         </div>
@@ -112,18 +118,15 @@
                             <td>{{ $attribute->priority }}</td>
                             <td>{{ $attribute->has_default_value == 1 ? __('messages.has_default_value') : __('messages.no_default_value') }}</td>
                             <td>
-                                <form action="{{ route('admin.province.delete',$item->id) }}" method="get" class="d-inline">
-                                    @csrf
-                                    <button type="submit" class="btn btn-sm btn-danger delete-item">{{ __('messages.delete_model') }}</button>
-                                </form>
-                                <a class="mt-3" href="javascript:void(0)">
-                                    <i class="mt-3 fa fa-edit"></i>
+                                <a class=" btn btn-sm btn-primary" href="javascript:void(0)">
+                                    {{ __('messages.edit_model') }}
                                 </a>
                             </td>
                             <td>
-                                <a class="mt-3" href="javascript:void(0)">
-                                    <i class="mt-3 fa fa-trash"></i>
-                                </a>
+                                <form action="{{ route('admin.attribute.delete',$attribute->id) }}" method="get" class="d-inline">
+                                    @csrf
+                                    <button type="submit" class="btn btn-sm btn-danger delete-item">{{ __('messages.delete_model') }}</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
