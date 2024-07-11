@@ -3,7 +3,7 @@
         {{ __('messages.add_new_specification') }}
     @endsection
     @section('breadcrumb')
-        {{ Breadcrumbs::render('admin.create.specifications',$category->title_persian) }}
+{{--        {{ Breadcrumbs::render('admin.create.specifications',$category->title_persian) }}--}}
     @endsection
     <div class="container-fluid">
 

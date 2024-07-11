@@ -12,6 +12,7 @@ class AdminAttributeCreate extends Component
 
     public $category;
     public $category_name;
+    public $id;
     public $category_id;
     public $attribute_id;
     public $edit_mode = false;
@@ -25,10 +26,11 @@ class AdminAttributeCreate extends Component
     {
 
         $this->category_id = $id;
-        $this->category = Category::where('id', $this->category_id)
-            ->select('title_persian')
-            ->first();
-        $this->category_name = $this->category->title_persian;
+
+//        $this->category = Category::where('id', $this->category_id)
+//            ->select('title_persian')
+//            ->first();
+//        $this->category_name = $this->category->title_persian;
 
     }
 
@@ -45,7 +47,7 @@ class AdminAttributeCreate extends Component
 
     public function save()
     {
-        dd('hi');
+      //  dd('hi');
         // $this->validate();
 //        try {
 //            if ($this->edit_mode == false) {
@@ -134,6 +136,7 @@ class AdminAttributeCreate extends Component
         return view('livewire.admin.attribute.admin-attribute-create')
             ->extends('admin.layout.master_admin')
             ->section('admin_main')
-            ->with(['attributes' => Attribute::where('category_id', $this->category_id)->orderBy('priority', 'asc')->get()]);
+            ->with(['attributes' => Attribute::where('category_id', $this->category_id)->orderBy('priority', 'asc')->get(),
+                'category' => Category::find($this->id)]);
     }
 }
