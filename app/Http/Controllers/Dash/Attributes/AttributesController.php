@@ -26,7 +26,7 @@ class AttributesController extends Controller
 
     public function store(Request $request)
     {
-
+        dd($request);
         Attribute::create([
             'name' => $request->name,
             'type' => $request->type,

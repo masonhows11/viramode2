@@ -25,52 +25,65 @@ use App\Http\Controllers\Dash\Ticket\AdminCategoryTicketController;
 use App\Http\Controllers\Dash\Ticket\AdminPriorityTicketController;
 use App\Http\Controllers\Dash\Ticket\AdminTicketController;
 use Illuminate\Support\Facades\Route;
+
 ///
 use App\Http\Controllers\HomeController;
 use App\Livewire\Admin\Perms\AdminPerms;
 use App\Livewire\Admin\Perms\AdminRoles;
+
 ///
 use App\Livewire\Admin\Tag\AdminTagList;
 use App\Livewire\Admin\Users\AdminUsers;
 use App\Livewire\Admin\Users\AdminAdmins;
 use App\Livewire\Admin\Colors\AdminColors;
+
 ///
 use App\Livewire\Admin\Stock\StockProduct;
 use App\Http\Controllers\SiteMapController;
 use App\Livewire\Admin\Product\ProductList;
 use App\Livewire\Admin\Brand\AdminBrandList;
 use App\Livewire\Admin\Brand\AdminEditBrand;
+
 ///
 use App\Livewire\Admin\Order\AdminAllOrders;
 use App\Livewire\Admin\Setting\AdminSetting;
+
 //
 use App\Http\Controllers\Dash\AdminController;
 use App\Livewire\Admin\Brand\AdminCreateBrand;
+
 ///
 use App\Livewire\Admin\Perms\ListUsersForPerms;
 use App\Livewire\Admin\Perms\ListUsersForRoles;
 use App\Livewire\Admin\Category\AdminCategoryEdit;
 use App\Livewire\Admin\Category\AdminCategoryList;
+
 ///
 use App\Livewire\Admin\Comment\AdminSingleComment;
 use App\Livewire\Admin\Delivery\AdminDeliveryList;
+
 //
 use App\Livewire\Admin\Attribute\AdminAttributeList;
 use App\Livewire\Admin\Category\AdminCategoryCreate;
 use App\Livewire\Admin\Attribute\AdminAttributeValue;
+
 //
 use App\Livewire\Admin\Attribute\AdminAttributeCreate;
 use App\Http\Controllers\Auth_User\LoginUserController;
 use App\Http\Controllers\Dash\AdminPermAssignController;
+
 //
 use App\Http\Controllers\Dash\AdminRoleAssignController;
+
 //
 use App\Http\Controllers\Dash\Payment\PaymentController as DashPaymentController;
+
 //
 use App\Http\Controllers\Front\AboutUs\AboutUsController;
 use App\Http\Controllers\Front\Profile\ProfileController;
 use App\Http\Controllers\Auth_User\RegisterUserController;
 use App\Http\Controllers\Auth_User\ValidateUserController;
+
 //
 use App\Http\Controllers\Auth_Admin\AdminLoginController;
 use App\Http\Controllers\Auth_Admin\AdminProfileController;
@@ -88,10 +101,12 @@ use App\Http\Controllers\Dash\Product\ProductCreateController;
 use App\Http\Controllers\Auth_User\VerifyEmailPromptController;
 use App\Http\Controllers\Dash\Product\ProductWarrantyController;
 use App\Livewire\Admin\CategoryAttribute\AdminCategoryAttribute;
+
 //
 use App\Http\Controllers\Dash\Product\ProductCreateTagController;
 use App\Http\Controllers\Dash\Product\ProductCreateColorController;
 use App\Http\Controllers\Dash\Product\ProductCreateImageController;
+
 //
 
 use App\Http\Controllers\Dash\Product\ProductEditSpecificationsController;
@@ -115,8 +130,6 @@ use Livewire\Livewire;
 // });
 
 
-
-
 Route::controller(HomeController::class)->group(function () {
 
     Route::get('/', 'home')->name('home');
@@ -133,7 +146,7 @@ Route::controller(SiteMapController::class)->group(function () {
     Route::get('/sitemap.xml', 'index')->name('sitemap.xml');
     Route::get('/sitemap.xml/products', 'products')->name('sitemap.xml.products');
     Route::get('/sitemap.xml/categories', 'categories')->name('sitemap.xml.categories');
-    Route::get('/sitemap.xml/tags',  'tags')->name('sitemap.xml.tags');
+    Route::get('/sitemap.xml/tags', 'tags')->name('sitemap.xml.tags');
     Route::get('/sitemap.xml/static', 'static')->name('sitemap.xml.static');
 });
 
@@ -165,19 +178,17 @@ Route::controller(ProfileController::class)->prefix('profile')->middleware(['aut
 
     Route::get('/index', 'Profile')->name('user.profile');
 
-    Route::get('/account-information',  'accountInformation')->name('user.account.information');
-    Route::post('/account-information',  'updateProfile')->name('user.update.account.information');
+    Route::get('/account-information', 'accountInformation')->name('user.account.information');
+    Route::post('/account-information', 'updateProfile')->name('user.update.account.information');
 
 
-    Route::get('/mobile-update',  'updateMobileForm')->name('mobile.update.form');
-    Route::post('/mobile-update',  'updateMobile')->name('mobile.update');
+    Route::get('/mobile-update', 'updateMobileForm')->name('mobile.update.form');
+    Route::post('/mobile-update', 'updateMobile')->name('mobile.update');
 
 
-    Route::get('/email-update',  'updateEmailForm')->name('email.update.form');
-    Route::post('/email-update',  'updateEmail')->name('email.update');
+    Route::get('/email-update', 'updateEmailForm')->name('email.update.form');
+    Route::post('/email-update', 'updateEmail')->name('email.update');
 });
-
-
 
 
 /* ------------------- admin Routes ------------------------**/
@@ -280,13 +291,13 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin'
 
 
     ////
-        Route::get('/attribute/index', AdminAttributeList::class)->name('attribute.index');
-        Route::get('/attribute/create/{id}', [AttributesController::class,'create'])->name('attribute.create');
-        Route::get('/attribute/delete/{id}', [AttributesController::class,'delete'])->name('attribute.delete');
+    Route::get('/attribute/index', AdminAttributeList::class)->name('attribute.index');
+    Route::get('/attribute/create/{id}', [AttributesController::class, 'create'])->name('attribute.create');
+    Route::post('/attribute/store', [AttributesController::class, 'store'])->name('attribute.store');
+    Route::get('/attribute/delete/{id}', [AttributesController::class, 'delete'])->name('attribute.delete');
     ////
-        Route::get('/attribute/value/index', AdminAttributeValue::class)->name('attribute.value.index');
-        Route::get('/attribute/value/create/{id}', [AttributesController::class,'create'])->name('attribute.value.create');
-
+    Route::get('/attribute/value/index', AdminAttributeValue::class)->name('attribute.value.index');
+    Route::get('/attribute/value/create/{id}', [AttributesController::class, 'create'])->name('attribute.value.create');
 
 
 });
@@ -295,7 +306,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin'
 // crud product routes
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
 
-     Route::get('/product/index', ProductList::class)->name('product.index');
+    Route::get('/product/index', ProductList::class)->name('product.index');
     // new product
     Route::get('/product/create/basic', [ProductCreateController::class, 'create'])->name('product.create.basic');
     Route::post('/product/store/basic', [ProductCreateController::class, 'store'])->name('product.store.basic');
@@ -323,7 +334,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin'
 // stock product routes
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
 
-     Route::get('/stock-product/index', StockProduct::class)->name('stock.product.index');
+    Route::get('/stock-product/index', StockProduct::class)->name('stock.product.index');
     ////
     Route::get('/add_to_stock/{product}', [StockController::class, 'addToStockForm'])->name('add_to_stock.form');
     Route::post('/add_to_stock', [StockController::class, 'addToStock'])->name('add_to_stock');
@@ -468,7 +479,6 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin'
     Route::post('/answer-ticket/{ticket}', [AdminTicketController::class, 'answer'])->name('answer.ticket');
     Route::get('/change-status/ticket/{ticket}', [AdminTicketController::class, 'changeStatus'])->name('change.status.ticket');
 });
-
 
 
 // notification routes
