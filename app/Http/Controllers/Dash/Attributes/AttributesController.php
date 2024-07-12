@@ -46,13 +46,20 @@ class AttributesController extends Controller
 
     }
 
-    public function update(EditAttributeRequest $request)
+    public function update(Request $request)
     {
-        Attribute::where('id', $request->attribute_id)
-            ->update(['name' => $request->name,
-                'type' => $request->type,
-                'priority' => $request->priority,
-                'has_default_value' => $request->has_default_value]);
+
+        try {
+            Attribute::where('id', $request->id)
+                ->update(['name' => $request->name,
+                    'type' => $request->type,
+                    'priority' => $request->priority,
+                    'has_default_value' => $request->default_value]);
+         return responseOk(200,200);
+        }catch (\Exception $ex){
+         return  responseError(500,200);
+        }
+
     }
 
     public function delete(Request $request)

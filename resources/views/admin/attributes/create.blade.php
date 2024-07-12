@@ -116,7 +116,7 @@
                         <tr class="text-center">
                             <td>{{ $attribute->id }}</td>
                             <td>{{ $attribute->name }}</td>
-                            <td>{{ $attribute->type_value }}</td>
+                            <td>{{ $attribute->type }}</td>
                             <td>{{ $attribute->priority }}</td>
                             <td>{{ $attribute->has_default_value == 1 ? __('messages.has_default_value') : __('messages.no_default_value') }}</td>
                             <td>
@@ -180,7 +180,7 @@
                                        {{-- <option value="">{{ __('messages.choose') }}</option>--}}
                                         <option {{ $attribute->type == 'select' ? 'selected' : '' }} value="select">Select</option>
                                         <option {{ $attribute->type == 'multi_select' ? 'selected' : '' }} value="multi_select">Multi_select</option>
-                                        <option {{ $attribute->type == 'radio' ? 'selected' : '' }}value="radio">Radio_button</option>
+                                        <option {{ $attribute->type == 'radio' ? 'selected' : '' }} value="radio">Radio_button</option>
                                         <option {{ $attribute->type == 'text_box' ? 'selected' : '' }} value="text_box">Text</option>
                                         <option {{ $attribute->type == 'text_area' ? 'selected' : '' }} value="text_area">Text_area
                                         </option>
@@ -211,13 +211,10 @@
 @push('dash_custom_script')
     <script>
         $(document).ready(function (){
-
             var attribute_list = {!! $attributes !!};
             attribute_list.map(function (attr) {
                 var item_id = attr.id;
-                var update_btn = `#update_attribute-${item_id}`;
-                // var attr_id = $(`#attr_id-${item_id}`).val();
-
+                var update_btn = `#update_attribute-${item_id}`
                 $(document).on('click',update_btn,function (){
 
                     var attr_name = $(`#attr-name-${item_id}`).val();
@@ -234,13 +231,20 @@
                     $.ajax({
                         url: '{{ route('admin.attribute.update') }}',
                         method: 'POST',
-                        data: {id:item_id,name:attr_name,type:attr_type,priority:attr_priority,default_value:attr_default_value}
+                        data: {id:item_id,
+                                name:attr_name,
+                                type:attr_type,
+                                priority:attr_priority,
+                                default_value:attr_default_value}
                     }).done(function (data) {
-
-                        if (data.status === 200) {
-
-                        } else if (data.status === 404) {
-
+                        if (data.data === 200)
+                        {
+                             location.reload();
+                        } else if (data.status === 404)
+                        {
+                            console.log(data);
+                        }else if (data.status === 500){
+                            console.log(data);
                         }
                     }).fail(function (data) {
                         console.log(data['data']);
