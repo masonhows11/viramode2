@@ -166,17 +166,17 @@
 
                                 <div class="mt-3 mb-3">
                                     <label for="attr-name" class="form-label">{{ __('messages.name') }}</label>
-                                    <input type="text" class="form-control" id="attr-name" value="{{ $attribute->name }}" name="name">
+                                    <input type="text" class="form-control" id="attr-name-{{$attribute->id}}" value="{{ $attribute->name }}" name="name">
                                 </div>
 
                                 <div class="mt-3 mb-3">
                                     <label for="attr-priority" class="form-label">{{ __('messages.priority') }}</label>
-                                    <input type="number" min="1" max="999" class="form-control" id="attr-priority" value="{{ $attribute->priority }}" name="priority">
+                                    <input type="number" min="1" max="999" class="form-control" id="attr-priority-{{$attribute->id}}" value="{{ $attribute->priority }}" name="priority">
                                 </div>
 
                                 <div class="mt-3 mb-3">
                                     <label for="attr-type" class="form-label">{{ __('messages.attribute_type') }}</label>
-                                    <select class="form-control" name=type" id="attr-type">
+                                    <select class="form-control" name=type" id="attr-type-{{$attribute->id}}">
                                        {{-- <option value="">{{ __('messages.choose') }}</option>--}}
                                         <option {{ $attribute->type == 'select' ? 'selected' : '' }} value="select">Select</option>
                                         <option {{ $attribute->type == 'multi_select' ? 'selected' : '' }} value="multi_select">Multi_select</option>
@@ -189,7 +189,7 @@
 
                                 <div class="mt-3 mb-3">
                                     <label for="attr-has_default_value" class="form-label">{{ __('messages.has_default_value') }}</label>
-                                    <select class="form-control" name="has_default_value" id="attr-has_default_value">
+                                    <select class="form-control" name="has_default_value" id="attr-has_default_value-{{$attribute->id}}">
                                         <option {{ $attribute->has_default_value == 1 ? 'selected' : '' }} value="1">{{ __('messages.has_default_value') }}</option>
                                         <option {{ $attribute->has_default_value == 0 ? 'selected' : '' }} value="0">{{ __('messages.no_default_value') }}</option>
                                     </select>
@@ -220,10 +220,10 @@
 
                 $(document).on('click',update_btn,function (){
 
-                    var attr_name = $('#attr-name').val();
-                    var attr_type = $('#attr-type').val();
-                    var attr_priority = $('#attr-priority').val();
-                    var attr_default_value = $('#attr-has_default_value').val();
+                    var attr_name = $(`#attr-name-${item_id}`).val();
+                    var attr_type = $(`#attr-type-${item_id}`).val();
+                    var attr_priority = $(`#attr-priority-${item_id}`).val();
+                    var attr_default_value = $(`#attr-has_default_value-${item_id}`).val();
 
 
                     console.log(attr_name,attr_type,attr_priority,attr_default_value);
