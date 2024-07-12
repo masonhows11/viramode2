@@ -163,7 +163,7 @@
                         <div class="modal-body">
                             <form>
 
-                                <input type="hidden" id="attr_id" name="attr_id-{{$attribute->id}}" value="{{ $attribute->id }}">
+                                <input type="hidden" id="attr_id-{{$attribute->id}}" name="attr_id" value="{{ $attribute->id }}">
 
                                 <div class="mt-3 mb-3">
                                     <label for="name" class="form-label">{{ __('messages.name') }}</label>
@@ -218,13 +218,14 @@
 
             attribute_list.map(function (attr) {
 
-                var id = attr.id;
-                var update_btn = `#update_attribute-${id}`;
-                var attr_id = (`#attr_id-${id}`).val;
+                var item_id = attr.id;
+                var update_btn = `#update_attribute-${item_id}`;
+                var attr_id = $(`#attr_id-${item_id}`).val();
 
 
                 $(document).on('click',update_btn,function (){
-                    console.log(id);
+
+                    console.log(item_id);
                     console.log(attr_id);
                     $.ajaxSetup({
                         headers: {
