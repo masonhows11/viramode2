@@ -22,13 +22,13 @@ function customJalaliDateTime($date,$time = 'H:i:s'){
 }
 
 if (!function_exists('responseOk')) {
-    function responseOk($data, $status = 200)
+    function responseOk($data, $status = 200): \Illuminate\Http\JsonResponse
     {
         return response()->json(['is_successful' => true, 'data' => $data], $status);
     }
 }
 if (!function_exists('responseError')) {
-    function responseError($data, $status = 200)
+    function responseError($data, $status = 200): \Illuminate\Http\JsonResponse
     {
         return response()->json(['is_successful' => false, 'data' => $data], $status);
     }
