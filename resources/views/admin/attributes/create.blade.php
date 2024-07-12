@@ -163,7 +163,7 @@
                         <div class="modal-body">
                             <form>
 
-                                <input type="hidden" id="attr_id" name="attr_id" value="{{ $attribute->id }}">
+                                <input type="hidden" id="attr_id" name="attr_id-{{$attribute->id}}" value="{{ $attribute->id }}">
 
                                 <div class="mt-3 mb-3">
                                     <label for="name" class="form-label">{{ __('messages.name') }}</label>
@@ -200,7 +200,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('messages.cancel') }}</button>
-                            <button type="button" id="update_attribute" class="btn btn-primary">{{ __('messages.update') }}</button>
+                            <button type="button" id="update_attribute-{{ $attribute->id }}" class="btn btn-primary">{{ __('messages.update') }}</button>
                         </div>
                     </div>
                 </div>
@@ -213,34 +213,43 @@
     <script>
         $(document).ready(function (){
 
+            var attribute_list = {!! $attributes !!};
+            //console.log(attribute_list);
 
-            $(document).on('click','#update_attribute',function (){
+            attribute_list.map(function (attr) {
 
-
-                let attr_id = $("#attr_id").val()
-                console.log(attr_id);
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
-                $.ajax({
-                    url: '{{ route('admin.attribute.update',$attribute->id) }}',
-                    method: 'POST',
-                    data: {id:attr_id}
-                }).done(function (data) {
-
-                    if (data.status === 200) {
-
-                    } else if (data.status === 404) {
-
-                    }
-                }).fail(function (data) {
-                    console.log(data['data']);
-                });
+                var id = attr.id;
+                var update_btn = `#update_attribute-${id}`;
+                var attr_id = (`#attr_id-${id}`).val;
 
 
+                $(document).on('click',update_btn,function (){
+                    console.log(id);
+                    console.log(attr_id);
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                    $.ajax({
+                        url: '{{ route('admin.attribute.update') }}',
+                        method: 'POST',
+                        data: {id:attr_id}
+                    }).done(function (data) {
+
+                        if (data.status === 200) {
+
+                        } else if (data.status === 404) {
+
+                        }
+                    }).fail(function (data) {
+                        console.log(data['data']);
+                    });
+
+
+                })
             })
+
 
 
 

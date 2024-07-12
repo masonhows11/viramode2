@@ -293,9 +293,11 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin'
 
     ////
     Route::get('/attribute/index', AdminAttributeList::class)->name('attribute.index');
+
     Route::get('/attribute/create/{id}', [AttributesController::class, 'create'])->name('attribute.create');
-    Route::get('/attribute/update/{id}', [AttributesController::class, 'create'])->name('attribute.update');
     Route::post('/attribute/store', [AttributesController::class, 'store'])->name('attribute.store');
+
+    Route::post('/attribute/update', [AttributesController::class, 'create'])->name('attribute.update');
     Route::get('/attribute/delete/{id}', [AttributesController::class, 'delete'])->name('attribute.delete');
     ////
     Route::get('/attribute/value/index', AdminAttributeValue::class)->name('attribute.value.index');
