@@ -26,13 +26,13 @@
                         <div class="col-sm-4">
                             <div class="mt-3 mb-3">
                                 <label for="name" class="form-label">{{ __('messages.name') }}</label>
-                                <select class="form-control" name="name" id="name">
+                                <select class="form-control" name="attribute" id="name">
                                     <option value="">{{ __('messages.choose') }}</option>
                                     @foreach($attributes as $attribute)
                                         <option value="{{ $attribute->id }}">{{ $attribute->name }}</option>
                                     @endforeach
                                 </select>
-                                @error('name')
+                                @error('attribute')
                                 <div class="mt-3">
                                     <span class="text-danger">{{ $message }}</span>
                                 </div>
@@ -75,6 +75,7 @@
             </form>
         </div>
 
+        <!-- list attributes -->
         <div class="row mt-4 category-list bg-white overflow-auto">
             <div class="accordion my-4" id="accordionExample">
                 @foreach($attributes as $attribute)
@@ -127,8 +128,25 @@
                     </div>
                 @endforeach
             </div>
+        </div>
 
-
+        <!-- list attributes edit modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>

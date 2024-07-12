@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dash\Attributes;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Attributes\CreateAttributeValueRequest;
 use App\Models\Attribute;
 use App\Models\AttributeValue;
 use App\Models\Category;
@@ -19,13 +20,13 @@ class AttributesValueController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(CreateAttributeValueRequest $request)
     {
 
         try {
             AttributeValue::create([
                 'value' => $request->value,
-                'attribute_id' => $request->name,
+                'attribute_id' => $request->attribute,
                 'priority' => $request->priority,
             ]);
             session()->flash('success', __('messages.New_record_saved_successfully'));
