@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Dash\Attributes;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\Attributes\CreateAttributeRequest;
+use App\Http\Requests\Admin\Attributes\EditAttributeRequest;
 use App\Models\Attribute;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -24,14 +26,14 @@ class AttributesController extends Controller
         return view('admin.attributes.create', ['category' => $category, 'attributes' => $attributes]);
     }
 
-    public function store(Request $request)
+    public function store(CreateAttributeRequest $request)
     {
-        $request->validate([
-            'name' => 'required', 'min:2', 'max:30',
-            'type' => 'required',
-            'priority' => 'required', 'numeric', 'gt:0', 'lt:999',
-            'has_default_value' => 'required'
-        ]);
+//        $request->validate([
+//            'name' => 'required', 'min:2', 'max:30',
+//            'type' => 'required',
+//            'priority' => 'required', 'numeric', 'gt:0', 'lt:999',
+//            'has_default_value' => 'required'
+//        ]);
 
         Attribute::create([
             'name' => $request->name,
@@ -50,14 +52,14 @@ class AttributesController extends Controller
 
     }
 
-    public function update(Request $request)
+    public function update(EditAttributeRequest $request)
     {
-        $request->validate([
-            'name' => 'required', 'min:2', 'max:30',
-            'type' => 'required',
-            'priority' => 'required', 'numeric', 'gt:0', 'lt:999',
-            'has_default_value' => 'required'
-        ]);
+//        $request->validate([
+//            'name' => 'required', 'min:2', 'max:30',
+//            'type' => 'required',
+//            'priority' => 'required', 'numeric', 'gt:0', 'lt:999',
+//            'has_default_value' => 'required'
+//        ]);
 
         Attribute::where('id', $request->attribute_id)
             ->update(['name' => $request->name,

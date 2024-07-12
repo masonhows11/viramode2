@@ -39,7 +39,8 @@
                         <div class="col-sm-6">
                             <div class="mt-3 mb-3">
                                 <label for="priority" class="form-label">{{ __('messages.priority') }}</label>
-                                <input type="number" min="1" max="999" class="form-control" id="priority" name="priority">
+                                <input type="number" min="1" max="999" class="form-control" id="priority"
+                                       name="priority">
                                 @error('priority')
                                 <div class="mt-3">
                                     <span class="text-danger">{{ $message }}</span>
@@ -74,7 +75,7 @@
                                 <select class="form-control" name="has_default_value" id="has_default_value">
                                     <option value="">{{ __('messages.choose') }}</option>
                                     <option value="1">{{ __('messages.has_default_value') }}</option>
-                                    <option value="2">{{ __('messages.no_default_value') }}</option>
+                                    <option value="0">{{ __('messages.no_default_value') }}</option>
                                 </select>
                                 @error('has_default_value')
                                 <div class="mt-3">
@@ -89,7 +90,8 @@
                 </div>
                 <div class="mb-3 mt-3">
                     <button type="submit" id="add_attribute" class="btn btn-success ">{{ __('messages.save') }}</button>
-                    <a href="{{ route('admin.attribute.index') }}" class="btn btn-secondary">{{ __('messages.return') }}</a>
+                    <a href="{{ route('admin.attribute.index') }}"
+                       class="btn btn-secondary">{{ __('messages.return') }}</a>
                 </div>
             </form>
         </div>
@@ -118,14 +120,17 @@
                             <td>{{ $attribute->priority }}</td>
                             <td>{{ $attribute->has_default_value == 1 ? __('messages.has_default_value') : __('messages.no_default_value') }}</td>
                             <td>
-                                <a class=" btn btn-sm btn-primary" href="javascript:void(0)">
+                                <button class=" btn btn-sm btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal-{{$attribute->id}}">
                                     {{ __('messages.edit_model') }}
-                                </a>
+                                </button>
                             </td>
                             <td>
-                                <form action="{{ route('admin.attribute.delete',$attribute->id) }}" method="get" class="d-inline">
+                                <form action="{{ route('admin.attribute.delete',$attribute->id) }}" method="get"
+                                      class="d-inline">
                                     @csrf
-                                    <button type="submit" class="btn btn-sm btn-danger delete-item">{{ __('messages.delete_model') }}</button>
+                                    <button type="submit"
+                                            class="btn btn-sm btn-danger delete-item">{{ __('messages.delete_model') }}</button>
                                 </form>
                             </td>
                         </tr>
@@ -135,11 +140,97 @@
 
             </div>
         </div>
-        {{--<div class="row d-flex justify-content-center bg-white my-4 ">
-            <div class="col-lg-2 col-md-2 my-2 pt-2 pb-2 ">
-                {{ $attributes->links() }}
+
+
+    {{--<div class="row d-flex justify-content-center bg-white my-4 ">
+        <div class="col-lg-2 col-md-2 my-2 pt-2 pb-2 ">
+            {{ $attributes->links() }}
+        </div>
+    </div>--}}
+
+
+    <!-- list attributes edit modal -->
+        @foreach($attributes as $attribute)
+            <div class="modal fade" id="exampleModal-{{$attribute->id}}" tabindex="-1"
+                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">{{ __('messages.edit_model') }}</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{ route('admin.attribute.update',$attribute->id) }}" method="post">
+
+                                <input type="hidden" name="attr_id" value="{{ $attribute->id }}">
+
+                                <div class="mt-3 mb-3">
+                                    <label for="name" class="form-label">{{ __('messages.name') }}</label>
+                                    <input type="text" class="form-control" id="name" value="{{ $attribute->name }}"
+                                           name="name">
+                                    @error('name')
+                                    <div class="mt-3">
+                                        <span class="text-danger">{{ $message }}</span>
+                                    </div>
+                                    @enderror
+                                </div>
+
+                                <div class="mt-3 mb-3">
+                                    <label for="priority" class="form-label">{{ __('messages.priority') }}</label>
+                                    <input type="number" min="1" max="999" class="form-control" id="priority"
+                                           value="{{ $attribute->priority }}" name="priority">
+                                    @error('priority')
+                                    <div class="mt-3">
+                                        <span class="text-danger">{{ $message }}</span>
+                                    </div>
+                                    @enderror
+                                </div>
+
+                                <div class="mt-3 mb-3">
+                                    <label for="type" class="form-label">{{ __('messages.attribute_type') }}</label>
+                                    <select class="form-control" name="type" id="type">
+                                       {{-- <option value="">{{ __('messages.choose') }}</option>--}}
+                                        <option {{ $attribute->type == 'select' ? 'selected' : '' }} value="select">Select</option>
+                                        <option {{ $attribute->type == 'multi_select' ? 'selected' : '' }} value="multi_select">Multi_select</option>
+                                        <option {{ $attribute->type == 'radio' ? 'selected' : '' }}value="radio">Radio_button</option>
+                                        <option {{ $attribute->type == 'text_box' ? 'selected' : '' }} value="text_box">Text</option>
+                                        <option {{ $attribute->type == 'text_area' ? 'selected' : '' }} value="text_area">Text_area
+                                        </option>
+                                    </select>
+                                    @error('type')
+                                    <div class="mt-3">
+                                        <span class="text-danger">{{ $message }}</span>
+                                    </div>
+                                    @enderror
+                                </div>
+
+                                <div class="mt-3 mb-3">
+                                    <label for="has_default_value"
+                                           class="form-label">{{ __('messages.has_default_value') }}</label>
+                                    <select class="form-control" name="has_default_value" id="has_default_value">
+                                        <option
+                                            {{ $attribute->has_default_value == 1 ? 'selected' : '' }} value="1">{{ __('messages.has_default_value') }}</option>
+                                        <option
+                                            {{ $attribute->has_default_value == 0 ? 'selected' : '' }} value="0">{{ __('messages.no_default_value') }}</option>
+                                    </select>
+                                    @error('has_default_value')
+                                    <div class="mt-3">
+                                        <span class="text-danger">{{ $message }}</span>
+                                    </div>
+                                    @enderror
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">{{ __('messages.cancel') }}</button>
+                            <button type="button" class="btn btn-primary">{{ __('messages.update') }}</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>--}}
+        @endforeach
 
     </div>
 @endsection
