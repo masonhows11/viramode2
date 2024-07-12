@@ -28,12 +28,6 @@ class AttributesController extends Controller
 
     public function store(CreateAttributeRequest $request)
     {
-//        $request->validate([
-//            'name' => 'required', 'min:2', 'max:30',
-//            'type' => 'required',
-//            'priority' => 'required', 'numeric', 'gt:0', 'lt:999',
-//            'has_default_value' => 'required'
-//        ]);
 
         Attribute::create([
             'name' => $request->name,
@@ -54,13 +48,6 @@ class AttributesController extends Controller
 
     public function update(EditAttributeRequest $request)
     {
-//        $request->validate([
-//            'name' => 'required', 'min:2', 'max:30',
-//            'type' => 'required',
-//            'priority' => 'required', 'numeric', 'gt:0', 'lt:999',
-//            'has_default_value' => 'required'
-//        ]);
-
         Attribute::where('id', $request->attribute_id)
             ->update(['name' => $request->name,
                 'type' => $request->type,
