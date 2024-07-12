@@ -151,39 +151,28 @@
 
     <!-- list attributes edit modal -->
         @foreach($attributes as $attribute)
-            <div class="modal fade" id="exampleModal-{{$attribute->id}}" tabindex="-1"
-                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal-{{$attribute->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
+
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="exampleModalLabel">{{ __('messages.edit_model') }}</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <div class="modal-body">
-                            <form action="{{ route('admin.attribute.update',$attribute->id) }}" method="post">
 
-                                <input type="hidden" name="attr_id" value="{{ $attribute->id }}">
+                        <div class="modal-body">
+                            <form>
+
+                                <input type="hidden" id="attr_id" name="attr_id" value="{{ $attribute->id }}">
 
                                 <div class="mt-3 mb-3">
                                     <label for="name" class="form-label">{{ __('messages.name') }}</label>
-                                    <input type="text" class="form-control" id="name" value="{{ $attribute->name }}"
-                                           name="name">
-                                    @error('name')
-                                    <div class="mt-3">
-                                        <span class="text-danger">{{ $message }}</span>
-                                    </div>
-                                    @enderror
+                                    <input type="text" class="form-control" id="name" value="{{ $attribute->name }}" name="name">
                                 </div>
 
                                 <div class="mt-3 mb-3">
                                     <label for="priority" class="form-label">{{ __('messages.priority') }}</label>
-                                    <input type="number" min="1" max="999" class="form-control" id="priority"
-                                           value="{{ $attribute->priority }}" name="priority">
-                                    @error('priority')
-                                    <div class="mt-3">
-                                        <span class="text-danger">{{ $message }}</span>
-                                    </div>
-                                    @enderror
+                                    <input type="number" min="1" max="999" class="form-control" id="priority" value="{{ $attribute->priority }}" name="priority">
                                 </div>
 
                                 <div class="mt-3 mb-3">
@@ -197,35 +186,21 @@
                                         <option {{ $attribute->type == 'text_area' ? 'selected' : '' }} value="text_area">Text_area
                                         </option>
                                     </select>
-                                    @error('type')
-                                    <div class="mt-3">
-                                        <span class="text-danger">{{ $message }}</span>
-                                    </div>
-                                    @enderror
                                 </div>
 
                                 <div class="mt-3 mb-3">
-                                    <label for="has_default_value"
-                                           class="form-label">{{ __('messages.has_default_value') }}</label>
+                                    <label for="has_default_value" class="form-label">{{ __('messages.has_default_value') }}</label>
                                     <select class="form-control" name="has_default_value" id="has_default_value">
-                                        <option
-                                            {{ $attribute->has_default_value == 1 ? 'selected' : '' }} value="1">{{ __('messages.has_default_value') }}</option>
-                                        <option
-                                            {{ $attribute->has_default_value == 0 ? 'selected' : '' }} value="0">{{ __('messages.no_default_value') }}</option>
+                                        <option {{ $attribute->has_default_value == 1 ? 'selected' : '' }} value="1">{{ __('messages.has_default_value') }}</option>
+                                        <option {{ $attribute->has_default_value == 0 ? 'selected' : '' }} value="0">{{ __('messages.no_default_value') }}</option>
                                     </select>
-                                    @error('has_default_value')
-                                    <div class="mt-3">
-                                        <span class="text-danger">{{ $message }}</span>
-                                    </div>
-                                    @enderror
                                 </div>
 
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary"
-                                    data-bs-dismiss="modal">{{ __('messages.cancel') }}</button>
-                            <button type="button" class="btn btn-primary">{{ __('messages.update') }}</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('messages.cancel') }}</button>
+                            <button type="button" id="update_attribute" class="btn btn-primary">{{ __('messages.update') }}</button>
                         </div>
                     </div>
                 </div>
@@ -236,6 +211,40 @@
 @endsection
 @push('dash_custom_script')
     <script>
-        
+        $(document).ready(function (){
+
+
+            $(document).on('click','#update_attribute',function (){
+
+
+                let attr_id = $("#attr_id").val()
+                console.log(attr_id);
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    url: '{{ route('admin.attribute.update',$attribute->id) }}',
+                    method: 'POST',
+                    data: {id:attr_id}
+                }).done(function (data) {
+
+                    if (data.status === 200) {
+
+                    } else if (data.status === 404) {
+
+                    }
+                }).fail(function (data) {
+                    console.log(data['data']);
+                });
+
+
+            })
+
+
+
+        });
+
     </script>
 @endpush
