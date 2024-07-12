@@ -4,6 +4,7 @@
 use App\Http\Controllers\Dash\Address\AdminCityController;
 use App\Http\Controllers\Dash\Address\AdminProvinceController;
 use App\Http\Controllers\Dash\Attributes\AttributesController;
+use App\Http\Controllers\Dash\Attributes\AttributesValueController;
 use App\Http\Controllers\Dash\Banner2\AdminBestSellerController;
 use App\Http\Controllers\Dash\Banner2\AdminCustomBannerController;
 use App\Http\Controllers\Dash\Banner2\AdminMostVisitedController;
@@ -297,7 +298,9 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin'
     Route::get('/attribute/delete/{id}', [AttributesController::class, 'delete'])->name('attribute.delete');
     ////
     Route::get('/attribute/value/index', AdminAttributeValue::class)->name('attribute.value.index');
-    Route::get('/attribute/value/create/{id}', AdminAttributeValueCreate::class)->name('attribute.value.create');
+    Route::get('/attribute/value/create/{id}', [AttributesValueController::class,'create'])->name('attribute.value.create');
+    Route::post('/attribute/value/store', [AttributesValueController::class,'store'])->name('attribute.value.store');
+    Route::get('/attribute/value/delete/{id}', [AttributesValueController::class,'delete'])->name('attribute.value.delete');
 
 
 });

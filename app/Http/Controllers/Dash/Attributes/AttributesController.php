@@ -12,15 +12,11 @@ class AttributesController extends Controller
     //
     public function index()
     {
-
         return view('admin.attributes.index');
-
     }
 
     public function create(Request $request)
     {
-
-
         $attributes = Attribute::where('category_id', $request->id)
             ->orderBy('priority', 'asc')->get();
         $category = Category::where('id', $request->id)
@@ -47,7 +43,6 @@ class AttributesController extends Controller
 
         session()->flash('success', __('messages.New_record_saved_successfully'));
         return redirect()->back();
-
     }
 
     public function edit(Request $request)

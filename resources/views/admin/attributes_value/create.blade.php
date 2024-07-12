@@ -1,10 +1,11 @@
-<div>
-    @section('dash_page_title')
-        {{ __('messages.product_specifications_values') }}
-    @endsection
-    @section('breadcrumb')
-        {{ Breadcrumbs::render('admin.create.specification.values',$category->title_persian) }}
-    @endsection
+@extends('admin.layout.master_admin')
+@section('dash_page_title')
+    {{ __('messages.product_specifications_values') }}
+@endsection
+@section('breadcrumb')
+    {{ Breadcrumbs::render('admin.create.specification.values',$category->title_persian) }}
+@endsection
+@section('admin_main')
     <div class="container-fluid">
 
         <div class="row d-flex justify-content-start my-4 bg-white">
@@ -102,15 +103,16 @@
                                             <td>{{ $attribute->id }}</td>
                                             <td>{{ $attribute->value }}</td>
                                             <td>{{ $attribute->priority }}</td>
-                                            <td><a class="mt-3" href="javascript:void(0)"
-                                                   wire:click.prevent="edit({{$attribute->id}})">
+                                            <td>
+                                                <a class="mt-3" href="javascript:void(0)">
                                                     <i class="mt-3 fa fa-edit"></i>
                                                 </a>
                                             </td>
-                                            <td><a class="mt-3" href="javascript:void(0)"
-                                                   wire:click.prevent="deleteConfirmation({{ $attribute->id }})">
-                                                    <i class="mt-3 fa fa-trash"></i>
-                                                </a>
+                                            <td>
+                                                <form action="{{ route('admin.attribute.value.delete',$attribute->id) }}" method="get" class="d-inline">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-sm btn-danger delete-item">{{ __('messages.delete_model') }}</button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @empty
@@ -128,25 +130,8 @@
         </div>
 
     </div>
-</div>
+@endsection
 @push('dash_custom_script')
-    <script type="text/javascript">
-        document.addEventListener('show-delete-confirmation', event => {
-            Swal.fire({
-                title: 'آیا مطمئن هستید این ایتم حذف شود؟',
-                icon: 'error',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'بله حذف کن!',
-                cancelButtonText: 'خیر',
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Livewire.dispatch('deleteConfirmed')
-                }
-            });
-        })
-    </script>
     <script>
         const Toast = Swal.mixin({
             toast: true,
