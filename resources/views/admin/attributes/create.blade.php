@@ -226,8 +226,6 @@
                     var attr_default_value = $(`#attr-has_default_value-${item_id}`).val();
 
 
-                    console.log(attr_name,attr_type,attr_priority,attr_default_value);
-
                     $.ajaxSetup({
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -236,7 +234,7 @@
                     $.ajax({
                         url: '{{ route('admin.attribute.update') }}',
                         method: 'POST',
-                        data: {id:item_id,}
+                        data: {id:item_id,name:attr_name,type:attr_type,priority:attr_priority,default_value:attr_default_value}
                     }).done(function (data) {
 
                         if (data.status === 200) {
