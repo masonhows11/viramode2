@@ -129,8 +129,7 @@
                                 <form action="{{ route('admin.attribute.delete',$attribute->id) }}" method="get"
                                       class="d-inline">
                                     @csrf
-                                    <button type="submit"
-                                            class="btn btn-sm btn-danger delete-item">{{ __('messages.delete_model') }}</button>
+                                    <button type="submit" class="btn btn-sm btn-danger delete-item">{{ __('messages.delete_model') }}</button>
                                 </form>
                             </td>
                         </tr>
@@ -166,18 +165,18 @@
                                 <input type="hidden" id="attr_id-{{$attribute->id}}" name="attr_id" value="{{ $attribute->id }}">
 
                                 <div class="mt-3 mb-3">
-                                    <label for="name" class="form-label">{{ __('messages.name') }}</label>
-                                    <input type="text" class="form-control" id="name" value="{{ $attribute->name }}" name="name">
+                                    <label for="attr-name" class="form-label">{{ __('messages.name') }}</label>
+                                    <input type="text" class="form-control" id="attr-name" value="{{ $attribute->name }}" name="name">
                                 </div>
 
                                 <div class="mt-3 mb-3">
-                                    <label for="priority" class="form-label">{{ __('messages.priority') }}</label>
-                                    <input type="number" min="1" max="999" class="form-control" id="priority" value="{{ $attribute->priority }}" name="priority">
+                                    <label for="attr-priority" class="form-label">{{ __('messages.priority') }}</label>
+                                    <input type="number" min="1" max="999" class="form-control" id="attr-priority" value="{{ $attribute->priority }}" name="priority">
                                 </div>
 
                                 <div class="mt-3 mb-3">
-                                    <label for="type" class="form-label">{{ __('messages.attribute_type') }}</label>
-                                    <select class="form-control" name="type" id="type">
+                                    <label for="attr-type" class="form-label">{{ __('messages.attribute_type') }}</label>
+                                    <select class="form-control" name=type" id="attr-type">
                                        {{-- <option value="">{{ __('messages.choose') }}</option>--}}
                                         <option {{ $attribute->type == 'select' ? 'selected' : '' }} value="select">Select</option>
                                         <option {{ $attribute->type == 'multi_select' ? 'selected' : '' }} value="multi_select">Multi_select</option>
@@ -189,8 +188,8 @@
                                 </div>
 
                                 <div class="mt-3 mb-3">
-                                    <label for="has_default_value" class="form-label">{{ __('messages.has_default_value') }}</label>
-                                    <select class="form-control" name="has_default_value" id="has_default_value">
+                                    <label for="attr-has_default_value" class="form-label">{{ __('messages.has_default_value') }}</label>
+                                    <select class="form-control" name="has_default_value" id="attr-has_default_value">
                                         <option {{ $attribute->has_default_value == 1 ? 'selected' : '' }} value="1">{{ __('messages.has_default_value') }}</option>
                                         <option {{ $attribute->has_default_value == 0 ? 'selected' : '' }} value="0">{{ __('messages.no_default_value') }}</option>
                                     </select>
@@ -214,19 +213,21 @@
         $(document).ready(function (){
 
             var attribute_list = {!! $attributes !!};
-            //console.log(attribute_list);
-
             attribute_list.map(function (attr) {
-
                 var item_id = attr.id;
                 var update_btn = `#update_attribute-${item_id}`;
-                var attr_id = $(`#attr_id-${item_id}`).val();
-
+                // var attr_id = $(`#attr_id-${item_id}`).val();
 
                 $(document).on('click',update_btn,function (){
 
-                    console.log(item_id);
-                    console.log(attr_id);
+                    var attr_name = $('#attr-name').val();
+                    var attr_type = $('#attr-type').val();
+                    var attr_priority = $('#attr-priority').val();
+                    var attr_default_value = $('#attr-has_default_value').val();
+
+
+                    console.log(attr_name,attr_type,attr_priority,attr_default_value);
+
                     $.ajaxSetup({
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -235,7 +236,7 @@
                     $.ajax({
                         url: '{{ route('admin.attribute.update') }}',
                         method: 'POST',
-                        data: {id:attr_id}
+                        data: {id:item_id,}
                     }).done(function (data) {
 
                         if (data.status === 200) {
