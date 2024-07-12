@@ -28,8 +28,8 @@ class AttributesValueController extends Controller
                 'attribute_id' => $request->name,
                 'priority' => $request->priority,
             ]);
-
             session()->flash('success', __('messages.New_record_saved_successfully'));
+            return redirect()->back();
         } catch (\Exception $ex) {
             session()->flash('success', __('messages.An_error_occurred'));
             return redirect()->back();
@@ -68,8 +68,9 @@ class AttributesValueController extends Controller
     public function delete(Request $request)
     {
         try {
-            AttributeValue::destroy($request->attribute_value_id);
+            AttributeValue::destroy($request->id);
             session()->flash('success', __('messages.The_deletion_was_successful'));
+            return redirect()->back();
         } catch (\Exception $ex) {
             session()->flash('success', __('messages.An_error_occurred'));
             return redirect()->back();

@@ -18,21 +18,24 @@
         </div>
 
         <div class="row bg-white rounded create-color-form">
-            <form wire:submit.prevent="save">
+            <form action="{{ route('admin.attribute.value.store') }}" method="post">
+                @csrf
                 <div class="col">
                     <div class="row">
 
                         <div class="col-sm-4">
                             <div class="mt-3 mb-3">
                                 <label for="name" class="form-label">{{ __('messages.name') }}</label>
-                                <select class="form-control" wire:model="name" id="name">
-                                    <option>انتخاب کنید</option>
+                                <select class="form-control" name="name" id="name">
+                                    <option value="">{{ __('messages.choose') }}</option>
                                     @foreach($attributes as $attribute)
                                         <option value="{{ $attribute->id }}">{{ $attribute->name }}</option>
                                     @endforeach
                                 </select>
                                 @error('name')
-                                <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                <div class="mt-3">
+                                    <span class="text-danger">{{ $message }}</span>
+                                </div>
                                 @enderror
                             </div>
                         </div>
@@ -40,10 +43,10 @@
                         <div class="col-sm-4">
                             <div class="mt-3 mb-3">
                                 <label for="value" class="form-label">{{ __('messages.value') }}</label>
-                                <input type="text" class="form-control" id="value" wire:model="value">
+                                <input type="text" class="form-control" id="value" name="value">
                                 @error('value')
-                                <div class="alert alert-danger mt-3">
-                                    {{ $message }}
+                                <div class="mt-3">
+                                    <span class="text-danger">{{ $message }}</span>
                                 </div>
                                 @enderror
                             </div>
@@ -52,10 +55,10 @@
                         <div class="col-sm-4">
                             <div class="mt-3 mb-3">
                                 <label for="priority" class="form-label">{{ __('messages.priority') }}</label>
-                                <input type="number" min="1" max="999" class="form-control" id="priority" wire:model="priority">
+                                <input type="number" min="1" max="999" class="form-control" id="priority" name="priority">
                                 @error('priority')
-                                <div class="alert alert-danger mt-3">
-                                    {{ $message }}
+                                <div class="mt-3">
+                                    <span class="text-danger">{{ $message }}</span>
                                 </div>
                                 @enderror
                             </div>
@@ -67,7 +70,6 @@
                 </div>
                 <div class="mb-3 mt-3">
                     <button type="submit" id="add_attribute" class="btn btn-success ">{{ __('messages.save') }}</button>
-                    <button type="reset" wire:click.reset="resetInput()" id="reset_attribute" class="btn btn-primary">{{ __('messages.reset_input') }}</button>
                     <a href="{{ route('admin.attribute.value.index') }}" class="btn btn-secondary">{{ __('messages.return') }}</a>
                 </div>
             </form>
