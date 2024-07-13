@@ -22,7 +22,6 @@
                 <div class="col">
                     <div class="row">
 
-
                         <input type="hidden" name="attribute_value_id" value="{{ $value->id }}">
                         <input type="hidden" name="attribute" value="{{ $value->attribute_id }}">
                         <input type="hidden" name="category_id" value="{{ $category_id  }}">
@@ -52,7 +51,6 @@
                             </div>
                         </div>
 
-
                     </div>
                 </div>
                 <div class="mb-3 mt-3">
@@ -61,9 +59,6 @@
                 </div>
             </form>
         </div>
-
-
-
 
 
     </div>
