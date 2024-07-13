@@ -287,23 +287,25 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin'
 });
 
 //  crud product attribute & attribute value
-
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
 
 
-    ////
+    //// attributes
     Route::get('/attribute/index', AdminAttributeList::class)->name('attribute.index');
-
+    //
     Route::get('/attribute/create/{id}', [AttributesController::class, 'create'])->name('attribute.create');
     Route::post('/attribute/store', [AttributesController::class, 'store'])->name('attribute.store');
-
+    //
     Route::get('/attribute/edit/{attribute}', [AttributesController::class, 'edit'])->name('attribute.edit');
     Route::post('/attribute/update', [AttributesController::class, 'update'])->name('attribute.update');
     Route::get('/attribute/delete/{id}', [AttributesController::class, 'delete'])->name('attribute.delete');
-    ////
+
+    //// attribute values
     Route::get('/attribute/value/index', AdminAttributeValue::class)->name('attribute.value.index');
+    //
     Route::get('/attribute/value/create/{id}', [AttributesValueController::class,'create'])->name('attribute.value.create');
     Route::post('/attribute/value/store', [AttributesValueController::class,'store'])->name('attribute.value.store');
+    //
     Route::get('/attribute/value/delete/{id}', [AttributesValueController::class,'delete'])->name('attribute.value.delete');
 
 

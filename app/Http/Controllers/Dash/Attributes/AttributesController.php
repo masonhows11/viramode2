@@ -57,7 +57,6 @@ class AttributesController extends Controller
     public function update(EditAttributeRequest $request)
     {
         try {
-
             Attribute::where('id', $request->attr_id)
                 ->update(['name' => $request->name,
                     'type' => $request->type,
