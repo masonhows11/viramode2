@@ -36,18 +36,11 @@ class AttributesValueController extends Controller
             return redirect()->back();
         }
 
-
     }
 
-    public function edit(Request $request)
+    public function edit(AttributeValue $value)
     {
-        try {
-            $attributeValue = AttributeValue::findOrFail($request->id);
-            return  view('admin.attributes_value.edit',['attributeValue' => $attributeValue]);
-        } catch (\Exception $ex) {
-            session()->flash('success', __('messages.An_error_occurred'));
-            return redirect()->back();
-        }
+        return view('admin.attributes_value.edit',['value' => $value ,'category_id' => $value->attribute->category_id ]);
     }
 
     public function update(Request $request)
@@ -55,10 +48,10 @@ class AttributesValueController extends Controller
         try {
             AttributeValue::where('id', $request->attribute_value_id)
                 ->update(['value' => $request->value,
-                    'attribute_id' => $request->name,
+                    'attribute_id' => $request->attribute,
                     'priority' => $request->priority,]);
-
-            session()->flash('succes', __('messages.The_update_was_completed_successfully'));
+            session()->flash('success', __('messages.The_update_was_completed_successfully'));
+            return redirect()->route('admin.attribute.value.create',['id' => $request->category_id ]);
         } catch (\Exception $ex) {
             session()->flash('success', __('messages.An_error_occurred'));
             return redirect()->back();

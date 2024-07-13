@@ -35,6 +35,7 @@ return [
     'product_manage_specifications' => 'مدیریت مشخصات فنی',
     'return_product_specification_list' => 'لیست مشخصات محصول',
     'product_manage_specifications_edit' => 'مدیریت مشخصات فنی - ویرایش',
+    'product_manage_specifications_value_edit' => 'مدیریت مشخصات فنی - ویرایش مقادیر',
     'product_specifications' => 'مشخصات فنی کالا',
     'product_specifications_values' => 'مقادیر مشخصات  فنی کالا',
     'has_technical_specifications' => 'دارای مشخصات فنی',

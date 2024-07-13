@@ -3,7 +3,7 @@
     {{ __('messages.edit_model') }}
 @endsection
 @section('breadcrumb')
-    {{ Breadcrumbs::render('admin.create.specifications.category') }}
+{{--    {{ Breadcrumbs::render('admin.create.specifications.category') }}--}}
 @endsection
 @section('admin_main')
     <div class="container-fluid">

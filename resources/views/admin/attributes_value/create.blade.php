@@ -1,6 +1,6 @@
 @extends('admin.layout.master_admin')
 @section('dash_page_title')
-    {{ __('messages.product_specifications_values') }}
+    {{ __('messages.edit_model') }}
 @endsection
 @section('breadcrumb')
     {{ Breadcrumbs::render('admin.create.specification.values',$category->title_persian) }}
@@ -64,8 +64,6 @@
                             </div>
                         </div>
 
-
-
                     </div>
                 </div>
                 <div class="mb-3 mt-3">
@@ -107,9 +105,7 @@
                                             <td>{{ $attribute->value }}</td>
                                             <td>{{ $attribute->priority }}</td>
                                             <td>
-                                                <a class="mt-3" href="javascript:void(0)">
-                                                    <i class="mt-3 fa fa-edit"></i>
-                                                </a>
+                                                <a class="btn btn-sm btn-primary"  href="{{ route('admin.attribute.value.edit',$attribute->id)}}">{{ __('messages.edit_model') }}</a>
                                             </td>
                                             <td>
                                                 <form action="{{ route('admin.attribute.value.delete',$attribute->id) }}" method="get" class="d-inline">
@@ -130,30 +126,8 @@
             </div>
         </div>
 
-        <!-- list attributes edit modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
     </div>
 @endsection
-@push('dash_custom_script')
-    <script>
-
-    </script>
-@endpush
 

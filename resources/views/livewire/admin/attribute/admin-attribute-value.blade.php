@@ -6,6 +6,7 @@
         {{ Breadcrumbs::render('admin.create.specification.values.category') }}
     @endsection
     <div class="container-fluid">
+
         <div class="row d-flex justify-content-start my-4 bg-white">
             <div class="col-lg-4 col-md-4 col  my-5  border-bottom title-add-to-stock">
                 <div class="alert my-4">
@@ -38,14 +39,15 @@
                     @endforeach
                     </tbody>
                 </table>
-
             </div>
         </div>
+
         <div class="row d-flex justify-content-center bg-white my-4 ">
             <div class="col-lg-2 col-md-2 my-2 pt-2 pb-2 ">
                 {{ $categories->links() }}
             </div>
         </div>
+
     </div>
 </div>
 
