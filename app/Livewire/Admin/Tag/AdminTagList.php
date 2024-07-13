@@ -76,7 +76,7 @@ class AdminTagList extends Component
                 $this->edit_mode = false;
             }catch (\Exception $ex){
                 $this->dispatch('show-result',type:'error',message:__('messages.The_desired_record_does_not_exist'));
-               // return view('errors_custom.model_store_error');
+
             }
         }
     }
@@ -105,7 +105,6 @@ class AdminTagList extends Component
             return null;
         } catch (\Exception $ex) {
             $this->dispatch('show-result',type:'error',message:__('messages.The_desired_record_does_not_exist'));
-            // return view('errors_custom.model_not_found');
         }
     }
 
