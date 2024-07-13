@@ -129,7 +129,8 @@
                                 <form action="{{ route('admin.attribute.delete',$attribute->id) }}" method="get"
                                       class="d-inline">
                                     @csrf
-                                    <button type="submit" class="btn btn-sm btn-danger delete-item">{{ __('messages.delete_model') }}</button>
+                                    <button type="submit"
+                                            class="btn btn-sm btn-danger delete-item">{{ __('messages.delete_model') }}</button>
                                 </form>
                             </td>
                         </tr>
@@ -150,7 +151,8 @@
 
     <!-- list attributes edit modal -->
         @foreach($attributes as $attribute)
-            <div class="modal fade" id="exampleModal-{{$attribute->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="exampleModal-{{$attribute->id}}" tabindex="-1"
+                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
 
@@ -162,44 +164,66 @@
                         <div class="modal-body">
                             <form>
 
-                                <input type="hidden" id="attr_id-{{$attribute->id}}" name="attr_id" value="{{ $attribute->id }}">
+                                <input type="hidden" id="attr_id-{{$attribute->id}}" name="attr_id"
+                                       value="{{ $attribute->id }}">
 
                                 <div class="mt-3 mb-3">
                                     <label for="attr-name" class="form-label">{{ __('messages.name') }}</label>
-                                    <input type="text" class="form-control" id="attr-name-{{$attribute->id}}" value="{{ $attribute->name }}" name="name">
+                                    <input type="text" class="form-control" id="attr-name-{{$attribute->id}}"
+                                           value="{{ $attribute->name }}" name="name">
                                 </div>
 
                                 <div class="mt-3 mb-3">
                                     <label for="attr-priority" class="form-label">{{ __('messages.priority') }}</label>
-                                    <input type="number" min="1" max="999" class="form-control" id="attr-priority-{{$attribute->id}}" value="{{ $attribute->priority }}" name="priority">
+                                    <input type="number" min="1" max="999" class="form-control"
+                                           id="attr-priority-{{$attribute->id}}" value="{{ $attribute->priority }}"
+                                           name="priority">
                                 </div>
 
                                 <div class="mt-3 mb-3">
-                                    <label for="attr-type" class="form-label">{{ __('messages.attribute_type') }}</label>
+                                    <label for="attr-type"
+                                           class="form-label">{{ __('messages.attribute_type') }}</label>
                                     <select class="form-control" name=type" id="attr-type-{{$attribute->id}}">
-                                       {{-- <option value="">{{ __('messages.choose') }}</option>--}}
-                                        <option {{ $attribute->type == 'select' ? 'selected' : '' }} value="select">Select</option>
-                                        <option {{ $attribute->type == 'multi_select' ? 'selected' : '' }} value="multi_select">Multi_select</option>
-                                        <option {{ $attribute->type == 'radio' ? 'selected' : '' }} value="radio">Radio_button</option>
-                                        <option {{ $attribute->type == 'text_box' ? 'selected' : '' }} value="text_box">Text</option>
-                                        <option {{ $attribute->type == 'text_area' ? 'selected' : '' }} value="text_area">Text_area
+                                        {{-- <option value="">{{ __('messages.choose') }}</option>--}}
+                                        <option {{ $attribute->type == 'select' ? 'selected' : '' }} value="select">
+                                            Select
+                                        </option>
+                                        <option
+                                            {{ $attribute->type == 'multi_select' ? 'selected' : '' }} value="multi_select">
+                                            Multi_select
+                                        </option>
+                                        <option {{ $attribute->type == 'radio' ? 'selected' : '' }} value="radio">
+                                            Radio_button
+                                        </option>
+                                        <option {{ $attribute->type == 'text_box' ? 'selected' : '' }} value="text_box">
+                                            Text
+                                        </option>
+                                        <option
+                                            {{ $attribute->type == 'text_area' ? 'selected' : '' }} value="text_area">
+                                            Text_area
                                         </option>
                                     </select>
                                 </div>
 
                                 <div class="mt-3 mb-3">
-                                    <label for="attr-has_default_value" class="form-label">{{ __('messages.has_default_value') }}</label>
-                                    <select class="form-control" name="has_default_value" id="attr-has_default_value-{{$attribute->id}}">
-                                        <option {{ $attribute->has_default_value == 1 ? 'selected' : '' }} value="1">{{ __('messages.has_default_value') }}</option>
-                                        <option {{ $attribute->has_default_value == 0 ? 'selected' : '' }} value="0">{{ __('messages.no_default_value') }}</option>
+                                    <label for="attr-has_default_value"
+                                           class="form-label">{{ __('messages.has_default_value') }}</label>
+                                    <select class="form-control" name="has_default_value"
+                                            id="attr-has_default_value-{{$attribute->id}}">
+                                        <option
+                                            {{ $attribute->has_default_value == 1 ? 'selected' : '' }} value="1">{{ __('messages.has_default_value') }}</option>
+                                        <option
+                                            {{ $attribute->has_default_value == 0 ? 'selected' : '' }} value="0">{{ __('messages.no_default_value') }}</option>
                                     </select>
                                 </div>
 
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('messages.cancel') }}</button>
-                            <button type="button" id="update_attribute-{{ $attribute->id }}" class="btn btn-primary">{{ __('messages.update') }}</button>
+                            <button type="button" class="btn btn-secondary"
+                                    data-bs-dismiss="modal">{{ __('messages.cancel') }}</button>
+                            <button type="button" id="update_attribute-{{ $attribute->id }}"
+                                    class="btn btn-primary">{{ __('messages.update') }}</button>
                         </div>
                     </div>
                 </div>
@@ -210,17 +234,17 @@
 @endsection
 @push('dash_custom_script')
     <script>
-        $(document).ready(function (){
+        $(document).ready(function () {
             var attribute_list = {!! $attributes !!};
             attribute_list.map(function (attr) {
                 var item_id = attr.id;
                 var update_btn = `#update_attribute-${item_id}`
-                $(document).on('click',update_btn,function (){
+                $(document).on('click', update_btn, function () {
 
-                    var attr_name = $(`#attr-name-${item_id}`).val();
-                    var attr_type = $(`#attr-type-${item_id}`).val();
-                    var attr_priority = $(`#attr-priority-${item_id}`).val();
-                    var attr_default_value = $(`#attr-has_default_value-${item_id}`).val();
+                    var name = '';//$(`#attr-name-${item_id}`).val();
+                    var type = '';//$(`#attr-type-${item_id}`).val();
+                    var priority = '';// $(`#attr-priority-${item_id}`).val();
+                    var has_default_value = ''; // $(`#attr-has_default_value-${item_id}`).val();
 
 
                     $.ajaxSetup({
@@ -231,30 +255,43 @@
                     $.ajax({
                         url: '{{ route('admin.attribute.update') }}',
                         method: 'POST',
-                        data: {id:item_id,
-                                name:attr_name,
-                                type:attr_type,
-                                priority:attr_priority,
-                                default_value:attr_default_value}
+                        datatype:'json',
+                        data: {
+                            id: item_id,
+                            name: name,
+                            type: type,
+                            priority: priority,
+                            has_default_value: has_default_value
+                        }
                     }).done(function (data) {
-                        if (data.data === 200)
-                        {
-                             location.reload();
-                        } else if (data.status === 404)
-                        {
-                            console.log(data);
-                        }else if (data.status === 500){
+
+
+                        if (data === 422) {
                             console.log(data);
                         }
+                        if (data['data'].status === 200) {
+                            location.reload();
+                        }
+                        if (data['data'].status === 500) {
+                            console.log(data);
+
+                        }
+                        // if (data.data === 200)
+                        // {
+                        //      location.reload();
+                        // } else if (data.status === 404)
+                        // {
+                        //     console.log(data);
+                        // }else if (data.status === 500){
+                        //     console.log(data);
+                        // }
                     }).fail(function (data) {
-                        console.log(data['data']);
+                        console.log(data);
                     });
 
 
                 })
             })
-
-
 
 
         });

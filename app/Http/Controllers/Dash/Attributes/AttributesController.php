@@ -41,23 +41,23 @@ class AttributesController extends Controller
         return redirect()->back();
     }
 
-    public function edit(Request $request)
+//    public function edit(Request $request)
+//    {
+//
+//    }
+
+    public function update(EditAttributeRequest $request)
     {
-
-    }
-
-    public function update(Request $request)
-    {
-
+     // dd($request);
         try {
             Attribute::where('id', $request->id)
                 ->update(['name' => $request->name,
                     'type' => $request->type,
                     'priority' => $request->priority,
-                    'has_default_value' => $request->default_value]);
-         return responseOk(200,200);
+                    'has_default_value' => $request->has_default_value]);
+         return responseOk(['status' => 200 ],200);
         }catch (\Exception $ex){
-         return  responseError(500,200);
+         return  responseError(['status' => 500,'msg' => $ex->getMessage() ],200);
         }
 
     }
