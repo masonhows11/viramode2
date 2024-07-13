@@ -120,17 +120,15 @@
                             <td>{{ $attribute->priority }}</td>
                             <td>{{ $attribute->has_default_value == 1 ? __('messages.has_default_value') : __('messages.no_default_value') }}</td>
                             <td>
-                                <button class=" btn btn-sm btn-primary" data-bs-toggle="modal"
-                                        data-bs-target="#exampleModal-{{$attribute->id}}">
+                                <a class=" btn btn-sm btn-primary" href="{{ route('admin.attribute.edit',['id' => $attribute->id]) }}">
                                     {{ __('messages.edit_model') }}
-                                </button>
+                                </a>
                             </td>
                             <td>
                                 <form action="{{ route('admin.attribute.delete',$attribute->id) }}" method="get"
                                       class="d-inline">
                                     @csrf
-                                    <button type="submit"
-                                            class="btn btn-sm btn-danger delete-item">{{ __('messages.delete_model') }}</button>
+                                    <button type="submit" class="btn btn-sm btn-danger delete-item">{{ __('messages.delete_model') }}</button>
                                 </form>
                             </td>
                         </tr>
@@ -150,7 +148,7 @@
 
 
     <!-- list attributes edit modal -->
-        @foreach($attributes as $attribute)
+       {{-- @foreach($attributes as $attribute)
             <div class="modal fade" id="exampleModal-{{$attribute->id}}" tabindex="-1"
                  aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -184,7 +182,7 @@
                                     <label for="attr-type"
                                            class="form-label">{{ __('messages.attribute_type') }}</label>
                                     <select class="form-control" name=type" id="attr-type-{{$attribute->id}}">
-                                        {{-- <option value="">{{ __('messages.choose') }}</option>--}}
+                                        --}}{{-- <option value="">{{ __('messages.choose') }}</option>--}}{{--
                                         <option {{ $attribute->type == 'select' ? 'selected' : '' }} value="select">
                                             Select
                                         </option>
@@ -228,24 +226,22 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+        @endforeach--}}
 
     </div>
 @endsection
 @push('dash_custom_script')
-    <script>
+   {{-- <script>
         $(document).ready(function () {
             var attribute_list = {!! $attributes !!};
             attribute_list.map(function (attr) {
                 var item_id = attr.id;
                 var update_btn = `#update_attribute-${item_id}`
                 $(document).on('click', update_btn, function () {
-
                     var name = '';//$(`#attr-name-${item_id}`).val();
                     var type = '';//$(`#attr-type-${item_id}`).val();
                     var priority = '';// $(`#attr-priority-${item_id}`).val();
                     var has_default_value = ''; // $(`#attr-has_default_value-${item_id}`).val();
-
 
                     $.ajaxSetup({
                         headers: {
@@ -264,37 +260,18 @@
                             has_default_value: has_default_value
                         }
                     }).done(function (data) {
-
-
-                        if (data === 422) {
-                            console.log(data);
-                        }
+                        console.log(data);
                         if (data['data'].status === 200) {
                             location.reload();
                         }
                         if (data['data'].status === 500) {
                             console.log(data);
-
                         }
-                        // if (data.data === 200)
-                        // {
-                        //      location.reload();
-                        // } else if (data.status === 404)
-                        // {
-                        //     console.log(data);
-                        // }else if (data.status === 500){
-                        //     console.log(data);
-                        // }
                     }).fail(function (data) {
                         console.log(data);
                     });
-
-
                 })
             })
-
-
         });
-
-    </script>
+    </script>--}}
 @endpush

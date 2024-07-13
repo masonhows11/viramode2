@@ -8,6 +8,7 @@ use App\Http\Requests\Admin\Attributes\EditAttributeRequest;
 use App\Models\Attribute;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AttributesController extends Controller
 {
@@ -41,23 +42,23 @@ class AttributesController extends Controller
         return redirect()->back();
     }
 
-//    public function edit(Request $request)
-//    {
-//
-//    }
+    public function edit(Attribute $attribute)
+    {
+        dd($attribute);
+        return  view('admin.attributes.edit');
+    }
 
     public function update(EditAttributeRequest $request)
     {
-     // dd($request);
         try {
             Attribute::where('id', $request->id)
                 ->update(['name' => $request->name,
                     'type' => $request->type,
                     'priority' => $request->priority,
                     'has_default_value' => $request->has_default_value]);
-         return responseOk(['status' => 200 ],200);
+
+
         }catch (\Exception $ex){
-         return  responseError(['status' => 500,'msg' => $ex->getMessage() ],200);
         }
 
     }
