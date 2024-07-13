@@ -30,35 +30,45 @@ class AttributesController extends Controller
     public function store(CreateAttributeRequest $request)
     {
 
-        Attribute::create([
-            'name' => $request->name,
-            'type' => $request->type,
-            'priority' => $request->priority,
-            'category_id' => $request->category_id,
-            'has_default_value' => $request->has_default_value,
-        ]);
+        try {
 
-        session()->flash('success', __('messages.New_record_saved_successfully'));
-        return redirect()->back();
+            Attribute::create([
+                'name' => $request->name,
+                'type' => $request->type,
+                'priority' => $request->priority,
+                'category_id' => $request->category_id,
+                'has_default_value' => $request->has_default_value,
+            ]);
+
+            session()->flash('success', __('messages.New_record_saved_successfully'));
+            return redirect()->back();
+        } catch (\Exception $ex) {
+            session()->flash('success', __('messages.An_error_occurred'));
+            return redirect()->back();
+        }
+
     }
 
     public function edit(Attribute $attribute)
     {
-        dd($attribute);
-        return  view('admin.attributes.edit');
+        return view('admin.attributes.edit', ['attribute' => $attribute]);
     }
 
     public function update(EditAttributeRequest $request)
     {
         try {
-            Attribute::where('id', $request->id)
+
+            Attribute::where('id', $request->attr_id)
                 ->update(['name' => $request->name,
                     'type' => $request->type,
                     'priority' => $request->priority,
                     'has_default_value' => $request->has_default_value]);
 
-
-        }catch (\Exception $ex){
+            session()->flash('success', __('messages.The_update_was_completed_successfully'));
+            return redirect()->route('admin.attribute.create',['id' => $request->category_id ]);
+        } catch (\Exception $ex) {
+            session()->flash('success', __('messages.An_error_occurred'));
+            return redirect()->back();
         }
 
     }

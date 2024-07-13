@@ -67,6 +67,7 @@
 		<!--begin::Javascript-->
         @include('admin.layout.scripts')
         @include( 'admin.layout.alert.delete_confirm',['className'=> 'delete-item'])
+        @include('admin.layout.alert.alert_response')
 		<!--end::Javascript-->
         @stack('dash_custom_script')
 

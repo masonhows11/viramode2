@@ -297,7 +297,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin'
     Route::get('/attribute/create/{id}', [AttributesController::class, 'create'])->name('attribute.create');
     Route::post('/attribute/store', [AttributesController::class, 'store'])->name('attribute.store');
 
-    Route::get('/attribute/edit/{id}', [AttributesController::class, 'edit'])->name('attribute.edit');
+    Route::get('/attribute/edit/{attribute}', [AttributesController::class, 'edit'])->name('attribute.edit');
     Route::post('/attribute/update', [AttributesController::class, 'update'])->name('attribute.update');
     Route::get('/attribute/delete/{id}', [AttributesController::class, 'delete'])->name('attribute.delete');
     ////

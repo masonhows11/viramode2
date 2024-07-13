@@ -1,6 +1,6 @@
 @extends('admin.layout.master_admin')
 @section('dash_page_title')
-    {{ __('messages.has_specifications') }}
+    {{ __('messages.specifications') }}
 @endsection
 @section('breadcrumb')
     {{ Breadcrumbs::render('admin.create.specifications.category') }}
@@ -120,7 +120,7 @@
                             <td>{{ $attribute->priority }}</td>
                             <td>{{ $attribute->has_default_value == 1 ? __('messages.has_default_value') : __('messages.no_default_value') }}</td>
                             <td>
-                                <a class=" btn btn-sm btn-primary" href="{{ route('admin.attribute.edit',['id' => $attribute->id]) }}">
+                                <a class=" btn btn-sm btn-primary" href="{{ route('admin.attribute.edit',$attribute->id) }}">
                                     {{ __('messages.edit_model') }}
                                 </a>
                             </td>
@@ -140,7 +140,7 @@
         </div>
 
 
-    {{--<div class="row d-flex justify-content-center bg-white my-4 ">
+       {{--<div class="row d-flex justify-content-center bg-white my-4 ">
         <div class="col-lg-2 col-md-2 my-2 pt-2 pb-2 ">
             {{ $attributes->links() }}
         </div>
