@@ -1,11 +1,14 @@
-@extends('admin_end.include.master_dash')
+@extends('admin.layout.master_admin')
 @section('dash_page_title')
     ویرایش مشخصات عمومی کالا
 @endsection
+@push('dash_custom_style')
+    <link rel="stylesheet" href="{{ asset('admin_assets/plugins/jalalidatepicker/dist/css/persian-datepicker.min.css') }}">
+@endpush
 @section('breadcrumb')
     {{ Breadcrumbs::render('admin.edit.product.basic', $product->title_persian) }}
 @endsection
-@section('dash_main_content')
+@section('admin_main')
     <link rel="stylesheet" href="{{ asset('admin_assets/plugins/jalalidatepicker/dist/css/persian-datepicker.min.css') }}">
     <div class="container-fluid">
 

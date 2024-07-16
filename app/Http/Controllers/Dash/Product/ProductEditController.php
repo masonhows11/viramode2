@@ -36,14 +36,13 @@ class ProductEditController extends Controller
                 $category_ids[] = $cat->id;
             }
             $brands = DB::table('brands')->select('id','title_persian')->get();
-            return view('admin_end.product.edit.edit_basic')
+            return view('admin.product.edit.edit_basic')
                 ->with(['product' => $product,
                     'categories' => $categories,
                     'category_ids' => $category_ids,
                     'brands' => $brands,
                     'category_attributes' => $category_attributes]);
         } catch (\Exception $ex) {
-
             return view('errors_custom.model_not_found');
         }
 
@@ -57,7 +56,7 @@ class ProductEditController extends Controller
             session()->flash('success', __('messages.The_update_was_completed_successfully'));
             return redirect()->route('admin.product.index');
         } catch (\Exception $ex) {
-            return $ex->getMessage();
+           // return $ex->getMessage();
             return view('errors_custom.model_store_error');
         }
     }

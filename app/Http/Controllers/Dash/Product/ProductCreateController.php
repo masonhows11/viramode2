@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\DB;
 class ProductCreateController extends Controller
 {
 
-    public  $productBasicRepository;
+    public ProductBasicRepository $productBasicRepository;
 
     public function __construct(ProductBasicRepository $basicRepository)
     {
@@ -27,7 +27,7 @@ class ProductCreateController extends Controller
             ->select('id','title_persian')->get();
         $brands = DB::table('brands')
             ->select('id','title_persian')->get();
-        return view('admin_end.product.create.create_basic')
+        return view('admin.product.create.create_basic')
             ->with(['categories' => $categories,
                    'brands' => $brands,
                    'category_attributes' => $category_attributes]);
@@ -42,7 +42,7 @@ class ProductCreateController extends Controller
             session()->flash('success', __('messages.New_record_saved_successfully'));
             return redirect()->route('admin.product.index');
         } catch (\Exception $ex) {
-             return  $ex->getMessage();
+           //  return  $ex->getMessage();
             return view('errors_custom.model_store_error');
         }
 

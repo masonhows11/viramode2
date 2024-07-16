@@ -69,7 +69,7 @@ use App\Livewire\Admin\Category\AdminCategoryCreate;
 use App\Livewire\Admin\Attribute\AdminAttributeValue;
 
 //
-use App\Livewire\Admin\Attribute\AdminAttributeCreate;
+// use App\Livewire\Admin\Attribute\AdminAttributeCreate;
 use App\Http\Controllers\Auth_User\LoginUserController;
 use App\Http\Controllers\Dash\AdminPermAssignController;
 
@@ -91,7 +91,7 @@ use App\Http\Controllers\Auth_Admin\AdminProfileController;
 use App\Http\Controllers\Auth_Admin\AdminValidateController;
 
 use App\Livewire\Admin\CategoryAttribute\AdminCategoryAttributeValue;
-use App\Livewire\Admin\Attribute\AdminAttributeValueCreate;
+// use App\Livewire\Admin\Attribute\AdminAttributeValueCreate;
 
 //
 use App\Http\Controllers\Dash\StockProduct\StockController;
