@@ -70,6 +70,35 @@
                     </div>
 
                     <div class="col-sm-4 mt-5 mb-5">
+
+                        <div class="col mt-5 mb-5">
+                            <label for="active" class="form-label">وضعیت کالا</label>
+                            <select name="status" id="active" class="form-select">
+                                <option {{ $product->status == 0 ? 'selected' : '' }} value="0">
+                                    {{ __('messages.unpublished') }}</option>
+                                <option {{ $product->status == 1 ? 'selected' : '' }} value="1">
+                                    {{ __('messages.published') }}</option>
+                            </select>
+                            @error('status')
+                            <div class="mt-3">
+                                <span class="text-danger">{{ $message }}</span>
+                            </div>
+                            @enderror
+                        </div>
+                        <div class="col mt-5 mb-5">
+                            <label for="published_at" class="form-label">تاریخ انتشار</label>
+
+                            <input type="text" id="published_at" class="d-none form-control form-control-sm"
+                                   name="published_at">
+
+                            <input type="text" id="published_at_view" class="form-control form-control-sm"
+                                   value="{{ $product->published_at }}">
+                            @error('published_at')
+                            <div class="mt-3">
+                                <span class="text-danger">{{ $message }}</span>
+                            </div>
+                            @enderror
+                        </div>
                         <div class="col mt-5 mb-5">
                             <label for="category_attribute_id" class="form-label">دسته بندی مشخصات</label>
                             <select name="category_attribute_id" class="form-select" id="category_attribute_id">
@@ -102,34 +131,7 @@
                             </div>
                             @enderror
                         </div>
-                        <div class="col mt-5 mb-5">
-                            <label for="active" class="form-label">وضعیت کالا</label>
-                            <select name="status" id="active" class="form-select">
-                                <option {{ $product->status == 0 ? 'selected' : '' }} value="0">
-                                    {{ __('messages.unpublished') }}</option>
-                                <option {{ $product->status == 1 ? 'selected' : '' }} value="1">
-                                    {{ __('messages.published') }}</option>
-                            </select>
-                            @error('status')
-                            <div class="mt-3">
-                                <span class="text-danger">{{ $message }}</span>
-                            </div>
-                            @enderror
-                        </div>
-                        <div class="col mt-5 mb-5">
-                            <label for="published_at" class="form-label">تاریخ انتشار</label>
 
-                            <input type="text" id="published_at" class="d-none form-control form-control-sm"
-                                   name="published_at">
-
-                            <input type="text" id="published_at_view" class="form-control form-control-sm"
-                                   value="{{ $product->published_at }}">
-                            @error('published_at')
-                            <div class="mt-3">
-                                <span class="text-danger">{{ $message }}</span>
-                            </div>
-                            @enderror
-                        </div>
                     </div>
 
                     <div class="col-sm-4 mt-5 mb-5">
@@ -177,7 +179,7 @@
 
                     <div class="col-sm-4 mt-5 mb-5">
                         <div class="col mt-5 mb-5">
-                            <label for="available_in_stock" class="form-label">تعداد</label>
+                            <label for="available_in_stock" class="form-label">{{ __('messages.quantity') }}</label>
                             <input type="text" class="form-control" id="available_in_stock" name="available_in_stock"
                                    value="{{ $product->available_in_stock }}">
                             @error('available_in_stock')

@@ -26,25 +26,25 @@ class ProductBasicRequest extends FormRequest
         return [
             'title_persian' => ['required', 'min:2', 'max:100'],
             'title_english' => ['required', 'min:2', 'max:100'],
-            //|dimensions:min_width=300,min_height=300
-            'thumbnail_image' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:1999',
             'short_description' => ['required', 'min:2','string','max:5000'],
-            'full_description' => ['nullable', 'min:2','string','max:5000'],
-            'seo_desc' => ['nullable', 'min:2','string','max:150'],
-            //  'categories' => ['required'],
             'status' => ['required'],
-            'brand_id' => ['nullable'],
-            'product_tags' => ['nullable'],
             'sku' => ['required', 'min:1', 'max:100'],
-            'origin_price' => ['nullable', 'gt:0', 'integer'],
-            'published_at' => ['required', 'numeric'],
-            'weight' => ['nullable', 'decimal:0,4'],
-            'length' => ['nullable', 'decimal:0,4'],
-            'width' => ['nullable', 'decimal:0,4'],
-            'height' => ['nullable', 'decimal:0,4'],
             'marketable' => ['required'],
-            'category_attribute_id' => ['required'],
-            'available_in_stock' => ['nullable','min:1']
+            //|dimensions:min_width=300,min_height=300
+//            'thumbnail_image' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:1999',
+//            'published_at' => ['nullable', 'numeric'],
+//            'full_description' => ['nullable', 'min:2','string','max:5000'],
+//            'seo_desc' => ['nullable', 'min:2','string','max:150'],
+//            'categories' => ['nullable'],
+//            'brand_id' => ['nullable'],
+//            'product_tags' => ['nullable'],
+//            'origin_price' => ['nullable', 'gt:0', 'integer'],
+//            'weight' => ['nullable', 'decimal:0,4'],
+//            'length' => ['nullable', 'decimal:0,4'],
+//            'width' => ['nullable', 'decimal:0,4'],
+//            'height' => ['nullable', 'decimal:0,4'],
+//            'category_attribute_id' => ['nullable'],
+//            'available_in_stock' => ['nullable','min:1']
 
         ];
     }

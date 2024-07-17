@@ -63,9 +63,11 @@
                         <div class="col mt-5 mb-5">
                             <label for="marketable" class="form-label">قابل فروش بودن</label>
                             <select class="form-select" id="marketable" name="marketable">
-
-                                <option value="1" @if( old('marketable') == 1) selected @endif >بله</option>
-                                <option value="0" @if( old('marketable') == 0) selected @endif >خیر</option>
+                                <option value="">{{ __('messages.choose') }}</option>
+                                <option value="1">بله</option>
+                                <option value="0">خیر</option>
+{{--                                <option value="1" @if( old('marketable') == 1) selected @endif >بله</option>--}}
+{{--                                <option value="0" @if( old('marketable') == 0) selected @endif >خیر</option>--}}
                             </select>
 
                             @error('marketable')
@@ -78,6 +80,33 @@
                     </div>
 
                     <div class="col-sm-4 mt-5 mb-5">
+                        <div class="col mt-5 mb-5">
+                            <label for="active" class="form-label">وضعیت کالا</label>
+                            <select name="status" id="active" class="form-select">
+                                <option value="">{{ __('messages.choose') }}</option>
+                                <option value="1">{{ __('messages.published') }}</option>
+                                <option value="0">{{ __('messages.unpublished') }}</option>
+
+                            </select>
+                            @error('status')
+                            <div class="mt-3">
+                                <span class="text-danger">{{ $message }}</span>
+                            </div>
+                            @enderror
+                        </div>
+                        <div class="col mt-5 mb-5">
+                            <label for="published_at" class="form-label">تاریخ انتشار</label>
+                            <input type="text" id="published_at" class="d-none form-control form-control-sm"
+                                   name="published_at" value="{{ old('published_at') }}">
+
+                            <input type="text" id="published_at_view" class="form-control form-control-sm">
+
+                            @error('published_at')
+                            <div class="mt-3">
+                                <span class="text-danger">{{ $message }}</span>
+                            </div>
+                            @enderror
+                        </div>
 
                         <div class="col mt-5 mb-5">
                             <label for="category_attribute_id" class="form-label">دسته بندی مشخصات</label>
@@ -113,34 +142,8 @@
                             </div>
                             @enderror
                         </div>
-                        <div class="col mt-5 mb-5">
-                            <label for="active" class="form-label">وضعیت کالا</label>
-                            <select name="status" id="active" class="form-select">
-                                <option>انتخاب کنید...</option>
-                                <option value="1" @if( old('status') == 1) selected @endif >{{ __('messages.published') }}</option>
-                                <option value="0" @if( old('status') == 0) selected @endif >{{ __('messages.unpublished') }}</option>
 
-                            </select>
-                            @error('status')
-                            <div class="mt-3">
-                                <span class="text-danger">{{ $message }}</span>
-                            </div>
-                            @enderror
-                        </div>
-                        <div class="col mt-5 mb-5">
-                            <label for="published_at" class="form-label">تاریخ انتشار</label>
 
-                            <input type="text" id="published_at" class="d-none form-control form-control-sm"
-                                   name="published_at" value="{{ old('published_at') }}">
-
-                            <input type="text" id="published_at_view" class="form-control form-control-sm">
-
-                            @error('published_at')
-                            <div class="mt-3">
-                                <span class="text-danger">{{ $message }}</span>
-                            </div>
-                            @enderror
-                        </div>
 
                     </div>
 
@@ -192,7 +195,7 @@
                     <div class="col-sm-4 mt-5 mb-5">
 
                         <div class="col mt-5 mb-5">
-                            <label for="available_in_stock" class="form-label">تعداد</label>
+                            <label for="available_in_stock" class="form-label">{{ __('messages.quantity') }}</label>
                             <input type="text" class="form-control" id="available_in_stock" name="available_in_stock" value="{{ old('available_in_stock') }}">
                             @error('available_in_stock')
                             <div class="mt-3">

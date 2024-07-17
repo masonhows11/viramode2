@@ -39,6 +39,7 @@ class ProductCreateController extends Controller
 
         try {
             $this->productBasicRepository->store($request);
+
             session()->flash('success', __('messages.New_record_saved_successfully'));
             return redirect()->route('admin.product.index');
         } catch (\Exception $ex) {

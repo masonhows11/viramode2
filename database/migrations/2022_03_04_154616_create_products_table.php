@@ -22,7 +22,7 @@ class CreateProductsTable extends Migration
             $table->string('slug')->unique()->nullable();
             $table->string('thumbnail_image')->nullable();
             $table->string('seo_desc')->nullable();
-            $table->boolean('status')->default(0);
+            $table->boolean('status')->nullable();
             $table->string('sku')->nullable();
             $table->decimal('weight',10,2)->nullable();
             $table->decimal('length',10,1)->comment('cm unit')->nullable();
@@ -31,14 +31,14 @@ class CreateProductsTable extends Migration
             $table->decimal('height',10,1)->nullable();
 
             $table->string('origin_price')->nullable();
-            $table->tinyInteger('marketable')->default(1);
+            $table->tinyInteger('marketable')->nullable();
 
             $table->string('tags')->nullable();
             $table->bigInteger('views')->nullable();
-            $table->double('available_in_stock')->default(0);
-            $table->integer('number_sold')->default(0);
-            $table->integer('frozen_number')->default(0);
-            $table->integer('salable_quantity')->default(0);
+            $table->double('available_in_stock')->nullable();
+            $table->integer('number_sold')->nullable();
+            $table->integer('frozen_number')->nullable();
+            $table->integer('salable_quantity')->nullable();
 
             $table->timestamp('published_at')->nullable();
             $table->unsignedBigInteger('category_attribute_id')->nullable();

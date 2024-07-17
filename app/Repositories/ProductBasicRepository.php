@@ -16,8 +16,11 @@ class ProductBasicRepository
 {
 
 
+
+
     public function store($request)
     {
+
 
         $thumbImagePatch = '';
         $createdProduct = null;
@@ -28,32 +31,41 @@ class ProductBasicRepository
         $published_at = date("Y-m-d H:i:s", (int) $realTimestamp);
 
 
+
+
         // for save product public info
         DB::transaction(function () use ($author, $thumbImagePatch, $published_at, $request) {
 
+
             $createdProduct = Product::create([
-                // 'brand_id' => $request->brand_id ?? null,
-                // 'category_attribute_id' => $request->category_attribute_id ?? null,
+
                 'status' => $request->status,
                 'admin_id' => $author,
                 'title_english' => $request->title_english,
                 'title_persian' => $request->title_persian,
                 'sku' => $request->sku,
-                'tags' => $request->product_tags,
-                'thumbnail_image' => $thumbImagePatch,
                 'short_description' => $request->short_description,
-                'full_description' => $request->full_description,
-                'seo_desc' => $request->seo_desc,
-                'origin_price' => $request->origin_price,
-                'published_at' => $published_at,
-                'weight' => $request->weight,
-                'length' => $request->length,
-                'width' => $request->width,
-                'height' => $request->height,
-                'available_in_stock' => convertPerToEnglish($request->available_in_stock),
                 'marketable' => $request->marketable,
 
+                // 'brand_id' => $request->brand_id ?? null,
+                // 'category_attribute_id' => $request->category_attribute_id ?? null,
+
+                 'tags' => $request->product_tags,
+//                'thumbnail_image' => $thumbImagePatch,
+//                'full_description' => $request->full_description,
+//                'seo_desc' => $request->seo_desc,
+//                'origin_price' => $request->origin_price,
+//                'published_at' => $published_at,
+//                'weight' => $request->weight,
+//                'length' => $request->length,
+//                'width' => $request->width,
+//                'height' => $request->height,
+//                'available_in_stock' => convertPerToEnglish($request->available_in_stock),
+
+
             ]);
+
+
 
             $createdProduct->categories()->sync($request->categories);
 
@@ -65,8 +77,12 @@ class ProductBasicRepository
                     return redirect()->back();
                 }
             }
+
             return $createdProduct;
+
         });
+
+
     }
 
     public function update($request)
