@@ -5,6 +5,7 @@ namespace App\Livewire\Admin\CreateProduct;
 use App\Models\Color;
 use App\Models\Product;
 use App\Models\ProductColor;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class CreateProductColor extends Component
@@ -14,6 +15,7 @@ class CreateProductColor extends Component
     public $product_id;
     public $color_id;
     public $edit_mode = false;
+    public $color_name;
 
     // product color fields
     public $color;
@@ -43,14 +45,13 @@ class CreateProductColor extends Component
     public function save()
     {
         $this->validate();
-
         try {
             if ($this->edit_mode == false) {
-                $color_name = Color::where('id', $this->color)->select(['title_persian', 'code'])->first();
+                $this->color_name = Color::where('id', $this->color)->select(['title_persian', 'code'])->first();
                 ProductColor::create([
                     'color_id' => $this->color,
-                    'color_name' => $color_name->title_persian,
-                    'color_code' => $color_name->code,
+                    'color_name' => $this->color_name->title_persian,
+                    'color_code' => $this->color_name->code,
                     'product_id' => $this->product_id,
                     'default' => 0,
                     'price_increase' => $this->price_increase,
@@ -63,35 +64,29 @@ class CreateProductColor extends Component
                 $this->status = '';
                 $this->available_in_stock = '';
                 $this->salable_quantity = '';
-                $this->dispatchBrowserEvent('show-result',
+                $this->dispatch('show-result',
                     ['type' => 'success',
                         'message' => __('messages.New_record_saved_successfully')]);
 
             } elseif ($this->edit_mode == true) {
-
-                $color_name = Color::where('id', $this->color)->select(['title_persian', 'code'])->first();
-
+                $this->color_name = Color::where('id', $this->color)->select(['title_persian', 'code'])->first();
                 ProductColor::where('id', $this->color_id)
                     ->update([
                         'color_id' => $this->color,
-                        'color_name' => $color_name->title_persian,
-                        'color_code' => $color_name->code,
+                        'color_name' => $this->color_name->title_persian,
+                        'color_code' => $this->color_name->code,
                         'product_id' => $this->product_id,
                         'price_increase' => $this->price_increase,
                         'status' => $this->status,
                         'salable_quantity' => $this->salable_quantity,
                         'available_in_stock' => $this->available_in_stock,
                     ]);
-
                 $this->color = '';
                 $this->price_increase = '';
                 $this->status = '';
                 $this->salable_quantity = '';
                 $this->available_in_stock = '';
-
-                $this->dispatchBrowserEvent('show-result',
-                    ['type' => 'success',
-                        'message' => __('messages.The_update_was_completed_successfully')]);
+                $this->dispatch('show-result', type: 'success', message: __('messages.The_update_was_completed_successfully'));
             }
 
         } catch (\Exception $ex) {
@@ -117,28 +112,22 @@ class CreateProductColor extends Component
             return view('errors_custom.model_not_found');
         }
         return null;
-
     }
 
 
     public function deleteConfirmation($id)
     {
         $this->color_id = $id;
-        $this->dispatchBrowserEvent('show-delete-confirmation');
+        $this->dispatch('show-delete-confirmation');
     }
 
-    protected $listeners = [
-        'deleteConfirmed' => 'deleteModel',
-    ];
-
+    #[On('deleteConfirmed')]
     public function deleteModel()
     {
         try {
             $model = ProductColor::findOrFail($this->color_id);
             $model->delete();
-            $this->dispatchBrowserEvent('show-result',
-                ['type' => 'success',
-                    'message' => __('messages.The_deletion_was_successful')]);
+            $this->dispatch('show-result',type:'success',message: __('messages.The_deletion_was_successful'));
         } catch (\Exception $ex) {
             return view('errors_custom.model_not_found');
         }
@@ -149,7 +138,7 @@ class CreateProductColor extends Component
     {
         return view('livewire.admin.create-product.create-product-color')
             ->with(['product' => $this->product,
-                'product_colors' => ProductColor::where('product_id', $this->product_id)->where('default', 0)->orderBy('color_name','asc')->get(),
+                'product_colors' => ProductColor::where('product_id', $this->product_id)->where('default', 0)->orderBy('color_name', 'asc')->get(),
                 'colors' => Color::all()]);
     }
 }

@@ -5,12 +5,13 @@ namespace App\Livewire\Admin\CreateProduct;
 use App\Models\Product;
 use App\Models\ProductMeta;
 use Illuminate\Support\Facades\DB;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class CreateProductMeta extends Component
 {
 
-    // session()->flash('success', __('messages.New_record_saved_successfully'));
+
     public $product;
     public $product_id;
     public $meta_id;
@@ -42,9 +43,7 @@ class CreateProductMeta extends Component
                     'meta_key' => $this->meta_key,
                     'meta_value' => $this->meta_value
                 ]);
-                $this->dispatchBrowserEvent('show-result',
-                    ['type' => 'success',
-                        'message' => __('messages.New_record_saved_successfully')]);
+                $this->dispatch('show-result',type:'success', message:__('messages.New_record_saved_successfully'));
                 $this->meta_key = '';
                 $this->meta_value = '';
 
@@ -57,10 +56,7 @@ class CreateProductMeta extends Component
                 $this->meta_key = '';
                 $this->meta_value = '';
                 $this->edit_mode = false;
-
-                $this->dispatchBrowserEvent('show-result',
-                    ['type' => 'success',
-                        'message' => __('messages.The_update_was_completed_successfully')]);
+                $this->dispatch('show-result',type:'success',message:__('messages.The_update_was_completed_successfully'));
             }
 
         } catch (\Exception $ex) {
@@ -88,22 +84,17 @@ class CreateProductMeta extends Component
     public function deleteConfirmation($id)
     {
         $this->meta_id = $id;
-        $this->dispatchBrowserEvent('show-delete-confirmation');
+        $this->dispatch('show-delete-confirmation');
     }
 
-    protected $listeners = [
-        'deleteConfirmed' => 'deleteModel',
-    ];
 
+    #[On('deleteConfirmed')]
     public function deleteModel()
     {
         try {
-
             $model = ProductMeta::findOrFail($this->meta_id);
             $model->delete();
-            $this->dispatchBrowserEvent('show-result',
-                ['type' => 'success',
-                    'message' => __('messages.The_deletion_was_successful')]);
+            $this->dispatch('show-result',type:'success',message:__('messages.The_deletion_was_successful'));
         } catch (\Exception $ex) {
             return view('errors_custom.model_not_found');
         }

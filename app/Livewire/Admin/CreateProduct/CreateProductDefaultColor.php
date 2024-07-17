@@ -5,6 +5,7 @@ namespace App\Livewire\Admin\CreateProduct;
 use App\Models\Color;
 use App\Models\Product;
 use App\Models\ProductColor;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class CreateProductDefaultColor extends Component
@@ -67,9 +68,7 @@ class CreateProductDefaultColor extends Component
                     $this->default = '';
                     $this->available_in_stock = '';
                     $this->salable_quantity = '';
-                    $this->dispatchBrowserEvent('show-result',
-                        ['type' => 'success',
-                            'message' => __('messages.New_record_saved_successfully')]);
+                    $this->dispatch('show-result',type:'success',message:__('messages.New_record_saved_successfully'));
                 } else {
                     $this->color = '';
                     $this->price_increase = '';
@@ -77,9 +76,7 @@ class CreateProductDefaultColor extends Component
                     $this->default = '';
                     $this->available_in_stock = '';
                     $this->salable_quantity = '';
-                    $this->dispatchBrowserEvent('show-result',
-                        ['type' => 'warning',
-                            'message' => __('messages.the_product_can_only_have_one_default_color')]);
+                    $this->dispatch('show-result',type:'warning',message:__('messages.the_product_can_only_have_one_default_color'));
                 }
 
             } elseif ($this->edit_mode == true) {
@@ -104,10 +101,7 @@ class CreateProductDefaultColor extends Component
                 $this->default = '';
                 $this->salable_quantity = '';
                 $this->available_in_stock = '';
-
-                $this->dispatchBrowserEvent('show-result',
-                    ['type' => 'success',
-                        'message' => __('messages.The_update_was_completed_successfully')]);
+                $this->dispatch('show-result',type:'success',message:__('messages.The_update_was_completed_successfully'));
             }
 
         } catch (\Exception $ex) {
@@ -140,21 +134,16 @@ class CreateProductDefaultColor extends Component
     public function deleteConfirmation($id)
     {
         $this->color_id = $id;
-        $this->dispatchBrowserEvent('show-delete-confirmation');
+        $this->dispatch('show-delete-confirmation');
     }
 
-    protected $listeners = [
-        'deleteConfirmed' => 'deleteModel',
-    ];
-
+    #[On('deleteConfirmed')]
     public function deleteModel()
     {
         try {
             $model = ProductColor::findOrFail($this->color_id);
             $model->delete();
-            $this->dispatchBrowserEvent('show-result',
-                ['type' => 'success',
-                    'message' => __('messages.The_deletion_was_successful')]);
+            $this->dispatch('show-result',type:'success',message: __('messages.The_deletion_was_successful'));
         } catch (\Exception $ex) {
             return view('errors_custom.model_not_found');
         }

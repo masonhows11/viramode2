@@ -5,6 +5,7 @@ namespace App\Livewire\Admin\CreateProduct;
 use App\Models\Product;
 use App\Models\ProductImage;
 use Illuminate\Support\Facades\Storage;
+use Livewire\Attributes\On;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -29,9 +30,7 @@ class CreateProductImages extends Component
 
     public function mount($product)
     {
-
         $this->product_id = $product;
-
     }
 
     protected $rules =
@@ -45,7 +44,6 @@ class CreateProductImages extends Component
         'photo.max' => 'حداکثر حجم فایل ۲ مگابایت',
         // 'photo.dimensions.min_width' => 'حداقل عرض تصویر ۳۰۰ پیکسل',
         // 'photo.dimensions.max_height' => 'حداقل ارتفاع تصویر ۳۰۰ پیکسل',
-
     ];
 
     public function active($id)
@@ -73,23 +71,18 @@ class CreateProductImages extends Component
     public function deleteConfirmation($id)
     {
         $this->delete_id = $id;
-        $this->dispatchBrowserEvent('show-delete-confirmation');
+        $this->dispatch('show-delete-confirmation');
     }
 
-    protected $listeners = [
-        'deleteConfirmed' => 'deleteImage',
-    ];
 
+    #[On('deleteConfirmed')]
     public function deleteImage()
     {
         try {
-
             $image = ProductImage::findOrFail($this->delete_id);
             Storage::disk('public')->delete('/images/product/gallery/' . $image->image_path);
             $image->delete();
-            $this->dispatchBrowserEvent('show-result',
-                ['type' => 'success',
-                    'message' => __('messages.The_deletion_was_successful')]);
+            $this->dispatch('show-result',type:'success',message: __('messages.The_deletion_was_successful'));
         } catch (\Exception $ex) {
             return view('errors_custom.model_not_found');
         }
@@ -102,17 +95,13 @@ class CreateProductImages extends Component
 
 
         if (ProductImage::where('product_id', $this->product_id)->count() == 4) {
-            $this->dispatchBrowserEvent('show-result',
-                ['type' => 'success',
-                    'message' => __('messages.You_can_choose_up_to_4_images')]);
+            $this->dispatch('show-result', type:'success',message:__('messages.You_can_choose_up_to_4_images'));
         } else {
             try {
-
                 if ($this->photo) {
                     $this->image_extension = $this->photo->getClientOriginalExtension();
                     $this->image_path = 'UIMG' . '_' . date('YmdHis') . '_' . uniqid('img', true) . '.' . $this->image_extension;
                     $this->photo->storeAs('images/product/gallery', $this->image_path, 'public');
-
                     ProductImage::create([
                         'product_id' => $this->product_id,
                         'image_path' => $this->image_path,
@@ -128,8 +117,6 @@ class CreateProductImages extends Component
             }
             return null;
         }
-
-
     }
 
     public function render()

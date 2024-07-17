@@ -4,6 +4,7 @@ namespace App\Livewire\Admin\CreateProduct;
 
 use App\Models\Product;
 use App\Models\Warranty;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 
@@ -51,9 +52,7 @@ class CreateProductWarranty extends Component
                 $this->price_increase = '';
                 $this->status = '';
 
-                $this->dispatchBrowserEvent('show-result',
-                    ['type' => 'success',
-                        'message' => __('messages.New_record_saved_successfully')]);
+                $this->dispatch('show-result',type:'success',message:__('messages.New_record_saved_successfully'));
 
 
             } elseif ($this->edit_mode == true) {
@@ -62,15 +61,11 @@ class CreateProductWarranty extends Component
                         'guarantee_name' => $this->title,
                         'price_increase' => $this->price_increase,
                         'status' => $this->status,]);
-
                 $this->title = '';
                 $this->price_increase = '';
                 $this->status = '';
                 $this->edit_mode = false;
-
-                $this->dispatchBrowserEvent('show-result',
-                    ['type' => 'success',
-                        'message' => __('messages.The_update_was_completed_successfully')]);
+                $this->dispatch('show-result',type:'success',message:__('messages.The_update_was_completed_successfully'));
             }
 
         } catch (\Exception $ex) {
@@ -81,44 +76,33 @@ class CreateProductWarranty extends Component
 
     public function edit($id)
     {
-
         $this->warranty_id = $id;
-
         try {
             $warranty = Warranty::findOrFail($id);
             $this->title = $warranty->guarantee_name;
             $this->price_increase = $warranty->price_increase;
             $this->status = $warranty->status;
             $this->edit_mode = true;
-
-
         } catch (\Exception $ex) {
             return view('errors_custom.model_not_found');
         }
         return null;
-
     }
 
     public function deleteConfirmation($id)
     {
         $this->warranty_id = $id;
-
-        $this->dispatchBrowserEvent('show-delete-confirmation');
+        $this->dispatch('show-delete-confirmation');
     }
 
-    protected $listeners = [
-        'deleteConfirmed' => 'deleteModel',
-    ];
-
+    #[On('deleteConfirmed')]
     public function deleteModel()
     {
         try {
 
             $model = Warranty::findOrFail($this->warranty_id);
             $model->delete();
-            $this->dispatchBrowserEvent('show-result',
-                ['type' => 'success',
-                    'message' => __('messages.The_deletion_was_successful')]);
+            $this->dispatch('show-result',type:'success',message:__('messages.The_deletion_was_successful'));
         } catch (\Exception $ex) {
             return view('errors_custom.model_not_found');
         }

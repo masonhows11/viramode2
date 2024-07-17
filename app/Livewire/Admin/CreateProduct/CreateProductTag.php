@@ -4,6 +4,7 @@ namespace App\Livewire\Admin\CreateProduct;
 
 use App\Models\Product;
 use App\Models\Tag;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 class CreateProductTag extends Component
@@ -23,29 +24,22 @@ class CreateProductTag extends Component
     public function save()
     {
         $this->Product->tags()->toggle($this->Tag);
-        $this->dispatchBrowserEvent('show-result',
-            ['type' => 'success',
-                'message' => __('messages.The_changes_were_made_successfully')]);
+        $this->dispatch('show-result',type:'success',message:__('messages.The_changes_were_made_successfully'));
         $this->Tag = '';
 
     }
     public function deleteConfirmation($id)
     {
         $this->tag_id = $id;
-        $this->dispatchBrowserEvent('show-delete-confirmation');
+        $this->dispatch('show-delete-confirmation');
     }
 
-    protected $listeners = [
-        'deleteConfirmed' => 'deleteBrand',
-    ];
-
+    #[On('deleteConfirmed')]
     public function deleteBrand()
     {
         try {
             $this->Product->tags()->detach($this->tag_id);
-            $this->dispatchBrowserEvent('show-result',
-                ['type' => 'success',
-                    'message' => __('messages.The_deletion_was_successful')]);
+            $this->dispatch('show-result',type:'success',message:__('messages.The_deletion_was_successful'));
             $this->Tag = '';
         } catch (\Exception $ex) {
             return view('errors_custom.model_not_found');
