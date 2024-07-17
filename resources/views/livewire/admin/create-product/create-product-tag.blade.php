@@ -30,8 +30,8 @@
                                 @endforeach
                             </select>
                             @error('tags')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
+                            <div class="mt-3">
+                                <span class="text-danger">{{ $message }}</span>
                             </div>
                             @enderror
                         </div>

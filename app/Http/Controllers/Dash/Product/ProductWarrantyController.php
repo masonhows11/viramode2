@@ -10,8 +10,6 @@ class ProductWarrantyController extends Controller
 
     public function create(Request $request)
     {
-
         return view('admin.product.create.create_warranty')->with('product',$request->product);
-
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Admin\CreateProduct;
+namespace App\Livewire\Admin\CreateProduct;
 
 use App\Models\Attribute;
 use App\Models\AttributeProduct;

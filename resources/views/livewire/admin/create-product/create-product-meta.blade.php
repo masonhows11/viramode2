@@ -28,8 +28,8 @@
                             <label for="meta_key" class="form-label">{{ __('messages.product_property_key') }}</label>
                             <input type="text" class="form-control" id="meta_key" wire:model.defer="meta_key">
                             @error('meta_key')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
+                            <div class="mt-3">
+                                <span class="text-danger">{{ $message }}</span>
                             </div>
                             @enderror
                         </div>
@@ -37,8 +37,8 @@
                             <label for="meta_value" class="form-label">{{ __('messages.product_property_value') }}</label>
                             <input type="text" class="form-control" id="meta_value" wire:model.defer="meta_value">
                             @error('meta_value')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
+                            <div class="mt-3">
+                                <span class="text-danger">{{ $message }}</span>
                             </div>
                             @enderror
                         </div>

@@ -36,7 +36,9 @@
                                     @endforeach
                                 </select>
                                 @error('name')
-                                <div class="alert alert-danger mt-3">{{ $message }}</div>
+                                <div class="mt-3">
+                                    <span class="text-danger">{{ $message }}</span>
+                                </div>
                                 @enderror
                             </div>
                         </div>
@@ -47,8 +49,8 @@
                                 <input type="number" min="1" max="999" class="form-control" id="priority"
                                        wire:model.defer="priority">
                                 @error('priority')
-                                <div class="alert alert-danger mt-3">
-                                    {{ $message }}
+                                <div class="mt-3">
+                                    <span class="text-danger">{{ $message }}</span>
                                 </div>
                                 @enderror
                             </div>
@@ -94,8 +96,8 @@
                                 @endif
 
                                 @error('value')
-                                <div class="alert alert-danger mt-3">
-                                    {{ $message }}
+                                <div class="mt-3">
+                                    <span class="text-danger">{{ $message }}</span>
                                 </div>
                                 @enderror
                             </div>

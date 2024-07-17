@@ -43,8 +43,8 @@
                                 @endforeach
                             </select>
                             @error('color')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
+                            <div class="mt-3">
+                                <span class="text-danger">{{ $message }}</span>
                             </div>
                             @enderror
                         </div>
@@ -54,8 +54,8 @@
                             <input type="text" class="form-control" id="price_increase"
                                    wire:model.defer="price_increase">
                             @error('price_increase')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
+                            <div class="mt-3">
+                                <span class="text-danger">{{ $message }}</span>
                             </div>
                             @enderror
                         </div>
@@ -64,8 +64,8 @@
                             <label for="salable_quantity" class="form-label">{{ __('messages.salable_quantity') }}</label>
                             <input type="text" class="form-control" id="salable_quantity" wire:model.defer="salable_quantity">
                             @error('salable_quantity')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
+                            <div class="mt-3">
+                                <span class="text-danger">{{ $message }}</span>
                             </div>
                             @enderror
                         </div>
@@ -74,8 +74,8 @@
                             <label for="available_in_stock" class="form-label">{{ __('messages.available_in_stock') }}</label>
                             <input type="text" class="form-control" id="available_in_stock" wire:model.defer="available_in_stock">
                             @error('available_in_stock')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
+                            <div class="mt-3">
+                                <span class="text-danger">{{ $message }}</span>
                             </div>
                             @enderror
                         </div>
@@ -88,8 +88,8 @@
                                 <option value="0">{{ __('messages.deactivate') }}</option>
                             </select>
                             @error('status')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
+                            <div class="mt-3">
+                                <span class="text-danger">{{ $message }}</span>
                             </div>
                             @enderror
                         </div>

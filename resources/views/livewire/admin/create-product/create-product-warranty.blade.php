@@ -25,8 +25,8 @@
                             <label for="title" class="form-label">{{ __('messages.title') }}</label>
                             <input type="text" class="form-control" id="title" wire:model.defer="title">
                             @error('title')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
+                            <div class="mt-3">
+                                <span class="text-danger">{{ $message }}</span>
                             </div>
                             @enderror
                         </div>
@@ -34,8 +34,8 @@
                             <label for="price_increase" class="form-label">{{ __('messages.price_increase') }}</label>
                             <input type="text" class="form-control" id="price_increase" wire:model.defer="price_increase">
                             @error('price_increase')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
+                            <div class="mt-3">
+                                <span class="text-danger">{{ $message }}</span>
                             </div>
                             @enderror
                         </div>
@@ -47,8 +47,8 @@
                                 <option value="0">{{ __('messages.deactivate') }}</option>
                             </select>
                             @error('status')
-                            <div class="alert alert-danger mt-3">
-                                {{ $message }}
+                            <div class="mt-3">
+                                <span class="text-danger">{{ $message }}</span>
                             </div>
                             @enderror
                         </div>

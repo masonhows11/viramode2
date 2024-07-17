@@ -35,7 +35,9 @@
 
 
                     @error('photo')
-                    <div class="alert alert-danger">{{ $message}}</div>
+                    <div class="mt-3">
+                        <span class="text-danger">{{ $message }}</span>
+                    </div>
                     @enderror
 
                     <div class="col mt-3 d-flex justify-content-between">
