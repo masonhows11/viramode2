@@ -31,20 +31,20 @@ class ProductBasicRequest extends FormRequest
             'sku' => ['required', 'min:1', 'max:100'],
             'marketable' => ['required'],
             //|dimensions:min_width=300,min_height=300
-//            'thumbnail_image' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:1999',
-//            'published_at' => ['nullable', 'numeric'],
-//            'full_description' => ['nullable', 'min:2','string','max:5000'],
-//            'seo_desc' => ['nullable', 'min:2','string','max:150'],
-//            'categories' => ['nullable'],
-//            'brand_id' => ['nullable'],
-//            'product_tags' => ['nullable'],
-//            'origin_price' => ['nullable', 'gt:0', 'integer'],
-//            'weight' => ['nullable', 'decimal:0,4'],
-//            'length' => ['nullable', 'decimal:0,4'],
-//            'width' => ['nullable', 'decimal:0,4'],
-//            'height' => ['nullable', 'decimal:0,4'],
-//            'category_attribute_id' => ['nullable'],
-//            'available_in_stock' => ['nullable','min:1']
+            'thumbnail_image' => 'nullable|image|mimes:jpeg,jpg,png,webp|max:1999',
+            'published_at' => ['nullable', 'numeric'],
+            'full_description' => ['nullable', 'min:2','string','max:5000'],
+            'seo_desc' => ['nullable', 'min:2','string','max:150'],
+            'categories' => ['nullable'],
+            'brand_id' => ['nullable'],
+            'product_tags' => ['nullable'],
+            'origin_price' => ['nullable', 'gt:0', 'integer'],
+            'weight' => ['nullable', 'decimal:0,4'],
+            'length' => ['nullable', 'decimal:0,4'],
+            'width' => ['nullable', 'decimal:0,4'],
+            'height' => ['nullable', 'decimal:0,4'],
+            'category_attribute_id' => ['nullable'],
+            'available_in_stock' => ['nullable','min:1']
 
         ];
     }

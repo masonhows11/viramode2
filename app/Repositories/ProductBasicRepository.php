@@ -16,8 +16,6 @@ class ProductBasicRepository
 {
 
 
-
-
     public function store($request)
     {
 
@@ -28,9 +26,7 @@ class ProductBasicRepository
 
 
         $realTimestamp = substr($request->published_at, 0, 10);
-        $published_at = date("Y-m-d H:i:s", (int) $realTimestamp);
-
-
+        $published_at = date("Y-m-d H:i:s", (int)$realTimestamp);
 
 
         // for save product public info
@@ -39,6 +35,10 @@ class ProductBasicRepository
 
             $createdProduct = Product::create([
 
+                // 'brand_id' => $request->brand_id ?? null,
+                // 'category_attribute_id' => $request->category_attribute_id ?? null,
+
+                ////
                 'status' => $request->status,
                 'admin_id' => $author,
                 'title_english' => $request->title_english,
@@ -46,25 +46,21 @@ class ProductBasicRepository
                 'sku' => $request->sku,
                 'short_description' => $request->short_description,
                 'marketable' => $request->marketable,
-
-                // 'brand_id' => $request->brand_id ?? null,
-                // 'category_attribute_id' => $request->category_attribute_id ?? null,
-
-                 'tags' => $request->product_tags,
-//                'thumbnail_image' => $thumbImagePatch,
-//                'full_description' => $request->full_description,
-//                'seo_desc' => $request->seo_desc,
-//                'origin_price' => $request->origin_price,
-//                'published_at' => $published_at,
-//                'weight' => $request->weight,
-//                'length' => $request->length,
-//                'width' => $request->width,
-//                'height' => $request->height,
-//                'available_in_stock' => convertPerToEnglish($request->available_in_stock),
+                ////
+                'tags' => $request->product_tags,
+                'thumbnail_image' => $thumbImagePatch,
+                'full_description' => $request->full_description,
+                'seo_desc' => $request->seo_desc,
+                'origin_price' => $request->origin_price,
+                'published_at' => $published_at,
+                'weight' => $request->weight,
+                'length' => $request->length,
+                'width' => $request->width,
+                'height' => $request->height,
+                'available_in_stock' => $request->available_in_stock != null ? convertPerToEnglish($request->available_in_stock) : null
 
 
             ]);
-
 
 
             $createdProduct->categories()->sync($request->categories);
@@ -91,7 +87,7 @@ class ProductBasicRepository
         $author = Auth::guard('admin')->id();
         $current_product = Product::findOrFail($request->product);
         $realTimestamp = substr($request->published_at, 0, 10);
-        $published_at = date("Y-m-d H:i:s", (int) $realTimestamp);
+        $published_at = date("Y-m-d H:i:s", (int)$realTimestamp);
 
         // only update image
         if ($request->only_image_update == true) {
@@ -136,7 +132,7 @@ class ProductBasicRepository
                 $current_product->length = $request->length;
                 $current_product->width = $request->width;
                 $current_product->height = $request->height;
-                $current_product->available_in_stock = convertPerToEnglish($request->available_in_stock);
+                $current_product->available_in_stock = $request->available_in_stock != null ? convertPerToEnglish($request->available_in_stock) : null;
                 $current_product->marketable = $request->marketable;
                 $current_product->save();
                 $current_product->categories()->sync($request->categories);
