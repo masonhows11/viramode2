@@ -5,7 +5,7 @@
 @section('breadcrumb')
     {{--        {{ Breadcrumbs::render('admin.create.specifications.product',$product->title_persian) }}--}}
 @endsection
-@section('dash_main_content')
+@section('admin_main')
     <div class="container-fluid">
 
         <div class="row  my-3">
