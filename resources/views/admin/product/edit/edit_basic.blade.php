@@ -234,7 +234,6 @@
                         </div>
                     </div>
 
-                    {{--  image section  --}}
                     <div class="col-sm-4 mt-5 mb-5">
 
                         <div class="row d-flex flex-column   product-image">

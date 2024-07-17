@@ -36,6 +36,7 @@
                             </div>
                             @enderror
                         </div>
+
                         <div class="col mt-5 mb-5">
                             <label for="title_english" class="form-label">عنوان کالا ( انگلیسی )</label>
                             <input type="text"
