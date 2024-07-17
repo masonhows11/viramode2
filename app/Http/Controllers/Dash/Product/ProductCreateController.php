@@ -46,7 +46,7 @@ class ProductCreateController extends Controller
             session()->flash('error',__('messages.An_error_occurred'));
             return redirect()->back();
            //  return  $ex->getMessage();
-          //  return view('errors_custom.model_store_error');
+           //  return view('errors_custom.model_store_error');
         }
 
 

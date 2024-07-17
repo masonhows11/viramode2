@@ -45,7 +45,7 @@ class ProductEditController extends Controller
         } catch (\Exception $ex) {
             session()->flash('error',__('messages.An_error_occurred'));
             return redirect()->back();
-           // return view('errors_custom.model_not_found');
+            // return view('errors_custom.model_not_found');
         }
 
     }
