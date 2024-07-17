@@ -43,7 +43,9 @@ class ProductEditController extends Controller
                     'brands' => $brands,
                     'category_attributes' => $category_attributes]);
         } catch (\Exception $ex) {
-            return view('errors_custom.model_not_found');
+            session()->flash('error',__('messages.An_error_occurred'));
+            return redirect()->back();
+           // return view('errors_custom.model_not_found');
         }
 
     }
@@ -56,8 +58,12 @@ class ProductEditController extends Controller
             session()->flash('success', __('messages.The_update_was_completed_successfully'));
             return redirect()->route('admin.product.index');
         } catch (\Exception $ex) {
+
+            session()->flash('error',__('messages.An_error_occurred'));
+            return redirect()->back();
+
            // return $ex->getMessage();
-            return view('errors_custom.model_store_error');
+           // return view('errors_custom.model_store_error');
         }
     }
 

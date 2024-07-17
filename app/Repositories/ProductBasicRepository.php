@@ -27,7 +27,7 @@ class ProductBasicRepository
         $realTimestamp = substr($request->published_at, 0, 10);
         $published_at = date("Y-m-d H:i:s", (int) $realTimestamp);
 
-        // dd($request->all());
+
         // for save product public info
         DB::transaction(function () use ($author, $thumbImagePatch, $published_at, $request) {
 
@@ -82,9 +82,9 @@ class ProductBasicRepository
 
             if ($request->hasFile('thumbnail_image')) {
 
-                // dd('has image');
+
                 if ($current_product->thumbnail_image != null && Storage::disk('public')->exists($current_product->thumbnail_image)) {
-                    // dd('has old image');
+
                     Storage::disk('public')->delete($current_product->thumbnail_image);
                     $result = $this->uploadImages($current_product, $request);
                     if ($result = false) {
@@ -128,9 +128,9 @@ class ProductBasicRepository
             // if image in request update image
             if ($request->hasFile('thumbnail_image')) {
 
-                // dd('has image');
+
                 if ($current_product->thumbnail_image != null && Storage::disk('public')->exists($current_product->thumbnail_image)) {
-                    // dd('has old image');
+
                     Storage::disk('public')->delete($current_product->thumbnail_image);
                     $result = $this->uploadImages($current_product, $request);
                     if ($result = false) {
@@ -156,11 +156,11 @@ class ProductBasicRepository
         $sourceImagePath = null;
         $data = [];
         $basPath = 'products/' . $createdProduct->id . '/';
-        // dd($basPath);
+
         try {
             if (isset($request->thumbnail_image)) {
                 $full_path = $basPath . 'thumbnail_image' . '_' . $request->thumbnail_image->getClientOriginalName();
-                // dd($full_path);
+
                 ImageUploader::upload($request->thumbnail_image, $full_path, 'public');
                 $data = ['thumbnail_image' => $full_path];
             }

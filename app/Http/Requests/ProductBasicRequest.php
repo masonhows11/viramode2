@@ -36,7 +36,7 @@ class ProductBasicRequest extends FormRequest
             'brand_id' => ['nullable'],
             'product_tags' => ['nullable'],
             'sku' => ['required', 'min:1', 'max:100'],
-            'origin_price' => ['required', 'gt:0', 'integer'],
+            'origin_price' => ['nullable', 'gt:0', 'integer'],
             'published_at' => ['required', 'numeric'],
             'weight' => ['nullable', 'decimal:0,4'],
             'length' => ['nullable', 'decimal:0,4'],
@@ -44,7 +44,7 @@ class ProductBasicRequest extends FormRequest
             'height' => ['nullable', 'decimal:0,4'],
             'marketable' => ['required'],
             'category_attribute_id' => ['required'],
-            'available_in_stock' => ['required','min:1']
+            'available_in_stock' => ['nullable','min:1']
 
         ];
     }

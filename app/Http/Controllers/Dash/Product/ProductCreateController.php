@@ -42,8 +42,10 @@ class ProductCreateController extends Controller
             session()->flash('success', __('messages.New_record_saved_successfully'));
             return redirect()->route('admin.product.index');
         } catch (\Exception $ex) {
+            session()->flash('error',__('messages.An_error_occurred'));
+            return redirect()->back();
            //  return  $ex->getMessage();
-            return view('errors_custom.model_store_error');
+          //  return view('errors_custom.model_store_error');
         }
 
 
