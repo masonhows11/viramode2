@@ -325,6 +325,8 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin'
     // edit product
     Route::get('/product/edit/{product}', [ProductEditController::class, 'edit'])->name('product.edit.basic');
     Route::post('/product/update', [ProductEditController::class, 'update'])->name('product.update.basic');
+
+
     // crud attribute product feature
     Route::get('/product/create/property/{product}', [ProductMetaController::class, 'index'])->name('product.create.property');
     ////
@@ -332,6 +334,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin'
     ////
     Route::get('/product/create/specifications/{product}', [ProductCreateSpecificationsController::class, 'index'])->name('product.create.specifications');
     Route::get('/product/edit/specifications/{attribute_product_id}/{product_id}', [ProductEditSpecificationsController::class, 'index'])->name('product.edit.specifications');
+
     Route::post('/product/update/specifications/{attribute_product_id}/{product_id}', [ProductEditSpecificationsController::class, 'update'])->name('product.update.specifications');
     // crud image product feature
     Route::get('/product/create/images/{product}', [ProductCreateImageController::class, 'create'])->name('product.create.images');

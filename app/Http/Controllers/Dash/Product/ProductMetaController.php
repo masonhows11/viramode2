@@ -10,7 +10,7 @@ class ProductMetaController extends Controller
     public function index(Request $request)
     {
 
-            return view('admin_end.product.create.create_meta')
+            return view('admin.product.create.create_meta')
                 ->with('product',$request->product);
 
 
