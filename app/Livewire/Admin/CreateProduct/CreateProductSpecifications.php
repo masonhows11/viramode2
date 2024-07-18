@@ -15,7 +15,7 @@ class CreateProductSpecifications extends Component
 {
     public $product_id;
     public $product;
-    public $attributes;
+    public $product_attributes;
     public $attribute_value_id;
     public $selectedAttributeType;
     public $selectedAttribute;
@@ -34,9 +34,7 @@ class CreateProductSpecifications extends Component
         $this->product = Product::where('id', $product)
             ->select('id', 'category_attribute_id', 'title_persian')
             ->first();
-        $this->attributes = Attribute::where('category_id', $this->product->category_attribute_id)
-            ->get();
-
+      $this->product_attributes= Attribute::where('category_id', $this->product->category_attribute_id)->get();
     }
 
     public function rules(){
@@ -54,7 +52,7 @@ class CreateProductSpecifications extends Component
         if ($this->name == 0) {
             $this->name = null;
         } else
-            $this->selectedAttribute = Attribute::where('id', $this->name)->first();
+        $this->selectedAttribute = Attribute::where('id', $this->name)->first();
         $this->type = $this->selectedAttribute->type;
         switch ($this->type) {
             case 'select':

@@ -21,17 +21,17 @@
 
             <div class="col  bg-white">
 
-                <form wire:submit.prevent="save">
+                <form wire:submit="save">
 
                     <div class="row product-attribute-product-form">
 
                         <div class="col-sm-4">
                             <div class="mt-3 mb-3">
                                 <label for="name" class="form-label">{{ __('messages.name') }}</label>
-                                <select class="form-control" wire:change="changeAttribute" wire:model.defer="name"
+                                <select class="form-control" wire:change="changeAttribute" wire:model="name"
                                         id="name">
                                     <option value="0">انتخاب کنید</option>
-                                    @foreach($attributes as $attribute)
+                                    @foreach($product_attributes as $attribute)
                                         <option value="{{ $attribute->id }}">{{ $attribute->name }}</option>
                                     @endforeach
                                 </select>
@@ -47,7 +47,7 @@
                             <div class="mt-3 mb-3">
                                 <label for="priority" class="form-label">{{ __('messages.priority') }}</label>
                                 <input type="number" min="1" max="999" class="form-control" id="priority"
-                                       wire:model.defer="priority">
+                                       wire:model="priority">
                                 @error('priority')
                                 <div class="mt-3">
                                     <span class="text-danger">{{ $message }}</span>
@@ -63,7 +63,7 @@
                                 @if( $name != null)
                                     @switch($selectedAttributeType)
                                         @case('select')
-                                        <select class="form-control" wire:model.defer="value" id="value">
+                                        <select class="form-control" wire:model="value" id="value">
                                             <option>انتخاب کنید...</option>
                                             @foreach($attributeDefaultValues as $value)
                                                 <option value="{{ $value->id }}">{{ $value->value }}</option>
@@ -71,7 +71,7 @@
                                         </select>
                                         @break
                                         @case('multi_select')
-                                        <select class="form-control" wire:model.defer="value" id="value" multiple>
+                                        <select class="form-control" wire:model="value" id="value" multiple>
                                             @foreach($attributeDefaultValues as $value)
                                                 <option value="{{ $value->id }}">{{ $value->value }}</option>
                                             @endforeach
@@ -79,20 +79,20 @@
                                         @break
                                         @case('text_box')
                                         <input type="text" class="form-control"
-                                                  placeholder="متن خود را وارد کنید.."
-                                                  wire:model.defer="value" id="value">
+                                               placeholder="متن خود را وارد کنید.."
+                                               wire:model="value" id="value">
                                         @break
                                         @case('text_area')
                                         <textarea class="form-control"
                                                   placeholder="متن خود را وارد کنید.."
-                                                   wire:model.defer="value"
-                                                    rows="5" cols="10" id="value">
+                                                  wire:model="value"
+                                                  rows="5" cols="10" id="value">
 
                                         </textarea>
                                         @break
                                     @endswitch
                                 @else
-                                    <input type="text" class="form-control" id="value" wire:model.defer="value">
+                                    <input type="text" class="form-control" id="value" wire:model="value">
                                 @endif
 
                                 @error('value')
@@ -164,12 +164,14 @@
                                 @break
                             @endswitch
                             <td>
-                                <a class="mt-3" href="{{ route('admin.product.edit.specifications',['attribute_product_id' => $item->id,'product_id'=>$item->product_id])}}">
+                                <a class="mt-3"
+                                   href="{{ route('admin.product.edit.specifications',['attribute_product_id' => $item->id,'product_id'=>$item->product_id])}}">
                                     <i class="mt-3 fa fa-edit"></i>
                                 </a>
                             </td>
                             <td>
-                                <a class="mt-3" href="javascript:void(0)" wire:click.prevent="deleteConfirmation({{ $item->id }})">
+                                <a class="mt-3" href="javascript:void(0)"
+                                   wire:click.prevent="deleteConfirmation({{ $item->id }})">
                                     <i class="mt-3 fa fa-trash"></i>
                                 </a>
                             </td>
@@ -196,7 +198,7 @@
          });
      </script>--}}
     <script type="text/javascript">
-        window.addEventListener('show-delete-confirmation', event => {
+        document.addEventListener('show-delete-confirmation', event => {
             Swal.fire({
                 title: 'آیا مطمئن هستید این ایتم حذف شود؟',
                 icon: 'error',
@@ -207,7 +209,7 @@
                 cancelButtonText: 'خیر',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Livewire.emit('deleteConfirmed')
+                    Livewire.dispatch('deleteConfirmed')
                 }
             });
         })
@@ -225,7 +227,7 @@
                 toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
         });
-        window.addEventListener('show-result', ({detail: {type, message}}) => {
+        document.addEventListener('show-result', ({detail: {type, message}}) => {
             Toast.fire({
                 icon: type,
                 title: message
@@ -236,7 +238,8 @@
             icon: 'warning',
             title: '{{ session()->get('warning') }}'
         })
-        @elseif(session()->has('success'))
+        @endif
+        @if(session()->has('success'))
         Toast.fire({
             icon: 'success',
             title: '{{ session()->get('success') }}'
