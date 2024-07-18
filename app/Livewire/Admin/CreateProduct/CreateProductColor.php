@@ -64,9 +64,7 @@ class CreateProductColor extends Component
                 $this->status = '';
                 $this->available_in_stock = '';
                 $this->salable_quantity = '';
-                $this->dispatch('show-result',
-                    ['type' => 'success',
-                        'message' => __('messages.New_record_saved_successfully')]);
+                $this->dispatch('show-result',type:'success',message:__('messages.New_record_saved_successfully'));
 
             } elseif ($this->edit_mode == true) {
                 $this->color_name = Color::where('id', $this->color)->select(['title_persian', 'code'])->first();

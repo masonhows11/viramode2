@@ -23,7 +23,7 @@
 
                         <div class="col-sm-2 mt-4">
                             <label for="color" class="form-label">{{ __('messages.product_color') }}</label>
-                            <select class="form-control" id="color" wire:model.defer="color">
+                            <select class="form-control" id="color" wire:model="color">
                                 <option>{{ __('messages.choose') }}</option>
                                 @foreach($colors as $color)
                                     <option value="{{ $color->id}}">{{ $color->title_persian }}</option>
@@ -55,8 +55,7 @@
 
                         <div class="col-sm-2 mt-4">
                             <label for="price_increase" class="form-label">{{ __('messages.price_increase') }}</label>
-                            <input type="text" class="form-control" id="price_increase"
-                                   wire:model.defer="price_increase">
+                            <input type="text" class="form-control" id="price_increase" wire:model="price_increase">
                             @error('price_increase')
                             <div class="mt-3">
                                 <span class="text-danger">{{ $message }}</span>
@@ -67,7 +66,7 @@
 
                         <div class="col-sm-2 mt-4">
                             <label for="salable_quantity" class="form-label">{{ __('messages.salable_quantity') }}</label>
-                            <input type="text" class="form-control" id="salable_quantity" wire:model.defer="salable_quantity">
+                            <input type="text" class="form-control" id="salable_quantity" wire:model="salable_quantity">
                             @error('salable_quantity')
                             <div class="mt-3">
                                 <span class="text-danger">{{ $message }}</span>
@@ -77,7 +76,7 @@
 
                         <div class="col-sm-2 mt-4">
                             <label for="available_in_stock" class="form-label">{{ __('messages.available_in_stock') }}</label>
-                            <input type="text" class="form-control" id="available_in_stock" wire:model.defer="available_in_stock">
+                            <input type="text" class="form-control" id="available_in_stock" wire:model="available_in_stock">
                             @error('available_in_stock')
                             <div class="mt-3">
                                 <span class="text-danger">{{ $message }}</span>
@@ -87,7 +86,7 @@
 
                         <div class="col-sm-2 mt-4">
                             <label for="status" class="form-label">{{ __('messages.status') }}</label>
-                            <select class="form-select" id="status" wire:model.defer="status">
+                            <select class="form-select" id="status" wire:model="status">
                                 <option>{{ __('messages.choose') }}</option>
                                 <option value="1">{{ __('messages.active') }}</option>
                                 <option value="0">{{ __('messages.deactivate') }}</option>
@@ -145,7 +144,7 @@
                             <td>{{ $color->salable_quantity }}</td>
                             <td>{{ $color->color_name }}</td>
                             <td>{{ $color->status == 1 ? __('messages.active') : __('messages.deactivate') }}</td>
-                            <td><a class="mt-3" href="javascript:void(0)" wire:click.edit="edit({{$color->id}})"><i class="mt-3 fa fa-edit"></i></a></td>
+                            <td><a class="mt-3" href="javascript:void(0)" wire:click="edit({{$color->id}})"><i class="mt-3 fa fa-edit"></i></a></td>
                             <td><a class="mt-3" href="javascript:void(0)" wire:click.prevent="deleteConfirmation({{ $color->id }})"><i class="mt-3 fa fa-trash"></i></a></td>
                         </tr>
                     @endforeach
@@ -160,7 +159,7 @@
 </div>
 @push('dash_custom_script')
     <script type="text/javascript">
-        window.addEventListener('show-delete-confirmation', event => {
+        document.addEventListener('show-delete-confirmation', event => {
             Swal.fire({
                 title: 'آیا مطمئن هستید این ایتم حذف شود؟',
                 icon: 'error',
@@ -171,7 +170,7 @@
                 cancelButtonText: 'خیر',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Livewire.emit('deleteConfirmed')
+                    Livewire.dispatch('deleteConfirmed')
                 }
             });
         })
@@ -189,7 +188,7 @@
                 toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
         });
-        window.addEventListener('show-result', ({detail: {type, message}}) => {
+        document.addEventListener('show-result', ({detail: {type, message}}) => {
             Toast.fire({
                 icon: type,
                 title: message
