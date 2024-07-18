@@ -19,11 +19,11 @@
 
         <div class="row  mt-2 ">
             <div class="col bg-white">
-                <form wire:submit.prevent="save">
+                <form wire:submit="save">
                     <div class="row product-warranty">
                         <div class="col-sm-4 mt-3 mb-3">
                             <label for="title" class="form-label">{{ __('messages.title') }}</label>
-                            <input type="text" class="form-control" id="title" wire:model.defer="title">
+                            <input type="text" class="form-control" id="title" wire:model="title">
                             @error('title')
                             <div class="mt-3">
                                 <span class="text-danger">{{ $message }}</span>
@@ -32,7 +32,7 @@
                         </div>
                         <div class="col-sm-4 mt-3 mb-3">
                             <label for="price_increase" class="form-label">{{ __('messages.price_increase') }}</label>
-                            <input type="text" class="form-control" id="price_increase" wire:model.defer="price_increase">
+                            <input type="text" class="form-control" id="price_increase" wire:model="price_increase">
                             @error('price_increase')
                             <div class="mt-3">
                                 <span class="text-danger">{{ $message }}</span>
@@ -41,7 +41,7 @@
                         </div>
                         <div class="col-sm-4 mt-3 mb-3">
                             <label for="status" class="form-label">{{ __('messages.status') }}</label>
-                            <select class="form-select" id="status" wire:model.defer="status">
+                            <select class="form-select" id="status" wire:model="status">
                                 <option>{{ __('messages.choose') }}</option>
                                 <option value="1">{{ __('messages.active') }}</option>
                                 <option value="0">{{ __('messages.deactivate') }}</option>
@@ -88,11 +88,10 @@
                             <td>{{ $warranty->guarantee_name }}</td>
                             <td>{{ $warranty->product->title_persian }}</td>
                             <td>{{ priceFormat($warranty->price_increase) }} تومان</td>
-                            <td><a class="btn {{ $warranty->status === 1 ?  'btn-success' : 'btn-danger' }}  btn-sm"
-                                   href="#">
+                            <td><a wire:click.prevent="active({{$warranty->id}})" class="btn {{ $warranty->status === 1 ?  'btn-success' : 'btn-danger' }}  btn-sm" href="#">
                                     {{ $warranty->status === 1  ? __('messages.active') : __('messages.deactivate')}}
                                 </a></td>
-                            <td> <a href="javascript:void(0)" wire:click.edit="edit({{ $warranty->id }})"><i class="mt-3 fa fa-edit"></i></a></td>
+                            <td> <a href="javascript:void(0)" wire:click="edit({{ $warranty->id }})"><i class="mt-3 fa fa-edit"></i></a></td>
                             <td> <a href="javascript:void(0)" wire:click.prevent="deleteConfirmation({{ $warranty->id }})" class=""><i class="mt-3 fa fa-trash"></i></a></td>
                         </tr>
                     @endforeach
@@ -113,7 +112,7 @@
 
 @push('dash_custom_script')
     <script type="text/javascript">
-        window.addEventListener('show-delete-confirmation', event => {
+        document.addEventListener('show-delete-confirmation', event => {
             Swal.fire({
                 title: 'آیا مطمئن هستید این ایتم حذف شود؟',
                 icon: 'error',
@@ -124,7 +123,7 @@
                 cancelButtonText: 'خیر',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Livewire.emit('deleteConfirmed')
+                    Livewire.dispatch('deleteConfirmed')
                 }
             });
         })
@@ -142,7 +141,7 @@
                 toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
         });
-        window.addEventListener('show-result', ({detail: {type, message}}) => {
+       document.addEventListener('show-result', ({detail: {type, message}}) => {
             Toast.fire({
                 icon: type,
                 title: message
@@ -153,7 +152,8 @@
             icon: 'warning',
             title: '{{ session()->get('warning') }}'
         })
-        @elseif( session()->has('success'))
+        @endif
+        @if( session()->has('success'))
         Toast.fire({
             icon: 'success',
             title: '{{ session()->get('success') }}'

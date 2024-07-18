@@ -17,7 +17,7 @@
         <div class="row mx-2  d-flex flex-column ">
             <div class="col  bg-white">
 
-                <form wire:submit.prevent="save">
+                <form wire:submit="save">
 
                     <div class="row product-color-form">
 
@@ -84,7 +84,7 @@
                             @enderror
                         </div>
 
-                        <div class="col-sm-2 mt-4">
+                        <div class="col-sm-4 mt-4">
                             <label for="status" class="form-label">{{ __('messages.status') }}</label>
                             <select class="form-select" id="status" wire:model="status">
                                 <option>{{ __('messages.choose') }}</option>
@@ -101,7 +101,7 @@
                     </div>
 
                     <div class="row my-4">
-                        <div class="col">
+                        <div class="col-sm-6 mt-2">
                             <button type="submit" id="add_attribute"
                                     class="btn btn-success btn-sm">{{ __('messages.save') }}</button>
                             <a href="{{ route('admin.product.create.images',['product'=>$product->id]) }}"

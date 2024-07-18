@@ -108,7 +108,7 @@ class CreateProductImages extends Component
                         'is_active' => 1,
                     ]);
                     $this->photo = null;
-                    session()->flash('success', __('messages.New_record_saved_successfully'));
+                    session()->flash('success',__('messages.New_record_saved_successfully'));
                     return redirect()->route('admin.product.create.images', $this->product_id);
 
                 }

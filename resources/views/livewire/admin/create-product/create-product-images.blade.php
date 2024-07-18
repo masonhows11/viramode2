@@ -3,13 +3,12 @@
      {{ Breadcrumbs::render('admin.create.product.images',$title->title_persian) }}
     @endsection
     <div class="container-fluid">
-
         <div class="row mt-5 create-product-image bg-white py-5">
 
 
             <div class="col-sm-4 create-product-gallery-form">
 
-                <form wire:submit.prevent="save">
+                <form wire:submit="save">
 
                     <div class="mb-3 d-flex justify-content-center">
                         @if($photo)
@@ -26,7 +25,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="photo" class="form-label">انتخاب تصویر</label>
-                        <input type="file" accept="image/*" class="form-control" wire:model.defer="photo" id="photo">
+                        <input type="file" accept="image/*" class="form-control" wire:model="photo" id="photo">
                     </div>
 
                     <div class="spinner-border" wire:loading wire:target="photo" role="status">
@@ -61,7 +60,7 @@
                             <div class="col ">
                                 <div class="card border border-2 border-active-secondary">
                                     @if ( $image->image_path != null && \Illuminate\Support\Facades\Storage::disk('public')->exists('images/product/gallery/'.$image->image_path) )
-                                    <img src="{{ asset('storage/images/product/gallery/'.$image->image_path) }}" class="card-img-top " alt="image-product">
+                                    <img src="{{ asset('storage/images/product/gallery/'.$image->image_path) }}"  height="237" width="300" class="card-img-top " alt="image-product">
                                     @else
                                         <img src="{{ asset('admin_assets/images/no-image-icon-23494.png') }}"  id="image_view" class="img-thumbnail" height="300" width="300" alt="image">
                                     @endif
@@ -90,7 +89,7 @@
 </div>
 @push('dash_custom_script')
     <script type="text/javascript">
-        window.addEventListener('show-delete-confirmation', event => {
+        document.addEventListener('show-delete-confirmation', event => {
             Swal.fire({
                 title: 'آیا مطمئن هستید این ایتم حذف شود؟',
                 icon: 'error',
@@ -101,7 +100,7 @@
                 cancelButtonText: 'خیر',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Livewire.emit('deleteConfirmed')
+                    Livewire.dispatch('deleteConfirmed')
                 }
             });
         })
@@ -119,7 +118,7 @@
                 toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
         });
-        window.addEventListener('show-result', ({detail: {type, message}}) => {
+        document.addEventListener('show-result', ({detail: {type, message}}) => {
             Toast.fire({
                 icon: type,
                 title: message
@@ -130,7 +129,8 @@
             icon: 'warning',
             title: '{{ session()->get('warning') }}'
         })
-        @elseif(session()->has('success'))
+        @endif
+        @if(session()->has('success'))
         Toast.fire({
             icon: 'success',
             title: '{{ session()->get('success') }}'

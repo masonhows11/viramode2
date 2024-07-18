@@ -605,4 +605,6 @@ return [
     'dear_user_your_account_has_not_been_activated' => 'کاربر گرامی حساب کاربری شما فعال نشده است',
     'page_not_found' => 'خطای 404',
     'email_verification' => 'تایید ایمیل کاربر',
+    'this_is_a_duplicate_item' => 'این ایتم تکراری است',
+
 ];

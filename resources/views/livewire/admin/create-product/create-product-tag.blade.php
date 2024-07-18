@@ -19,11 +19,11 @@
 
         <div class="row mx-2 my-3 d-flex flex-column ">
             <div class="col  bg-white">
-                <form wire:submit.prevent="save">
+                <form wire:submit="save">
                     <div class="row product-tag-form">
                         <div class="col mt-4">
                             <label for="color" class="form-label">{{ __('messages.new_tag') }}</label>
-                            <select class="form-control" id="color" wire:model.defer="Tag">
+                            <select class="form-control" id="color" wire:model="Tag">
                                 <option>{{ __('messages.choose') }}</option>
                                 @foreach( $tags as $tag )
                                     <option value="{{ $tag->id}}">{{ $tag->title_persian }}</option>
@@ -76,7 +76,7 @@
 </div>
 @push('dash_custom_script')
     <script type="text/javascript">
-        window.addEventListener('show-delete-confirmation', event => {
+        document.addEventListener('show-delete-confirmation', event => {
             Swal.fire({
                 title: 'آیا مطمئن هستید این ایتم حذف شود؟',
                 icon: 'error',
@@ -87,7 +87,7 @@
                 cancelButtonText: 'خیر',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Livewire.emit('deleteConfirmed')
+                    Livewire.dispatch('deleteConfirmed')
                 }
             });
         })
@@ -105,7 +105,7 @@
                 toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
         });
-        window.addEventListener('show-result', ({detail: {type, message}}) => {
+        document.addEventListener('show-result', ({detail: {type, message}}) => {
             Toast.fire({
                 icon: type,
                 title: message
@@ -116,7 +116,8 @@
             icon: 'warning',
             title: '{{ session()->get('warning') }}'
         })
-        @elseif(session()->has('success'))
+        @endif
+        @if(session()->has('success'))
         Toast.fire({
             icon: 'success',
             title: '{{ session()->get('success') }}'

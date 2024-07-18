@@ -7,6 +7,7 @@ use App\Models\AttributeProduct;
 use App\Models\AttributeValue;
 use App\Models\Product;
 use Illuminate\Validation\Rule;
+use Livewire\Attributes\On;
 use Livewire\Component;
 
 
@@ -135,32 +136,22 @@ class CreateProductSpecifications extends Component
             $this->priority = null;
                 break;
         }
-
-
     }
 
 
     public function deleteConfirmation($id)
     {
         $this->attribute_value_id = $id;
-        $this->dispatchBrowserEvent('show-delete-confirmation');
+        $this->dispatch('show-delete-confirmation');
     }
 
-    protected $listeners = [
-        'deleteConfirmed' => 'deleteModel',
-    ];
-
-
+    #[On('deleteConfirmed')]
     public function deleteModel()
     {
         try {
-
              $model = AttributeProduct::findOrFail($this->attribute_value_id);
              $model->delete();
-
-            $this->dispatchBrowserEvent('show-result',
-                ['type' => 'success',
-                    'message' => __('messages.The_deletion_was_successful')]);
+            $this->dispatch('show-result',type:'success', message:__('messages.The_deletion_was_successful'));
         } catch (\Exception $ex) {
             return view('errors_custom.model_not_found');
         }
@@ -170,8 +161,8 @@ class CreateProductSpecifications extends Component
     public function render()
     {
         return view('livewire.admin.create-product.create-product-specifications')
-            ->extends('admin_end.include.master_dash')
-            ->section('dash_main_content')
+            ->extends('admin.layout.master_admin')
+            ->section('admin_main')
             ->with(['product' => $this->product ,
                 'attribute_product' => AttributeProduct::where('product_id',$this->product_id)->orderBy('priority','asc')->get()]);
     }

@@ -14,9 +14,7 @@ class CreateProductWarranty extends Component
 
     public $product;
     public $warranty_id;
-
     public $edit_mode = false;
-
     public $title;
     public $product_id;
     public $price_increase;
@@ -38,10 +36,8 @@ class CreateProductWarranty extends Component
     public function save()
     {
         $this->validate();
-
         try {
             if ($this->edit_mode == false) {
-
                 Warranty::create([
                     'guarantee_name' => $this->title,
                     'product_id' => $this->product_id,
@@ -51,10 +47,7 @@ class CreateProductWarranty extends Component
                 $this->title = '';
                 $this->price_increase = '';
                 $this->status = '';
-
                 $this->dispatch('show-result',type:'success',message:__('messages.New_record_saved_successfully'));
-
-
             } elseif ($this->edit_mode == true) {
                 Warranty::where('id', $this->warranty_id)
                     ->update([
@@ -70,6 +63,26 @@ class CreateProductWarranty extends Component
 
         } catch (\Exception $ex) {
             return view('errors_custom.model_store_error');
+        }
+        return null;
+    }
+
+    public function active($id)
+    {
+
+        try {
+            $warranty =  Warranty::findOrFail($id);
+            if ($warranty->status == 0) {
+                $warranty->status = 1;
+                $this->status = true;
+                $warranty->save();
+            } else {
+                $warranty->status = 0;
+                $this->status = false;
+                $warranty->save();
+            }
+        } catch (\Exception $ex) {
+            return view('errors_custom.general_error');
         }
         return null;
     }
@@ -99,7 +112,6 @@ class CreateProductWarranty extends Component
     public function deleteModel()
     {
         try {
-
             $model = Warranty::findOrFail($this->warranty_id);
             $model->delete();
             $this->dispatch('show-result',type:'success',message:__('messages.The_deletion_was_successful'));

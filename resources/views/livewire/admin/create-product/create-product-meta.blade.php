@@ -18,15 +18,12 @@
         </div>
 
         <div class="row mx-2 my-3 d-flex flex-column ">
-
             <div class="col  bg-white">
-
-                <form wire:submit.prevent="save">
-
+                <form wire:submit="save">
                     <div class="row product-meta-form">
                         <div class="col-sm-6 mt-5 mb-5">
                             <label for="meta_key" class="form-label">{{ __('messages.product_property_key') }}</label>
-                            <input type="text" class="form-control" id="meta_key" wire:model.defer="meta_key">
+                            <input type="text" class="form-control" id="meta_key" wire:model="meta_key">
                             @error('meta_key')
                             <div class="mt-3">
                                 <span class="text-danger">{{ $message }}</span>
@@ -35,7 +32,7 @@
                         </div>
                         <div class="col-sm-6 mt-5 mb-5">
                             <label for="meta_value" class="form-label">{{ __('messages.product_property_value') }}</label>
-                            <input type="text" class="form-control" id="meta_value" wire:model.defer="meta_value">
+                            <input type="text" class="form-control" id="meta_value" wire:model="meta_value">
                             @error('meta_value')
                             <div class="mt-3">
                                 <span class="text-danger">{{ $message }}</span>
@@ -43,7 +40,6 @@
                             @enderror
                         </div>
                     </div>
-
                     <div class="row my-4">
                         <div class="col">
                             <button type="submit" id="add_attribute" class="btn btn-success btn-sm">{{ __('messages.save') }}</button>
@@ -53,16 +49,13 @@
                             <a href="{{ route('admin.product.index') }}" class="btn btn-secondary btn-sm">{{ __('messages.product_list') }}</a>
                         </div>
                     </div>
-
                 </form>
-
             </div>
         </div>
 
 
         <div class="row mx-2 my-3 product-meta-list bg-white">
            <div class="col">
-
                <table class="table">
                    <thead>
                    <tr class="text-center">
@@ -79,24 +72,19 @@
                             <td>{{ $meta->id }}</td>
                             <td>{{ $meta->meta_key }}</td>
                             <td>{{ $meta->meta_value }}</td>
-                            <td><a class="mt-3" href="javascript:void(0)" wire:click.edit="edit({{$meta->id}})"><i class="mt-3 fa fa-edit"></i></a></td>
+                            <td><a class="mt-3" href="javascript:void(0)" wire:click="edit({{$meta->id}})"><i class="mt-3 fa fa-edit"></i></a></td>
                             <td><a class="mt-3" href="javascript:void(0)" wire:click.prevent="deleteConfirmation({{ $meta->id }})"><i class="mt-3 fa fa-trash"></i></a></td>
                         </tr>
                      @endforeach
                    </tbody>
                </table>
-
            </div>
         </div>
-
-
-
-
     </div>
 </div>
 @push('dash_custom_script')
     <script type="text/javascript">
-        window.addEventListener('show-delete-confirmation', event => {
+        document.addEventListener('show-delete-confirmation', event => {
             Swal.fire({
                 title: 'آیا مطمئن هستید این ایتم حذف شود؟',
                 icon: 'error',
@@ -107,7 +95,7 @@
                 cancelButtonText: 'خیر',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Livewire.emit('deleteConfirmed')
+                    Livewire.dispatch('deleteConfirmed')
                 }
             });
         })
@@ -125,7 +113,7 @@
                 toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
         });
-        window.addEventListener('show-result', ({detail: {type, message}}) => {
+        document.addEventListener('show-result', ({detail: {type, message}}) => {
             Toast.fire({
                 icon: type,
                 title: message
@@ -136,7 +124,8 @@
             icon: 'warning',
             title: '{{ session()->get('warning') }}'
         })
-        @elseif(session()->has('success'))
+        @endif
+        @if(session()->has('success'))
         Toast.fire({
             icon: 'success',
             title: '{{ session()->get('success') }}'
