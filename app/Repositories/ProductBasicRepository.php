@@ -161,7 +161,7 @@ class ProductBasicRepository
 
     public function delete($request): string
     {
-        $product = Product::findOrfail($request->id);;
+        $product = Product::findOrFail($request->id);;
         $images = ProductImage::where('product_id', $request->id)->get();
         if (Storage::disk('public')->exists($product->thumbnail_image)) {
             Storage::disk('public')->delete($product->thumbnail_image);
