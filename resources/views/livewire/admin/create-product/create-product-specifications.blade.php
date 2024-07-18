@@ -87,7 +87,6 @@
                                                   placeholder="متن خود را وارد کنید.."
                                                   wire:model="value"
                                                   rows="5" cols="10" id="value">
-
                                         </textarea>
                                         @break
                                     @endswitch

@@ -162,6 +162,6 @@ class CreateProductSpecifications extends Component
             ->extends('admin.layout.master_admin')
             ->section('admin_main')
             ->with(['product' => $this->product ,
-                'attribute_product' => AttributeProduct::where('product_id',$this->product_id)->orderBy('priority','asc')->get()]);
+                    'attribute_product' => AttributeProduct::where('product_id',$this->product_id)->orderBy('priority','asc')->get()]);
     }
 }
