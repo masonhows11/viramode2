@@ -20,6 +20,7 @@ class CreateProductSpecifications extends Component
     public $selectedAttributeType;
     public $selectedAttribute;
     public $attributeDefaultValues = null;
+    public $existsAttributeProduct;
 
     public $name;
     public $type;
@@ -34,8 +35,8 @@ class CreateProductSpecifications extends Component
         $this->product = Product::where('id', $product)
             ->select('id', 'category_attribute_id', 'title_persian')
             ->first();
-      $this->product_attributes =
-          Attribute::where('category_id', $this->product->category_attribute_id)->get();
+        $this->product_attributes =
+            Attribute::where('category_id', $this->product->category_attribute_id)->get();
     }
 
     public function rules()
@@ -55,7 +56,7 @@ class CreateProductSpecifications extends Component
         if ($this->name == 0) {
             $this->name = null;
         } else
-        $this->selectedAttribute = Attribute::where('id', $this->name)->first();
+            $this->selectedAttribute = Attribute::where('id', $this->name)->first();
         $this->type = $this->selectedAttribute->type;
         switch ($this->type) {
             case 'select':
@@ -84,7 +85,18 @@ class CreateProductSpecifications extends Component
 
     public function save()
     {
+
         $this->validate();
+
+        $this->existsAttributeProduct = AttributeProduct::where(['product_id' => $this->product_id], ['attribute_id' => $this->name])->exists();
+        if ($this->existsAttributeProduct) {
+            $this->dispatch('show-result', type: 'warning', message: __('messages.this_is_a_duplicate_item'));
+            $this->name = null;
+            $this->value = null;
+            $this->priority = null;
+            return null;
+        }
+
 
         switch ($this->type) {
             case 'select':
@@ -132,9 +144,9 @@ class CreateProductSpecifications extends Component
                     'priority' => $this->priority,
                     'type' => $this->type,
                 ]);
-            $this->name = null;
-            $this->value = null;
-            $this->priority = null;
+                $this->name = null;
+                $this->value = null;
+                $this->priority = null;
                 break;
         }
     }
@@ -150,9 +162,9 @@ class CreateProductSpecifications extends Component
     public function deleteModel()
     {
         try {
-             $model = AttributeProduct::findOrFail($this->attribute_value_id);
-             $model->delete();
-            $this->dispatch('show-result',type:'success', message:__('messages.The_deletion_was_successful'));
+            $model = AttributeProduct::findOrFail($this->attribute_value_id);
+            $model->delete();
+            $this->dispatch('show-result', type: 'success', message: __('messages.The_deletion_was_successful'));
         } catch (\Exception $ex) {
             return view('errors_custom.model_not_found');
         }
@@ -164,7 +176,7 @@ class CreateProductSpecifications extends Component
         return view('livewire.admin.create-product.create-product-specifications')
             ->extends('admin.layout.master_admin')
             ->section('admin_main')
-            ->with(['product' => $this->product ,
-                    'attribute_product' => AttributeProduct::where('product_id',$this->product_id)->orderBy('priority','asc')->get()]);
+            ->with(['product' => $this->product,
+                'attribute_product' => AttributeProduct::where('product_id', $this->product_id)->orderBy('priority', 'asc')->get()]);
     }
 }
