@@ -30,9 +30,10 @@ class ProductBasicRepository
             $createdProduct = Product::create([
 
                 // 'brand_id' => $request->brand_id ?? null,
-                // 'category_attribute_id' => $request->category_attribute_id ?? null,
+
 
                 ////
+                'category_attribute_id' => $request->category_attribute_id ?? null,
                 'status' => $request->status,
                 'admin_id' => $author,
                 'title_english' => $request->title_english,
@@ -78,8 +79,10 @@ class ProductBasicRepository
         }
         // update other properties
         DB::transaction(function () use ($author, $current_product, $published_at, $request) {
-            //  $current_product->category_attribute_id = $request->category_attribute_id;
+
             //  $current_product->brand_id = $request->brand_id;
+
+            $current_product->category_attribute_id = $request->category_attribute_id;
             $current_product->sku = $request->sku;
             $current_product->status = $request->status;
             $current_product->admin_id = $author;

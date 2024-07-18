@@ -38,12 +38,14 @@ class CreateProductSpecifications extends Component
           Attribute::where('category_id', $this->product->category_attribute_id)->get();
     }
 
-    public function rules(){
+    public function rules()
+    {
         return [
             'name' => ['required'],
             'type' => ['required'],
             'priority' => ['required'],
-            'value' => $this->type == 'text_box' || 'text_area' ? 'required|string|min:1|max:255' : 'required',
+            'value' => ['required']
+            //'value' => $this->type == 'text_box' || 'text_area' ? 'required|string|min:1|max:255' : 'required',
         ];
     }
 

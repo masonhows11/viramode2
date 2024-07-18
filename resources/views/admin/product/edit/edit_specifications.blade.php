@@ -36,7 +36,7 @@
 
                         <input type="hidden" name="attribute_id" value="{{ $attribute_id }}">
 
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                             <div class="mt-3 mb-3">
                                 <label for="priority" class="form-label">{{ __('messages.priority') }}</label>
                                 <input type="number" value="{{ $priority }}" min="1" max="999" class="form-control" id="priority" name="priority">
@@ -48,7 +48,7 @@
                             </div>
                         </div>
 
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">
                             <div class="mt-3 mb-3">
                                 <label for="value" class="form-label">{{ __('messages.product_property_value') }}</label>
                                 @switch($selectedAttributeType)

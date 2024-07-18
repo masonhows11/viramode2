@@ -34,10 +34,10 @@ class ProductEditSpecificationsController extends Controller
             ->first();
 
 
-        ////
+
         $attribute_id = $product_attribute->attribute_id;
         $priority = $product_attribute->priority;
-        // fill the value input wire model base on attribute type
+        //// fill the value input wire model base on attribute type
         $type = $product_attribute->type;
         switch ($type) {
             case 'select':

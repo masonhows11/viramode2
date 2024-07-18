@@ -331,16 +331,20 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin'
     Route::get('/product/create/property/{product}', [ProductMetaController::class, 'index'])->name('product.create.property');
 
     // crud  product specifications
-    Route::get('/product/create/specifications/{product}', [ProductCreateSpecificationsController::class, 'index'])->name('product.create.specifications');
+    Route::get('/product/specifications/index/{product}',[ProductCreateSpecificationsController::class, 'index'])->name('product.specifications.index');
+    Route::get('/product/create/specifications/{product}',[ProductCreateSpecificationsController::class, 'index'])->name('product.create.specifications');
     Route::get('/product/edit/specifications/{attribute_product_id}/{product_id}', [ProductEditSpecificationsController::class, 'index'])->name('product.edit.specifications');
     Route::post('/product/update/specifications/{attribute_product_id}/{product_id}', [ProductEditSpecificationsController::class, 'update'])->name('product.update.specifications');
 
     // crud image product feature
     Route::get('/product/create/images/{product}', [ProductCreateImageController::class, 'create'])->name('product.create.images');
+
     // crud color product feature
     Route::get('/product/create/colors/{product}', [ProductCreateColorController::class, 'create'])->name('product.create.colors');
+
     // crud tag product feature
     Route::get('/product/create/tags/{product}', [ProductCreateTagController::class, 'create'])->name('product.create.tags');
+    
     // crud guarantee product feature
     Route::get('/product-guarantee/index/{product}', [ProductWarrantyController::class, 'create'])->name('product.guarantee.index');
 });
