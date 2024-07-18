@@ -179,14 +179,5 @@ class ProductBasicRepository
         } else {
             return 'false';
         }
-
-        //        if (count($images) > 0) {
-        //            foreach ($images as $image) {
-        //                if (Storage::disk('public')->exists($image->thumbnail_path) && Storage::disk('public')->exists($image->image_path)) {
-        //                    Storage::disk('public')->delete([$image->thumbnail_path, $image->image_path]);
-        //                }
-        //                $images->each->delete();
-        //            }
-        //        }
     }
 }
