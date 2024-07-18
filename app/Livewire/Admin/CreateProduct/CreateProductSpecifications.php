@@ -34,7 +34,8 @@ class CreateProductSpecifications extends Component
         $this->product = Product::where('id', $product)
             ->select('id', 'category_attribute_id', 'title_persian')
             ->first();
-      $this->product_attributes= Attribute::where('category_id', $this->product->category_attribute_id)->get();
+      $this->product_attributes =
+          Attribute::where('category_id', $this->product->category_attribute_id)->get();
     }
 
     public function rules(){

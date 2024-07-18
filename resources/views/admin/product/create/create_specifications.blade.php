@@ -5,7 +5,7 @@
 @section('admin_main')
     <div class="container-fluid">
 
-        <livewire:admin.product-specification.create-product-specifications :product="$product"/>
+        <livewire:admin.create-product.create-product-specifications :product="$product"/>
 
     </div>
 @endsection

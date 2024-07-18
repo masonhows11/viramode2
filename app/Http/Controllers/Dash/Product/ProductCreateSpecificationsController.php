@@ -10,7 +10,7 @@ class ProductCreateSpecificationsController extends Controller
     //
     public function index(Request $request)
     {
-       // dd('hi');
+
         return view('admin.product.create.create_specifications')
              ->with('product',$request->product);
     }

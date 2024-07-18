@@ -32,7 +32,7 @@
                                         id="name">
                                     <option value="0">انتخاب کنید</option>
                                     @foreach($product_attributes as $attribute)
-                                        <option value="{{ $attribute->id }}">{{ $attribute->name }}</option>
+                                        <option  wire:key="{{ $attribute->id }}" value="{{ $attribute->id }}">{{ $attribute->name }}</option>
                                     @endforeach
                                 </select>
                                 @error('name')
