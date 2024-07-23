@@ -89,8 +89,8 @@
                 <div class="col-sm-6 col-md-6">
                     <div class="row">
                         <div class="col mt-3 mb-3">
-                            <label for=description" class="form-label">{{ __('messages.description') }}</label>
-                            <textarea  name="description" rows="15"  class="form-control" id="description">{{ old('description') }}</textarea>
+                            <label for="description" class="form-label">{{ __('messages.description') }}</label>
+                            <textarea name="description" rows="15" class="form-control" id="description">{{ old('description') }}</textarea>
                             @error('description')
                             <div class="alert alert-danger mt-3">
                                 {{ $message }}
