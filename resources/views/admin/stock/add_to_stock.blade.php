@@ -26,6 +26,7 @@
             <div class="row border border-2 mb-5">
                 <div class="col-sm-6 col-md-6">
                     <div class="row">
+
                         <div class="col-sm-12 mt-3 mb-3">
                             <label for="recipient" class="form-label">{{ __('messages.name_of_the_recipient') }}</label>
                             <input type="text"
@@ -82,12 +83,14 @@
                             @enderror
                         </div>
                     </div>
+
                 </div>
+
                 <div class="col-sm-6 col-md-6">
                     <div class="row">
                         <div class="col mt-3 mb-3">
                             <label for=description" class="form-label">{{ __('messages.description') }}</label>
-                            <textarea  name="description" rows="11"  class="form-control" id="description">{{ old('description') }}</textarea>
+                            <textarea  name="description" rows="15"  class="form-control" id="description">{{ old('description') }}</textarea>
                             @error('description')
                             <div class="alert alert-danger mt-3">
                                 {{ $message }}
