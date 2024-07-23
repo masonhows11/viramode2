@@ -31,12 +31,10 @@ class StockController extends Controller
         $product = DB::table('products')
             ->select('id','title_persian')
             ->where('id',$request->product)->first();
-        return view('admin_end.stock.add_to_stock')->with(['product'=>$product]);
+        return view('admin.stock.add_to_stock')->with(['product'=>$product]);
     }
 
     public function addToStock(AddToStockRequest $request){
-
-
 
         try {
             $product = Product::findOrFail($request->product_id);
@@ -51,8 +49,6 @@ class StockController extends Controller
             return view('errors_custom.model_store_error')
                 ->with(['error'=>$ex->getMessage()]);
         }
-
-
     }
 
     public function modifyStockForm(Request $request)
@@ -63,7 +59,7 @@ class StockController extends Controller
                 ->where('id',$request->product)
                 ->select('id','title_persian','number_sold','frozen_number','salable_quantity','available_in_stock')
                 ->first();
-            return view('admin_end.stock.modify_stock')
+            return view('admin.stock.modify_stock')
                 ->with( ['product'=>$product] );
         }catch (\Exception $ex){
             return  view('errors_custom.model_store_error')->with(['error' => $ex->getMessage()]);

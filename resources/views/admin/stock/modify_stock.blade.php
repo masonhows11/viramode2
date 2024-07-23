@@ -1,11 +1,11 @@
-@extends('admin_end.include.master_dash')
+@extends('admin.layout.master_admin')
 @section('dash_page_title')
     {{ __('messages.modify_stock') }}
 @endsection
 @section('breadcrumb')
     {{ Breadcrumbs::render('admin.product.edit.stock',$product->title_persian) }}
 @endsection
-@section('dash_main_content')
+@section('admin_main')
     <div class="container-fluid bg-white py-4">
 
 
