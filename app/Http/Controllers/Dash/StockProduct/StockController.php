@@ -41,11 +41,10 @@ class StockController extends Controller
             $product->available_in_stock += $request->numbers;
             $product->salable_quantity = $request->salable_quantity;
             $product->save();
-             Log::info("recipient => {$request->recipient } ,  deliver => {$request->deliver },  description => {$request->description} , add_stock => {$request->numbers} ");
+            //  Log::info("recipient => {$request->recipient } ,  deliver => {$request->deliver },  description => {$request->description} , add_stock => {$request->numbers} ");
             session()->flash('success', __('messages.New_record_saved_successfully'));
             return redirect()->route('admin.stock.product.index');
         }catch (\Exception $ex){
-
             return view('errors_custom.model_store_error')
                 ->with(['error'=>$ex->getMessage()]);
         }
