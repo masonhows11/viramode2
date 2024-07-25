@@ -42,7 +42,7 @@ class AdminCategoryList extends Component
                     Storage::disk('public')->delete('/images/category/' . $category->image_path);
                 }
                 $category->delete();
-                $this->dispatch('show-result',type:'success',message:'رکورد با موفقیت حذف شد');
+                $this->dispatch('show-result',type:'success',message:__('messages.The_deletion_was_successful'));
             }
         } catch (\Exception $ex) {
             session()->flash('error', __('messages.The_desired_record_does_not_exist'));
@@ -78,10 +78,7 @@ class AdminCategoryList extends Component
                 $this->is_active = 0;
             }
             $category->save();
-
-            $this->dispatch('show-result',
-                ['type' => 'success',
-                    'message' => __('messages.The_changes_were_made_successfully')]);
+            $this->dispatch('show-result',type:'success',message:__('messages.The_changes_were_made_successfully'));
         } catch (\Exception $ex) {
             $this->dispatch('show-result',
                 ['type' => 'error',
