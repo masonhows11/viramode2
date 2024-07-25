@@ -14,7 +14,7 @@
         <!--begin::Mobile logo-->
         <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
             <a href="{{ route('admin.dashboard') }}" class="d-lg-none">
-                <h4 class="h4 ">{{ __('messages.admin_dashboard') }}</h4>
+                <h4 class="h4">{{ __('messages.admin_dashboard') }}</h4>
                 {{-- <img alt="Logo" src="{{ asset('admin_assets/media/logos/default-small.svg') }}" class="h-30px" /> --}}
             </a>
         </div>
@@ -25,7 +25,6 @@
             <div class="app-header-menu app-header-mobile-drawer align-items-stretch" data-kt-drawer="true" data-kt-drawer-name="app-header-menu" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="250px" data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_app_header_menu_toggle" data-kt-swapper="true" data-kt-swapper-mode="{default: 'append', lg: 'prepend'}" data-kt-swapper-parent="{default: '#kt_app_body', lg: '#kt_app_header_wrapper'}">
                 <!--begin::Menu-->
                 <div class="menu menu-rounded menu-column menu-lg-row my-5 my-lg-0 align-items-stretch fw-semibold px-2 px-lg-0" id="kt_app_header_menu" data-kt-menu="true">
-
                     <!--begin:Menu item-->
                     {{-- <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-end" class="menu-item here show menu-here-bg menu-lg-down-accordion me-0 me-lg-2">
                         <!--begin:Menu link-->
@@ -361,8 +360,6 @@
                         <!--end:Menu sub-->
                     </div> --}}
                     <!--end:Menu item-->
-
-
                 </div>
                 <!--end::Menu-->
             </div>
@@ -405,7 +402,6 @@
                 </div>
                 <!--end::اعلان ها-->
 
-
                 <!--begin::چت-->
                 <div class="app-navbar-item ms-1 ms-md-4">
                     <div class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-35px h-35px position-relative" id="kt_drawer_chat_toggle">
@@ -436,7 +432,6 @@
                         </i>
                     </div>
                 </div>
-
 
             </div>
 
