@@ -19,7 +19,7 @@ class AdminOrderController extends Controller
         Notification::where('notifiable_type','=','App\Models\Order')->update(['read_at' => now()]);
         $orders = Order::where('order_status',1)->where('delivery_status',0)->paginate(20);
 
-        return view('admin_end.orders.index')
+        return view('admin.orders.index')
             ->with(['orders' => $orders ,
                    'page_title' => $page_title ,
                    'body_title' => $body_title,
@@ -33,7 +33,7 @@ class AdminOrderController extends Controller
         $body_title = __('messages.orders_sending');
         $breadcrumbs = 'admin.orders.sending';
         $orders = Order::where('order_status',1)->where('delivery_status',1)->paginate(20);
-        return view('admin_end.orders.index')->with(['orders' => $orders ,
+        return view('admin.orders.index')->with(['orders' => $orders ,
             'page_title' => $page_title ,
             'body_title' => $body_title,
             'breadcrumbs' => $breadcrumbs]);
@@ -45,7 +45,7 @@ class AdminOrderController extends Controller
         $body_title = __('messages.orders_paid');
         $breadcrumbs = 'admin.orders.paid';
         $orders = Order::where([['payment_status',1],['delivery_status',2],['order_status',1]])->paginate(20);
-        return view('admin_end.orders.index')->with(['orders' => $orders ,
+        return view('admin.orders.index')->with(['orders' => $orders ,
             'page_title' => $page_title ,
             'body_title' => $body_title,
             'breadcrumbs' => $breadcrumbs]);
@@ -57,7 +57,7 @@ class AdminOrderController extends Controller
         $body_title = __('messages.orders_unpaid');
         $breadcrumbs = 'admin.orders.unpaid';
         $orders = Order::where([['order_status',0],['payment_status',0]])->paginate(20);
-        return view('admin_end.orders.index')->with(['orders' => $orders ,
+        return view('admin.orders.index')->with(['orders' => $orders ,
             'page_title' => $page_title ,
             'body_title' => $body_title,
             'breadcrumbs' => $breadcrumbs]);
@@ -90,12 +90,12 @@ class AdminOrderController extends Controller
 
     public function show(Order $order)
     {
-        return view('admin_end.orders.show_order',['order' => $order]);
+        return view('admin.orders.show_order',['order' => $order]);
     }
 
     public function details(Order $order){
 
-        return view('admin_end.orders.details',['order' => $order]);
+        return view('admin.orders.details',['order' => $order]);
     }
 
 

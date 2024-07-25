@@ -1,11 +1,11 @@
-@extends( 'admin_end.include.master_dash')
+@extends( 'admin.layout.master_admin')
 @section( 'dash_page_title')
     {{ __('messages.order_factor') }}
 @endsection
 @section( 'breadcrumb')
      {{ Breadcrumbs::render('admin.order.factor',$order->id) }}
 @endsection
-@section( 'dash_main_content')
+@section('admin_main')
     <div class="container-fluid">
 
 
