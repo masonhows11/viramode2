@@ -1,14 +1,12 @@
-@extends('admin_end.include.master_dash')
+@extends('admin.layout.master_admin')
 @section('dash_page_title')
     {{ __('messages.city_management') }}
 @endsection
 @section('breadcrumb')
     {{-- {{ Breadcrumbs::render('admin.delivery.create') }}--}}
 @endsection
-@section('dash_main_content')
-
+@section('admin_main')
     <div class="container-fluid">
-
 
         <div class="row d-flex justify-content-start my-4 bg-white">
             <div class="col-lg-4 col-md-4 col  my-5  border-bottom title-add-to-stock">
@@ -22,7 +20,7 @@
         </div>
 
         <div class="row d-flex  create-city my-5 bg-white">
-            <div class="col-lg-5">
+            <div class="col">
                 <form action="{{ route('admin.city.store') }}" method="post">
                     @csrf
 
@@ -49,9 +47,8 @@
                 </form>
             </div>
         </div>
+
         <livewire:admin.city.cities :province="$provinceId"/>
-
-
 
     </div>
 @endsection

@@ -1,11 +1,11 @@
-@extends('admin_end.include.master_dash')
+@extends('admin.layout.master_admin')
 @section('dash_page_title')
     {{ __('messages.edit_province') }}
 @endsection
 @section('breadcrumb')
     {{-- {{ Breadcrumbs::render('admin.delivery.create') }}--}}
 @endsection
-@section('dash_main_content')
+@section('admin_main')
 
     <div class="container-fluid">
 
@@ -20,7 +20,7 @@
 
         <div class="row create-province my-4 bg-white">
 
-            <div class="col-lg-5 mb-3 mt-3">
+            <div class="col mb-3 mt-3">
                 <form action="{{ route('admin.province.update') }}" method="post">
                     @csrf
 

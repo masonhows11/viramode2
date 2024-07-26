@@ -1,8 +1,8 @@
-@extends('admin_end.include.master_dash')
+@extends('admin.layout.master_admin')
 @section('dash_page_title')
     {{ __('messages.city_management') }}
 @endsection
-@section('dash_main_content')
+@section('admin_main')
     <div class="container-fluid">
 
 
@@ -15,7 +15,7 @@
         </div>
 
         <div class="row d-flex  create-city my-5 bg-white">
-            <div class="col-lg-5">
+            <div class="col">
                 <form action="{{ route('admin.city.update') }}" method="post">
                     @csrf
 
@@ -24,9 +24,7 @@
 
                     <div class="mb-2 mt-2">
                         <label for="city"> {{ __('messages.name') }} </label>
-                        <input type="text" id="city"
-                               class="form-control mt-2 @error('name') is-invalid @enderror"
-                               name="name" value="{{ $city->name }}">
+                        <input type="text" id="city" class="form-control mt-2 @error('name') is-invalid @enderror" name="name" value="{{ $city->name }}">
                     </div>
                     @error('name')
                     <div class="alert alert-danger">

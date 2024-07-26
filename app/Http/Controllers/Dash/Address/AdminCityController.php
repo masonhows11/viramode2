@@ -17,7 +17,7 @@ class AdminCityController extends Controller
         try {
             $province  = Province::findOrFail($request->id);
             $provinceId = $province->id;
-            return view('admin_end.address_city.create', ['province' => $province ,'provinceId' => $provinceId]);
+            return view('admin.address_city.create', ['province' => $province ,'provinceId' => $provinceId]);
         } catch (\Exception $ex) {
             return view('errors_custom.model_not_found')
                 ->with(['error' => $ex->getMessage()]);
@@ -47,7 +47,7 @@ class AdminCityController extends Controller
     {
 
         try {
-            return view('admin_end.address_city.edit',['city' => $city]);
+            return view('admin.address_city.edit',['city' => $city]);
         } catch (\Exception $ex) {
             return view('errors_custom.model_not_found')->with(['error' => $ex->getMessage()]);
         }
@@ -59,7 +59,6 @@ class AdminCityController extends Controller
         $request->validate([
             'name' => ['required', 'min:1', 'max:64', 'string']
         ]);
-
         try {
             City::where('id',$request->id)->update([
                 'name' => $request->name,
