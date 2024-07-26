@@ -12,14 +12,14 @@ class CouponDiscountController extends Controller
 {
     public function index()
     {
-        return view('admin_end.coupon_discount.index');
+        return view('admin.coupon_discount.index');
     }
 
     public function create()
     {
 
         $users = User::all();
-        return view('admin_end.coupon_discount.create', ['users' => $users]);
+        return view('admin.coupon_discount.create', ['users' => $users]);
 
     }
 
