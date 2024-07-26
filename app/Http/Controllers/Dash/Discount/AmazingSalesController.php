@@ -17,10 +17,8 @@ class AmazingSalesController extends Controller
 
     public function create()
     {
-
         $products = Product::select('id','title_persian')->get();
         return view('admin.amazing_sales.create',['products'=>$products]);
-
     }
 
     public function store(AmazingSaleRequest $request)

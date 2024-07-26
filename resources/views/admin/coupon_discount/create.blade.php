@@ -1,4 +1,4 @@
-@extends('admin_end.include.master_dash')
+@extends('admin.layout.master_admin')
 @section('dash_page_title')
     {{ __('messages.new_coupon') }}
 @endsection
@@ -9,10 +9,8 @@
     {{ Breadcrumbs::render('admin.coupons.create') }}
 @endsection
 
-@section('dash_main_content')
-
+@section('admin_main')
     <div class="container-fluid">
-
         <div class="row d-flex justify-content-start my-4 bg-white">
             <div class="col-lg-4 col-md-4 col  my-5  border-bottom title-add-to-stock">
                 <div class="alert my-4">
@@ -26,7 +24,6 @@
                    class="btn btn-sm btn-primary">{{ __('messages.coupon_discount_list') }}</a>
             </div>
         </div>
-
 
         <form action="{{ route('admin.coupons.store') }}" method="post">
             @csrf

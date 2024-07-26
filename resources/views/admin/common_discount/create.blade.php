@@ -1,16 +1,15 @@
-@extends('admin_end.include.master_dash')
+@extends('admin.layout.master_admin')
 @section('dash_page_title')
     {{ __('messages.new_common_discount') }}
 @endsection
-@push('dash_custom_style')
+@push('admin_main')
     <link rel="stylesheet" href="{{ asset('dash/plugins/jalalidatepicker/dist/css/persian-datepicker.min.css') }}">
 @endpush
 @section('breadcrumb')
     {{ Breadcrumbs::render('admin.common.discount.create') }}
 @endsection
 
-@section('dash_main_content')
-
+@section('admin_main')
     <div class="container-fluid">
 
         <div class="row d-flex justify-content-start my-4 bg-white">

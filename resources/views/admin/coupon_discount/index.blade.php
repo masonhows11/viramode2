@@ -4,9 +4,7 @@
 @endsection
 @section('admin_main')
     <div class="container-fluid">
-
         <livewire:admin.discount.admin-coupon-discount/>
-
     </div>
 @endsection
 

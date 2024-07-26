@@ -1,4 +1,4 @@
-@extends('admin_end.include.master_dash')
+@extends('admin.layout.master_admin')
 @section('dash_page_title')
     {{ __('messages.edit_coupon') }}
 @endsection
@@ -9,11 +9,8 @@
     {{ Breadcrumbs::render('admin.coupons.edit') }}
 @endsection
 
-@section('dash_main_content')
-
+@section('admin_main')
     <div class="container-fluid">
-
-
         <div class="row my-4 bg-white">
             <div class="col-lg-4 col-md-4 col my-2">
                 <a href="{{ route('admin.coupons.index') }}"
@@ -21,15 +18,10 @@
             </div>
         </div>
 
-
         <form action="{{ route('admin.coupons.update') }}" method="post">
             @csrf
-
-
             <input type="hidden" name="coupon_id" value="{{ $coupon->id }}">
-
             <div class="row product-stock-list mt-5 py-5 bg-white">
-
                 <div class="col-sm-6">
                     <div class="mt-3">
                         <label for=code" class="form-label" >{{ __('messages.coupon_code') }}</label>
@@ -41,8 +33,6 @@
                     </div>
                     @enderror
                 </div>
-
-
 
                 <div class="col-sm-6">
                     <div class="mt-3">

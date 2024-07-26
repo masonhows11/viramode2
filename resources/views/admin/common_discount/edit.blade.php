@@ -1,4 +1,4 @@
-@extends('admin_end.include.master_dash')
+@extends('admin.layout.master_admin')
 @section('dash_page_title')
     {{ __('messages.edit_common_discount') }}
 @endsection

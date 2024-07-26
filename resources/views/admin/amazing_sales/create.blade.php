@@ -1,8 +1,8 @@
-@extends('admin_end.include.master_dash')
+@extends('admin.layout.master_admin')
 @section('dash_page_title')
     {{ __('messages.new_amazing_sales_list') }}
 @endsection
-@push('dash_custom_style')
+@push('admin_main')
     <link rel="stylesheet" href="{{ asset('dash/plugins/jalalidatepicker/dist/css/persian-datepicker.min.css') }}">
 @endpush
 @section('breadcrumb')
@@ -123,11 +123,7 @@
                 </div>
 
             </div>
-
-
         </form>
-
-
     </div>
 @endsection
 

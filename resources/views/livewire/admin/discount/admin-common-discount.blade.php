@@ -62,7 +62,7 @@
 </div>
 @push('dash_custom_script')
     <script type="text/javascript">
-        window.addEventListener('show-delete-confirmation', event => {
+        document.addEventListener('show-delete-confirmation', event => {
             Swal.fire({
                 title: 'آیا مطمئن هستید این ایتم حذف شود؟',
                 icon: 'error',
@@ -73,7 +73,7 @@
                 cancelButtonText: 'خیر',
             }).then((result) => {
                 if (result.isConfirmed) {
-                    Livewire.emit('deleteConfirmed')
+                    Livewire.dispatch('deleteConfirmed')
                 }
             });
         })
@@ -91,7 +91,7 @@
                 toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
         });
-        window.addEventListener('show-result', ({ detail: {type, message } }) => {
+        document.addEventListener('show-result', ({ detail: {type, message } }) => {
             Toast.fire({
                 icon: type,
                 title: message
@@ -102,7 +102,8 @@
             icon: 'warning',
             title: '{{ session()->get('warning') }}'
         })
-        @elseif( session()->has('success'))
+        @endif
+        @if( session()->has('success'))
         Toast.fire({
             icon: 'success',
             title: '{{ session()->get('success') }}'
