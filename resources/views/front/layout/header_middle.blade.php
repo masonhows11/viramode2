@@ -26,7 +26,7 @@
         </div><!-- End .header-left -->
 
         <div class="header-right">
-            <a href="wishlist.html" class="wishlist-link">
+            <a href="{{ route('page.not.found') }}" class="wishlist-link">
                 <i class="icon-heart-o"></i>
                 <span class="wishlist-count">3</span>
                 <span class="wishlist-txt">علاقه مندی</span>
@@ -34,7 +34,7 @@
             <!--End .wishlist-link-->
 
             <div class="dropdown cart-dropdown">
-                <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown"
+                <a href="javascript:void(0)" class="dropdown-toggle" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false" data-display="static">
                     <i class="icon-shopping-cart"></i>
                     <span class="cart-count">2</span>
@@ -47,7 +47,7 @@
                         <div class="product">
                             <div class="product-cart-details">
                                 <h4 class="product-title">
-                                    <a href="product.html">تی شرت هودی بلند</a>
+                                    <a href="javascript:void(0)">تی شرت هودی بلند</a>
                                 </h4>
                                 <!--End .product-title-->
 
@@ -59,7 +59,7 @@
                             </div><!-- End .product-cart-details -->
 
                             <figure class="product-image-container">
-                                <a href="product.html" class="product-image">
+                                <a href="javascript:void(0)" class="product-image">
                                     <img src="{{ asset('front_assets/images/demos/demo-29/products/5-1.jpg') }}"
                                         alt="product" width="60" height="60">
                                 </a>
@@ -73,7 +73,7 @@
                         <div class="product">
                             <div class="product-cart-details">
                                 <h4 class="product-title">
-                                    <a href="product.html">تی شرت تک سایز صورتی</a>
+                                    <a href="javascript:void(0)">تی شرت تک سایز صورتی</a>
                                 </h4>
                                 <!--End .product-title-->
 
@@ -85,7 +85,7 @@
                             </div><!-- End .product-cart-details -->
 
                             <figure class="product-image-container">
-                                <a href="product.html" class="product-image">
+                                <a href="javascript:void(0)" class="product-image">
                                     <img src="{{  asset('front_assets/images/demos/demo-29/products/10-1.jpg') }}"
                                         alt="product" width="60" height="60">
                                 </a>
@@ -103,8 +103,8 @@
                     </div><!-- End .dropdown-cart-total -->
 
                     <div class="dropdown-cart-action">
-                        <a href="cart.html" class="btn btn-primary">مشاهده سبد خرید</a>
-                        <a href="checkout.html" class="btn btn-outline-primary-2"><span>پرداخت</span><i
+                        <a href="{{ route('page.not.found') }}" class="btn btn-primary">مشاهده سبد خرید</a>
+                        <a href="{{ route('page.not.found') }}" class="btn btn-outline-primary-2"><span>پرداخت</span><i
                                 class="icon-long-arrow-left"></i></a>
                     </div><!-- End .dropdown-cart-action -->
                 </div><!-- End .dropdown-menu -->
