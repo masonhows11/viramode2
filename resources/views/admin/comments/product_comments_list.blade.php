@@ -1,4 +1,4 @@
-@extends('admin_end.include.master_dash')
+@extends('admin.layout.master_admin')
 @section('dash_page_title')
        {{ __('messages.management_comments') }}
 @endsection
@@ -6,7 +6,7 @@
     {{ Breadcrumbs::render('admin.comment.product.list') }}
 @endsection
 
-@section('dash_main_content')
+@section('admin_main')
     <div class="container-fluid">
 
         <div class="row mt-4">
