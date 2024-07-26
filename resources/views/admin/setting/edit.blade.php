@@ -1,23 +1,18 @@
-@extends('admin_end.include.master_dash')
+@extends('admin.layout.master_admin')
 @section('dash_page_title')
     {{ __('messages.edit_setting_site') }}
 @endsection
 @section('breadcrumb')
     {{ Breadcrumbs::render('admin.setting.edit',$setting->title) }}
 @endsection
-
-@section('dash_main_content')
-
+@section('admin_main')
     <div class="container-fluid">
-
 
         <div class="row my-4 bg-white">
             <div class="col-lg-4 col-md-4 col my-2">
                 <a href="{{ route('admin.setting.index') }}" class="btn btn-sm btn-primary">{{ __('messages.setting_site') }}</a>
             </div>
         </div>
-
-
         <form action="{{ route('admin.setting.update') }}" method="post" enctype="multipart/form-data">
             @csrf
 
