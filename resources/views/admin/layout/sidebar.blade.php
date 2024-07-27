@@ -718,7 +718,7 @@
                             {{--   custom products banner    --}}
                             <div class="menu-item">
                                 <a class="menu-link {{ $route === 'admin.custom.banners.index' ? 'active' : '' }}"
-                                   href="#">
+                                   href="{{ route('admin.page.preparing') }}">
                                    {{-- {{ route('admin.custom.banners.index') }} --}}
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
@@ -729,7 +729,7 @@
                             {{--   newest products banner    --}}
                             <div class="menu-item">
                                 <a class="menu-link {{ $route === 'admin.newest.product.index' ? 'active' : '' }}"
-                                   href="#">
+                                   href="{{ route('admin.page.preparing') }}">
                                    {{-- {{ route('admin.newest.product.index') }} --}}
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
@@ -740,7 +740,7 @@
                             {{--   suggestion products banner    --}}
                             <div class="menu-item">
                                 <a class="menu-link {{ $route === 'admin.suggestion.products.index' ? 'active' : '' }}"
-                                   href="#">
+                                   href="{{ route('admin.page.preparing') }}">
                                    {{-- {{ route('admin.suggestion.products.index') }} --}}
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
@@ -816,8 +816,6 @@
                         </div>
                     </div>
                     {{-- end setting --}}
-
-
                     {{-- <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                         <span class="menu-link">
                             <span class="menu-icon">
@@ -1016,9 +1014,6 @@
 
                         </div>
                     </div> --}}
-
-
-
                 </div>
             </div>
         </div>

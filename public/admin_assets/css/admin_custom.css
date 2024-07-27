@@ -140,6 +140,19 @@
 !important;
 }
 
+.admin-error-content{
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    letter-spacing: -.025em;
+    padding-top: 8.5rem;
+    /*background-size: cover;*/
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 480px;
+    background-color: #fdfdfd;
+}
+
 /* media query */
 @media (max-width: 281px) {
 

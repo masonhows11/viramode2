@@ -206,9 +206,13 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/validate', [AdminValidateController::class, 'validateEmail'])->name('admin.validate.email');
 });
 
+// Route::get('/page/not_found', [AdminController::class,'adminNotFound'])->name('admin.page.not.found');
+
 Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin', 'role:admin|super_admin'])->group(function () {
 
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+    Route::get('/page/not_found', [AdminController::class,'adminNotFound'])->name('page.not.found');
+    Route::get('/page/preparing', [AdminController::class,'adminPreparingPage'])->name('page.preparing');
 
     Route::get('/profile', [AdminProfileController::class, 'profile'])->name('profile');
     Route::post('/update/profile', [AdminProfileController::class, 'update'])->name('update.profile');
@@ -344,7 +348,7 @@ Route::prefix('admin')->name('admin.')->middleware(['auth:admin', 'verify_admin'
 
     // crud tag product feature
     Route::get('/product/create/tags/{product}', [ProductCreateTagController::class, 'create'])->name('product.create.tags');
-    
+
     // crud guarantee product feature
     Route::get('/product-guarantee/index/{product}', [ProductWarrantyController::class, 'create'])->name('product.guarantee.index');
 });
