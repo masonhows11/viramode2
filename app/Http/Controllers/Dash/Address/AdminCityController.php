@@ -11,7 +11,6 @@ use Illuminate\Http\Request;
 class AdminCityController extends Controller
 {
 
-
     public function create(Request $request)
     {
         try {
@@ -19,14 +18,12 @@ class AdminCityController extends Controller
             $provinceId = $province->id;
             return view('admin.address_city.create', ['province' => $province ,'provinceId' => $provinceId]);
         } catch (\Exception $ex) {
-            return view('errors_custom.model_not_found')
-                ->with(['error' => $ex->getMessage()]);
+            return view('errors_custom.model_not_found')->with(['error' => $ex->getMessage()]);
         }
     }
 
     public function store(Request $request)
     {
-
         $request->validate([
             'name' => ['required', 'min:1', 'max:64', 'string']
         ]);
@@ -37,7 +34,6 @@ class AdminCityController extends Controller
             ]);
             session()->flash('success', __('messages.New_record_saved_successfully'));
             return redirect()->route('admin.city.create',['id' => $request->province]);
-
         } catch (\Exception $ex) {
             return view('errors_custom.model_store_error')->with(['error' => $ex->getMessage()]);
         }
@@ -45,7 +41,6 @@ class AdminCityController extends Controller
 
     public function edit(City $city)
     {
-
         try {
             return view('admin.address_city.edit',['city' => $city]);
         } catch (\Exception $ex) {
