@@ -12,12 +12,12 @@ class AdminCategoryTicketController extends Controller
 {
     public function categoryTickets()
     {
-        return view('admin_end.ticket_category.index');
+        return view('admin.ticket_category.index');
     }
 
     public function create(){
 
-        return view('admin_end.ticket_category.create');
+        return view('admin.ticket_category.create');
     }
 
     public function store(Request $request)
@@ -43,7 +43,7 @@ class AdminCategoryTicketController extends Controller
 
     public function edit(TicketCategory $ticketCategory){
 
-       return view('admin_end.ticket_category.edit',['category' => $ticketCategory]);
+       return view('admin.ticket_category.edit',['category' => $ticketCategory]);
     }
 
     public function update(Request $request){

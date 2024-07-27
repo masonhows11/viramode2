@@ -1,11 +1,11 @@
-@extends('admin_end.include.master_dash')
+@extends('admin.layout.master_admin')
 @section('dash_page_title')
     {{ $title_page }}
 @endsection
 @section('breadcrumb')
     {{-- {{ Breadcrumbs::render('') }}--}}
 @endsection
-@section('dash_main_content')
+@section('admin_main')
     <div class="container-fluid">
 
 
