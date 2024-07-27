@@ -1,4 +1,4 @@
-@extends('admin_end.include.master_dash')
+@extends('admin.layout.master_admin')
 @section('dash_page_title')
     {{ __('messages.sms_notification') }}
 @endsection
@@ -8,10 +8,8 @@
 @section('breadcrumb')
     {{-- {{ Breadcrumbs::render('admin.delivery.create') }}--}}
 @endsection
-@section('dash_main_content')
-
+@section('admin_main')
     <div class="container-fluid">
-
 
         <div class="row d-flex justify-content-start my-4 bg-white">
             <div class="col-lg-4 col-md-4 col  my-5  border-bottom title-add-to-stock">
@@ -102,12 +100,8 @@
 
 @endsection
 @push('dash_custom_script')
-
-    <script type="text/javascript"
-            src="{{ asset('admin_assets/plugins/jalalidatepicker/assets/persian-date.min.js')  }}"></script>
-    <script type="text/javascript"
-            src="{{ asset('admin_assets/plugins/jalalidatepicker/dist/js/persian-datepicker.min.js')  }}"></script>
-
+    <script type="text/javascript" src="{{ asset('admin_assets/plugins/jalalidatepicker/assets/persian-date.min.js')  }}"></script>
+    <script type="text/javascript" src="{{ asset('admin_assets/plugins/jalalidatepicker/dist/js/persian-datepicker.min.js')  }}"></script>
     <script>
         $(document).ready(function () {
             $('#published_at_view').persianDatepicker({
@@ -121,7 +115,6 @@
                 }
             })
         })
-
         $(document).ready(function () {
             @if(session('success'))
             Toastify({

@@ -1,4 +1,4 @@
-@extends('admin_end.include.master_dash')
+@extends('admin.layout.master_admin')
 @section('dash_page_title')
     {{ __('messages.attachment_files') }}
 @endsection
@@ -8,10 +8,8 @@
 @section('breadcrumb')
     {{-- {{ Breadcrumbs::render('admin.delivery.create') }}--}}
 @endsection
-@section('dash_main_content')
-
+@section('admin_main')
     <div class="container-fluid">
-
 
         <div class="row d-flex justify-content-start my-4 bg-white">
             <div class="col-lg-4 col-md-4 col  my-5  border-bottom title-add-to-stock">
@@ -61,26 +59,15 @@
                     </div>
                     @enderror
                 </div>
-
-
-
-
                 <div class="mb-2 mt-2">
                     <div>
                         <input type="submit" class="btn btn-success mt-4 " value="{{ __('messages.save') }}">
                     </div>
                 </div>
 
-
             </div>
-
-
-
         </form>
-
-
     </div>
-
 @endsection
 @push('dash_custom_script')
   <script type="text/javascript" src="{{ asset('dash/plugins/ckeditor/ckeditor.js') }}"></script>
@@ -88,13 +75,11 @@
             src="{{ asset('dash/plugins/jalalidatepicker/assets/persian-date.min.js')  }}"></script>
     <script type="text/javascript"
             src="{{ asset('dash/plugins/jalalidatepicker/dist/js/persian-datepicker.min.js')  }}"></script>
-
     <script>
        CKEDITOR.replace('email-body', {
             language: 'fa',
             removePlugins: 'image',
         });
-
         $(document).ready(function () {
             $('#published_at_view').persianDatepicker({
                 format: 'YYYY/MM/DD',
@@ -107,7 +92,6 @@
                 }
             })
         })
-
         $(document).ready(function () {
             @if(session('success'))
             Toastify({

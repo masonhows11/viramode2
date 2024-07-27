@@ -13,12 +13,12 @@ class AdminEmailNoticeFileController extends Controller
 
     public function emailFileIndex(Request $request)
     {
-        return view('admin_end.notice_email_file.index',['file' => $request->id]);
+        return view('admin.notice_email_file.index',['file' => $request->id]);
     }
 
     public function create(Request $request)
     {
-        return view('admin_end.notice_email_file.create', ['mail_id' => $request->mail_id]);
+        return view('admin.notice_email_file.create', ['mail_id' => $request->mail_id]);
     }
 
     public function store(MailNoticeRequest $request, FileService $fileService)
@@ -57,7 +57,6 @@ class AdminEmailNoticeFileController extends Controller
             return  redirect()->route('admin.email.notice.file.index',['id' => $mail_id]);
 
         } catch (\Exception $ex) {
-          //  return  $ex->getMessage();
             return view('errors_custom.model_store_error')
                 ->with(['error' => $ex->getMessage()]);
         }

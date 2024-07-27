@@ -1,4 +1,4 @@
-@extends('admin_end.include.master_dash')
+@extends('admin.layout.master_admin')
 @section('dash_page_title')
     {{ __('messages.sms_notification') }}
 @endsection
@@ -8,10 +8,8 @@
 @section('breadcrumb')
     {{-- {{ Breadcrumbs::render('admin.delivery.create') }}--}}
 @endsection
-@section('dash_main_content')
-
+@section('admin_main')
     <div class="container-fluid">
-
 
         <div class="row d-flex justify-content-start my-4 bg-white">
             <div class="col-lg-4 col-md-4 col  my-5  border-bottom title-add-to-stock">
@@ -45,7 +43,6 @@
                         {{ $message }}
                     </div>
                     @enderror
-
                 </div>
 
                 <div class="col-sm-4 mt-2">
@@ -72,7 +69,6 @@
                                value="{{ $notice->published_at }}">
                     </div>
 
-
                     @error('published_at')
                     <div class="alert alert-danger mt-2">
                         {{ $message }}
@@ -89,22 +85,15 @@
                     </div>
                     @enderror
                 </div>
-
-
                 <div class="mb-2 mt-2">
                     <div>
                         <input type="submit" class="btn btn-success mt-4 " value="{{ __('messages.save') }}">
                     </div>
                 </div>
 
-
             </div>
-
         </form>
-
-
     </div>
-
 @endsection
 @push('dash_custom_script')
 

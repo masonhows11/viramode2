@@ -12,12 +12,12 @@ class AdminSMSNoticeController extends Controller
     //
     public function index()
     {
-        return view('admin_end.notice_sms.index');
+        return view('admin.notice_sms.index');
     }
 
     public function create()
     {
-        return view('admin_end.notice_sms.create');
+        return view('admin.notice_sms.create');
     }
 
     public function store(Request $request){
@@ -49,7 +49,7 @@ class AdminSMSNoticeController extends Controller
 
     public function edit(PublicSms $publicSms)
     {
-        return view('admin_end.notice_sms.edit',['notice' => $publicSms]);
+        return view('admin.notice_sms.edit',['notice' => $publicSms]);
     }
 
     public function update(Request $request)
@@ -57,7 +57,6 @@ class AdminSMSNoticeController extends Controller
         $realTimestamp = substr($request->published_at, 0, 10);
         $published_at = date("Y-m-d H:i:s", (int)$realTimestamp);
 
-      //  dd($published_at);
         PublicSms::where('id',$request->notice)->update([
             'title' => $request->title,
             'body' => $request->body,
